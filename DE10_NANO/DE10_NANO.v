@@ -60,20 +60,21 @@ module DE10_NANO(
 
 wire out;
 wire count;
+wire [10:0] position;
 
 
 assign GPIO_1[0] = GPIO_1[3];
 
-assign GPIO_1[2] = FPGA_CLK1_50;
+assign GPIO_1[2] = position[0];
 
 
 assign GPIO_1[1] = out;
 
 
+assign LED = position [10:3];
 
 
-
-
+assign GPIO_1[4] = KEY[0];
 
 //=======================================================
 //  Structural coding
@@ -84,15 +85,15 @@ digital_filter f0 (	.iClk(FPGA_CLK1_50),
 							.oOut(out));
 							
 encoder_decoder f1 (	.iClk(FPGA_CLK1_50),
-							.iSignal(KEY[0]),
+							.iSignal(out),
 							.oCount(count));
 							
-position_counter f2 (.iCount(count),
+position_counter f2 (.iCount(count|!KEY[1]),
 							.iDirection(SW[0]),
 							.iRst(!KEY[1]),
-							.oPosition(LED[7:0]));
-							defparam f2.width=8;
-							defparam f2.MAX=255;
+							.oPosition(position));
+							defparam f2.width=11;
+							defparam f2.MAX=2048;
 /*
 
 always @ (posedge FPGA_CLK1_50)
@@ -149,13 +150,14 @@ endmodule
 	*/
 endmodule
 
-module position_counter(iClk, iDirection, iCount, iRst, oPosition, oSpeed);
+module position_counter(iClk, iDirection, iCount, iRst, oPosition, oSpeed); // Counts position of a joint
 	input iClk, iDirection, iCount, iRst;
 	parameter width = 13;
 	output reg [width-1:0]oPosition = 0;
 	output reg [width-1:0]oSpeed;
 	
 	parameter MAX = 5000;
+	//1820 for linear actuator
 	
 	always @ (posedge iCount)
 		begin
@@ -167,7 +169,7 @@ module position_counter(iClk, iDirection, iCount, iRst, oPosition, oSpeed);
 				begin
 					oPosition <= oPosition + 1;
 				end	
-			else if (oPosition > 0)
+			else if ((oPosition > 0) && (iDirection == 0))
 				begin
 					oPosition <= oPosition - 1;
 				end
@@ -175,7 +177,7 @@ module position_counter(iClk, iDirection, iCount, iRst, oPosition, oSpeed);
 
 endmodule
 
-module encoder_decoder(iClk, iSignal, oCount);
+module encoder_decoder(iClk, iSignal, oCount); // Single encoder line decoder. Returns a single clock pulse as output on an encoder signal change.
 	input iClk, iSignal;
 	output reg oCount;
 	
@@ -197,7 +199,7 @@ module encoder_decoder(iClk, iSignal, oCount);
 	
 endmodule
 
-module digital_filter(iClk, iIn, oOut);
+module digital_filter(iClk, iIn, oOut);		// Filters signal change bounce by making sure the signal hasn't changed for a large number of clock cycles before output changes.
 	input iClk, iIn;
 	output reg oOut;
 	parameter samples = 4095;

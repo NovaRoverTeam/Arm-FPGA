@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for DE10_NANO
-Thu Apr 19 21:18:38 2018
+Fri Apr 20 01:11:33 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -97,15 +97,17 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.02        ;
-; Maximum used               ; 2           ;
+; Average used               ; 1.04        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.9%      ;
+;     Processor 2            ;   1.3%      ;
+;     Processor 3            ;   1.3%      ;
+;     Processor 4            ;   1.3%      ;
 +----------------------------+-------------+
 
 
@@ -114,7 +116,7 @@ refer to the applicable agreement for further details.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; DE10_NANO.SDC ; OK     ; Thu Apr 19 21:18:13 2018 ;
+; DE10_NANO.SDC ; OK     ; Fri Apr 20 01:11:26 2018 ;
 +---------------+--------+--------------------------+
 
 
@@ -134,7 +136,7 @@ refer to the applicable agreement for further details.
 +------------+-----------------+--------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name   ; Note ;
 +------------+-----------------+--------------+------+
-; 168.86 MHz ; 168.86 MHz      ; FPGA_CLK1_50 ;      ;
+; 156.01 MHz ; 156.01 MHz      ; FPGA_CLK1_50 ;      ;
 +------------+-----------------+--------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -150,7 +152,7 @@ HTML report is unavailable in plain text report export.
 +--------------+--------+---------------+
 ; Clock        ; Slack  ; End Point TNS ;
 +--------------+--------+---------------+
-; FPGA_CLK1_50 ; 14.078 ; 0.000         ;
+; FPGA_CLK1_50 ; 13.590 ; 0.000         ;
 +--------------+--------+---------------+
 
 
@@ -180,7 +182,7 @@ No paths to report.
 +--------------+-------+-----------------------------+
 ; Clock        ; Slack ; End Point TNS               ;
 +--------------+-------+-----------------------------+
-; FPGA_CLK1_50 ; 8.866 ; 0.000                       ;
+; FPGA_CLK1_50 ; 9.199 ; 0.000                       ;
 +--------------+-------+-----------------------------+
 
 
@@ -195,7 +197,7 @@ No synchronizer chains to report.
 +------------+-----------------+--------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name   ; Note ;
 +------------+-----------------+--------------+------+
-; 165.62 MHz ; 165.62 MHz      ; FPGA_CLK1_50 ;      ;
+; 154.13 MHz ; 154.13 MHz      ; FPGA_CLK1_50 ;      ;
 +------------+-----------------+--------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -205,7 +207,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+--------+---------------+
 ; Clock        ; Slack  ; End Point TNS ;
 +--------------+--------+---------------+
-; FPGA_CLK1_50 ; 13.962 ; 0.000         ;
+; FPGA_CLK1_50 ; 13.512 ; 0.000         ;
 +--------------+--------+---------------+
 
 
@@ -214,7 +216,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+-------+---------------+
 ; Clock        ; Slack ; End Point TNS ;
 +--------------+-------+---------------+
-; FPGA_CLK1_50 ; 0.508 ; 0.000         ;
+; FPGA_CLK1_50 ; 0.489 ; 0.000         ;
 +--------------+-------+---------------+
 
 
@@ -235,7 +237,7 @@ No paths to report.
 +--------------+-------+-----------------------------+
 ; Clock        ; Slack ; End Point TNS               ;
 +--------------+-------+-----------------------------+
-; FPGA_CLK1_50 ; 8.870 ; 0.000                       ;
+; FPGA_CLK1_50 ; 9.313 ; 0.000                       ;
 +--------------+-------+-----------------------------+
 
 
@@ -250,7 +252,7 @@ No synchronizer chains to report.
 +--------------+--------+---------------+
 ; Clock        ; Slack  ; End Point TNS ;
 +--------------+--------+---------------+
-; FPGA_CLK1_50 ; 17.111 ; 0.000         ;
+; FPGA_CLK1_50 ; 16.726 ; 0.000         ;
 +--------------+--------+---------------+
 
 
@@ -280,7 +282,7 @@ No paths to report.
 +--------------+-------+-----------------------------+
 ; Clock        ; Slack ; End Point TNS               ;
 +--------------+-------+-----------------------------+
-; FPGA_CLK1_50 ; 8.849 ; 0.000                       ;
+; FPGA_CLK1_50 ; 9.113 ; 0.000                       ;
 +--------------+-------+-----------------------------+
 
 
@@ -295,7 +297,7 @@ No synchronizer chains to report.
 +--------------+--------+---------------+
 ; Clock        ; Slack  ; End Point TNS ;
 +--------------+--------+---------------+
-; FPGA_CLK1_50 ; 17.425 ; 0.000         ;
+; FPGA_CLK1_50 ; 17.121 ; 0.000         ;
 +--------------+--------+---------------+
 
 
@@ -304,7 +306,7 @@ No synchronizer chains to report.
 +--------------+-------+---------------+
 ; Clock        ; Slack ; End Point TNS ;
 +--------------+-------+---------------+
-; FPGA_CLK1_50 ; 0.168 ; 0.000         ;
+; FPGA_CLK1_50 ; 0.169 ; 0.000         ;
 +--------------+-------+---------------+
 
 
@@ -325,7 +327,7 @@ No paths to report.
 +--------------+-------+-----------------------------+
 ; Clock        ; Slack ; End Point TNS               ;
 +--------------+-------+-----------------------------+
-; FPGA_CLK1_50 ; 8.806 ; 0.000                       ;
+; FPGA_CLK1_50 ; 9.052 ; 0.000                       ;
 +--------------+-------+-----------------------------+
 
 
@@ -340,8 +342,8 @@ No synchronizer chains to report.
 +------------------+--------+-------+----------+---------+---------------------+
 ; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack ; 13.962 ; 0.168 ; N/A      ; N/A     ; 8.806               ;
-;  FPGA_CLK1_50    ; 13.962 ; 0.168 ; N/A      ; N/A     ; 8.806               ;
+; Worst-case Slack ; 13.512 ; 0.169 ; N/A      ; N/A     ; 9.052               ;
+;  FPGA_CLK1_50    ; 13.512 ; 0.169 ; N/A      ; N/A     ; 9.052               ;
 ; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  FPGA_CLK1_50    ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
 +------------------+--------+-------+----------+---------+---------------------+
@@ -450,7 +452,6 @@ No synchronizer chains to report.
 ; GPIO_0[33]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO_0[34]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO_0[35]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
-; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO_1[5]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO_1[6]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO_1[7]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
@@ -486,6 +487,7 @@ No synchronizer chains to report.
 ; GPIO_1[1]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO_1[2]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; GPIO_1[3]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 +-----------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
 
 
@@ -560,7 +562,6 @@ No synchronizer chains to report.
 ; GPIO_0[33]      ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; GPIO_0[34]      ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; GPIO_0[35]      ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; GPIO_1[4]       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; GPIO_1[5]       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; GPIO_1[6]       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; GPIO_1[7]       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
@@ -596,6 +597,7 @@ No synchronizer chains to report.
 ; GPIO_1[1]       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; GPIO_1[2]       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; GPIO_1[3]       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; GPIO_1[4]       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; KEY[1]          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; SW[0]           ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; KEY[0]          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
@@ -706,7 +708,6 @@ No synchronizer chains to report.
 ; GPIO_0[33]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.91e-08 V                   ; 3.17 V              ; -0.311 V            ; 0.143 V                              ; 0.424 V                              ; 4.17e-10 s                  ; 1.36e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.91e-08 V                  ; 3.17 V             ; -0.311 V           ; 0.143 V                             ; 0.424 V                             ; 4.17e-10 s                 ; 1.36e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_0[34]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.47e-08 V                   ; 3.11 V              ; -0.195 V            ; 0.108 V                              ; 0.32 V                               ; 4.03e-10 s                  ; 1.44e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.47e-08 V                  ; 3.11 V             ; -0.195 V           ; 0.108 V                             ; 0.32 V                              ; 4.03e-10 s                 ; 1.44e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_0[35]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.47e-08 V                   ; 3.11 V              ; -0.195 V            ; 0.108 V                              ; 0.32 V                               ; 4.03e-10 s                  ; 1.44e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.47e-08 V                  ; 3.11 V             ; -0.195 V           ; 0.108 V                             ; 0.32 V                              ; 4.03e-10 s                 ; 1.44e-10 s                 ; Yes                       ; No                        ;
-; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.91e-08 V                   ; 3.17 V              ; -0.306 V            ; 0.142 V                              ; 0.425 V                              ; 4.17e-10 s                  ; 1.36e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.91e-08 V                  ; 3.17 V             ; -0.306 V           ; 0.142 V                             ; 0.425 V                             ; 4.17e-10 s                 ; 1.36e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[5]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.91e-08 V                   ; 3.17 V              ; -0.311 V            ; 0.143 V                              ; 0.424 V                              ; 4.17e-10 s                  ; 1.36e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.91e-08 V                  ; 3.17 V             ; -0.311 V           ; 0.143 V                             ; 0.424 V                             ; 4.17e-10 s                 ; 1.36e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[6]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.91e-08 V                   ; 3.17 V              ; -0.306 V            ; 0.142 V                              ; 0.425 V                              ; 4.17e-10 s                  ; 1.36e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.91e-08 V                  ; 3.17 V             ; -0.306 V           ; 0.142 V                             ; 0.425 V                             ; 4.17e-10 s                 ; 1.36e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[7]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.91e-08 V                   ; 3.17 V              ; -0.306 V            ; 0.142 V                              ; 0.425 V                              ; 4.17e-10 s                  ; 1.36e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.91e-08 V                  ; 3.17 V             ; -0.306 V           ; 0.142 V                             ; 0.425 V                             ; 4.17e-10 s                 ; 1.36e-10 s                 ; Yes                       ; No                        ;
@@ -742,6 +743,7 @@ No synchronizer chains to report.
 ; GPIO_1[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.91e-08 V                   ; 3.17 V              ; -0.306 V            ; 0.142 V                              ; 0.425 V                              ; 4.17e-10 s                  ; 1.36e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.91e-08 V                  ; 3.17 V             ; -0.306 V           ; 0.142 V                             ; 0.425 V                             ; 4.17e-10 s                 ; 1.36e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.47e-08 V                   ; 3.11 V              ; -0.195 V            ; 0.108 V                              ; 0.32 V                               ; 4.03e-10 s                  ; 1.44e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.47e-08 V                  ; 3.11 V             ; -0.195 V           ; 0.108 V                             ; 0.32 V                              ; 4.03e-10 s                 ; 1.44e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.91e-08 V                   ; 3.17 V              ; -0.311 V            ; 0.143 V                              ; 0.424 V                              ; 4.17e-10 s                  ; 1.36e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.91e-08 V                  ; 3.17 V             ; -0.311 V           ; 0.143 V                             ; 0.424 V                             ; 4.17e-10 s                 ; 1.36e-10 s                 ; Yes                       ; No                        ;
+; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.91e-08 V                   ; 3.17 V              ; -0.306 V            ; 0.142 V                              ; 0.425 V                              ; 4.17e-10 s                  ; 1.36e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.91e-08 V                  ; 3.17 V             ; -0.306 V           ; 0.142 V                             ; 0.425 V                             ; 4.17e-10 s                 ; 1.36e-10 s                 ; Yes                       ; No                        ;
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
@@ -848,7 +850,6 @@ No synchronizer chains to report.
 ; GPIO_0[33]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-05 V                   ; 3.11 V              ; -0.105 V            ; 0.101 V                              ; 0.142 V                              ; 5.54e-10 s                  ; 3.16e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.73e-05 V                  ; 3.11 V             ; -0.105 V           ; 0.101 V                             ; 0.142 V                             ; 5.54e-10 s                 ; 3.16e-10 s                 ; Yes                       ; Yes                       ;
 ; GPIO_0[34]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.09e-05 V                   ; 3.09 V              ; -0.0462 V           ; 0.045 V                              ; 0.085 V                              ; 5.49e-10 s                  ; 3.06e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.09e-05 V                  ; 3.09 V             ; -0.0462 V          ; 0.045 V                             ; 0.085 V                             ; 5.49e-10 s                 ; 3.06e-10 s                 ; Yes                       ; Yes                       ;
 ; GPIO_0[35]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.09e-05 V                   ; 3.09 V              ; -0.0462 V           ; 0.045 V                              ; 0.085 V                              ; 5.49e-10 s                  ; 3.06e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.09e-05 V                  ; 3.09 V             ; -0.0462 V          ; 0.045 V                             ; 0.085 V                             ; 5.49e-10 s                 ; 3.06e-10 s                 ; Yes                       ; Yes                       ;
-; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-05 V                   ; 3.11 V              ; -0.104 V            ; 0.101 V                              ; 0.139 V                              ; 5.54e-10 s                  ; 3.16e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.73e-05 V                  ; 3.11 V             ; -0.104 V           ; 0.101 V                             ; 0.139 V                             ; 5.54e-10 s                 ; 3.16e-10 s                 ; Yes                       ; Yes                       ;
 ; GPIO_1[5]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-05 V                   ; 3.11 V              ; -0.105 V            ; 0.101 V                              ; 0.142 V                              ; 5.54e-10 s                  ; 3.16e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.73e-05 V                  ; 3.11 V             ; -0.105 V           ; 0.101 V                             ; 0.142 V                             ; 5.54e-10 s                 ; 3.16e-10 s                 ; Yes                       ; Yes                       ;
 ; GPIO_1[6]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-05 V                   ; 3.11 V              ; -0.104 V            ; 0.101 V                              ; 0.139 V                              ; 5.54e-10 s                  ; 3.16e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.73e-05 V                  ; 3.11 V             ; -0.104 V           ; 0.101 V                             ; 0.139 V                             ; 5.54e-10 s                 ; 3.16e-10 s                 ; Yes                       ; Yes                       ;
 ; GPIO_1[7]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-05 V                   ; 3.11 V              ; -0.104 V            ; 0.101 V                              ; 0.139 V                              ; 5.54e-10 s                  ; 3.16e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.73e-05 V                  ; 3.11 V             ; -0.104 V           ; 0.101 V                             ; 0.139 V                             ; 5.54e-10 s                 ; 3.16e-10 s                 ; Yes                       ; Yes                       ;
@@ -884,6 +885,7 @@ No synchronizer chains to report.
 ; GPIO_1[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-05 V                   ; 3.11 V              ; -0.104 V            ; 0.101 V                              ; 0.139 V                              ; 5.54e-10 s                  ; 3.16e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.73e-05 V                  ; 3.11 V             ; -0.104 V           ; 0.101 V                             ; 0.139 V                             ; 5.54e-10 s                 ; 3.16e-10 s                 ; Yes                       ; Yes                       ;
 ; GPIO_1[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.09e-05 V                   ; 3.09 V              ; -0.0462 V           ; 0.045 V                              ; 0.085 V                              ; 5.49e-10 s                  ; 3.06e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.09e-05 V                  ; 3.09 V             ; -0.0462 V          ; 0.045 V                             ; 0.085 V                             ; 5.49e-10 s                 ; 3.06e-10 s                 ; Yes                       ; Yes                       ;
 ; GPIO_1[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-05 V                   ; 3.11 V              ; -0.105 V            ; 0.101 V                              ; 0.142 V                              ; 5.54e-10 s                  ; 3.16e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.73e-05 V                  ; 3.11 V             ; -0.105 V           ; 0.101 V                             ; 0.142 V                             ; 5.54e-10 s                 ; 3.16e-10 s                 ; Yes                       ; Yes                       ;
+; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-05 V                   ; 3.11 V              ; -0.104 V            ; 0.101 V                              ; 0.139 V                              ; 5.54e-10 s                  ; 3.16e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.73e-05 V                  ; 3.11 V             ; -0.104 V           ; 0.101 V                             ; 0.139 V                             ; 5.54e-10 s                 ; 3.16e-10 s                 ; Yes                       ; Yes                       ;
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
@@ -990,7 +992,6 @@ No synchronizer chains to report.
 ; GPIO_0[33]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.42e-07 V                   ; 3.75 V              ; -0.589 V            ; 0.329 V                              ; 0.706 V                              ; 2.77e-10 s                  ; 1.3e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 4.42e-07 V                  ; 3.75 V             ; -0.589 V           ; 0.329 V                             ; 0.706 V                             ; 2.77e-10 s                 ; 1.3e-10 s                  ; Yes                       ; No                        ;
 ; GPIO_0[34]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.38e-07 V                   ; 3.67 V              ; -0.403 V            ; 0.084 V                              ; 0.542 V                              ; 3.5e-10 s                   ; 1.32e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 3.38e-07 V                  ; 3.67 V             ; -0.403 V           ; 0.084 V                             ; 0.542 V                             ; 3.5e-10 s                  ; 1.32e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_0[35]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.38e-07 V                   ; 3.67 V              ; -0.403 V            ; 0.084 V                              ; 0.542 V                              ; 3.5e-10 s                   ; 1.32e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 3.38e-07 V                  ; 3.67 V             ; -0.403 V           ; 0.084 V                             ; 0.542 V                             ; 3.5e-10 s                  ; 1.32e-10 s                 ; Yes                       ; No                        ;
-; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.42e-07 V                   ; 3.75 V              ; -0.588 V            ; 0.329 V                              ; 0.704 V                              ; 2.77e-10 s                  ; 1.3e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 4.42e-07 V                  ; 3.75 V             ; -0.588 V           ; 0.329 V                             ; 0.704 V                             ; 2.77e-10 s                 ; 1.3e-10 s                  ; Yes                       ; No                        ;
 ; GPIO_1[5]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.42e-07 V                   ; 3.75 V              ; -0.589 V            ; 0.329 V                              ; 0.706 V                              ; 2.77e-10 s                  ; 1.3e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 4.42e-07 V                  ; 3.75 V             ; -0.589 V           ; 0.329 V                             ; 0.706 V                             ; 2.77e-10 s                 ; 1.3e-10 s                  ; Yes                       ; No                        ;
 ; GPIO_1[6]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.42e-07 V                   ; 3.75 V              ; -0.588 V            ; 0.329 V                              ; 0.704 V                              ; 2.77e-10 s                  ; 1.3e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 4.42e-07 V                  ; 3.75 V             ; -0.588 V           ; 0.329 V                             ; 0.704 V                             ; 2.77e-10 s                 ; 1.3e-10 s                  ; Yes                       ; No                        ;
 ; GPIO_1[7]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.42e-07 V                   ; 3.75 V              ; -0.588 V            ; 0.329 V                              ; 0.704 V                              ; 2.77e-10 s                  ; 1.3e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 4.42e-07 V                  ; 3.75 V             ; -0.588 V           ; 0.329 V                             ; 0.704 V                             ; 2.77e-10 s                 ; 1.3e-10 s                  ; Yes                       ; No                        ;
@@ -1026,6 +1027,7 @@ No synchronizer chains to report.
 ; GPIO_1[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.42e-07 V                   ; 3.75 V              ; -0.588 V            ; 0.329 V                              ; 0.704 V                              ; 2.77e-10 s                  ; 1.3e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 4.42e-07 V                  ; 3.75 V             ; -0.588 V           ; 0.329 V                             ; 0.704 V                             ; 2.77e-10 s                 ; 1.3e-10 s                  ; Yes                       ; No                        ;
 ; GPIO_1[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.38e-07 V                   ; 3.67 V              ; -0.403 V            ; 0.084 V                              ; 0.542 V                              ; 3.5e-10 s                   ; 1.32e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 3.38e-07 V                  ; 3.67 V             ; -0.403 V           ; 0.084 V                             ; 0.542 V                             ; 3.5e-10 s                  ; 1.32e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.42e-07 V                   ; 3.75 V              ; -0.589 V            ; 0.329 V                              ; 0.706 V                              ; 2.77e-10 s                  ; 1.3e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 4.42e-07 V                  ; 3.75 V             ; -0.589 V           ; 0.329 V                             ; 0.706 V                             ; 2.77e-10 s                 ; 1.3e-10 s                  ; Yes                       ; No                        ;
+; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.42e-07 V                   ; 3.75 V              ; -0.588 V            ; 0.329 V                              ; 0.704 V                              ; 2.77e-10 s                  ; 1.3e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 4.42e-07 V                  ; 3.75 V             ; -0.588 V           ; 0.329 V                             ; 0.704 V                             ; 2.77e-10 s                 ; 1.3e-10 s                  ; Yes                       ; No                        ;
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
@@ -1132,7 +1134,6 @@ No synchronizer chains to report.
 ; GPIO_0[33]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000379 V                   ; 3.65 V              ; -0.292 V            ; 0.053 V                              ; 0.524 V                              ; 4.36e-10 s                  ; 1.95e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000379 V                  ; 3.65 V             ; -0.292 V           ; 0.053 V                             ; 0.524 V                             ; 4.36e-10 s                 ; 1.95e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_0[34]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000307 V                   ; 3.64 V              ; -0.165 V            ; 0.022 V                              ; 0.425 V                              ; 4.58e-10 s                  ; 2e-10 s                     ; Yes                        ; No                         ; 3.63 V                      ; 0.000307 V                  ; 3.64 V             ; -0.165 V           ; 0.022 V                             ; 0.425 V                             ; 4.58e-10 s                 ; 2e-10 s                    ; Yes                       ; No                        ;
 ; GPIO_0[35]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000307 V                   ; 3.64 V              ; -0.165 V            ; 0.022 V                              ; 0.425 V                              ; 4.58e-10 s                  ; 2e-10 s                     ; Yes                        ; No                         ; 3.63 V                      ; 0.000307 V                  ; 3.64 V             ; -0.165 V           ; 0.022 V                             ; 0.425 V                             ; 4.58e-10 s                 ; 2e-10 s                    ; Yes                       ; No                        ;
-; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000379 V                   ; 3.65 V              ; -0.289 V            ; 0.051 V                              ; 0.523 V                              ; 4.36e-10 s                  ; 1.95e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000379 V                  ; 3.65 V             ; -0.289 V           ; 0.051 V                             ; 0.523 V                             ; 4.36e-10 s                 ; 1.95e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[5]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000379 V                   ; 3.65 V              ; -0.292 V            ; 0.053 V                              ; 0.524 V                              ; 4.36e-10 s                  ; 1.95e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000379 V                  ; 3.65 V             ; -0.292 V           ; 0.053 V                             ; 0.524 V                             ; 4.36e-10 s                 ; 1.95e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[6]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000379 V                   ; 3.65 V              ; -0.289 V            ; 0.051 V                              ; 0.523 V                              ; 4.36e-10 s                  ; 1.95e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000379 V                  ; 3.65 V             ; -0.289 V           ; 0.051 V                             ; 0.523 V                             ; 4.36e-10 s                 ; 1.95e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[7]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000379 V                   ; 3.65 V              ; -0.289 V            ; 0.051 V                              ; 0.523 V                              ; 4.36e-10 s                  ; 1.95e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000379 V                  ; 3.65 V             ; -0.289 V           ; 0.051 V                             ; 0.523 V                             ; 4.36e-10 s                 ; 1.95e-10 s                 ; Yes                       ; No                        ;
@@ -1168,6 +1169,7 @@ No synchronizer chains to report.
 ; GPIO_1[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000379 V                   ; 3.65 V              ; -0.289 V            ; 0.051 V                              ; 0.523 V                              ; 4.36e-10 s                  ; 1.95e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000379 V                  ; 3.65 V             ; -0.289 V           ; 0.051 V                             ; 0.523 V                             ; 4.36e-10 s                 ; 1.95e-10 s                 ; Yes                       ; No                        ;
 ; GPIO_1[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000307 V                   ; 3.64 V              ; -0.165 V            ; 0.022 V                              ; 0.425 V                              ; 4.58e-10 s                  ; 2e-10 s                     ; Yes                        ; No                         ; 3.63 V                      ; 0.000307 V                  ; 3.64 V             ; -0.165 V           ; 0.022 V                             ; 0.425 V                             ; 4.58e-10 s                 ; 2e-10 s                    ; Yes                       ; No                        ;
 ; GPIO_1[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000379 V                   ; 3.65 V              ; -0.292 V            ; 0.053 V                              ; 0.524 V                              ; 4.36e-10 s                  ; 1.95e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000379 V                  ; 3.65 V             ; -0.292 V           ; 0.053 V                             ; 0.524 V                             ; 4.36e-10 s                 ; 1.95e-10 s                 ; Yes                       ; No                        ;
+; GPIO_1[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000379 V                   ; 3.65 V              ; -0.289 V            ; 0.051 V                              ; 0.523 V                              ; 4.36e-10 s                  ; 1.95e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000379 V                  ; 3.65 V             ; -0.289 V           ; 0.051 V                             ; 0.523 V                             ; 4.36e-10 s                 ; 1.95e-10 s                 ; Yes                       ; No                        ;
 +-----------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
@@ -1176,7 +1178,7 @@ No synchronizer chains to report.
 +--------------+--------------+----------+----------+----------+----------+
 ; From Clock   ; To Clock     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------+--------------+----------+----------+----------+----------+
-; FPGA_CLK1_50 ; FPGA_CLK1_50 ; 2585     ; 0        ; 0        ; 0        ;
+; FPGA_CLK1_50 ; FPGA_CLK1_50 ; 2587     ; 0        ; 0        ; 0        ;
 +--------------+--------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1186,7 +1188,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------+--------------+----------+----------+----------+----------+
 ; From Clock   ; To Clock     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------+--------------+----------+----------+----------+----------+
-; FPGA_CLK1_50 ; FPGA_CLK1_50 ; 2585     ; 0        ; 0        ; 0        ;
+; FPGA_CLK1_50 ; FPGA_CLK1_50 ; 2587     ; 0        ; 0        ; 0        ;
 +--------------+--------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1210,36 +1212,35 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 1     ; 1    ;
-; Unconstrained Input Ports       ; 5     ; 5    ;
-; Unconstrained Input Port Paths  ; 34    ; 34   ;
-; Unconstrained Output Ports      ; 11    ; 11   ;
-; Unconstrained Output Port Paths ; 11    ; 11   ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 38    ; 38   ;
+; Unconstrained Output Ports      ; 12    ; 12   ;
+; Unconstrained Output Port Paths ; 12    ; 12   ;
 +---------------------------------+-------+------+
 
 
-+-----------------------------------------------------------------+
-; Clock Status Summary                                            ;
-+---------------------------+--------------+------+---------------+
-; Target                    ; Clock        ; Type ; Status        ;
-+---------------------------+--------------+------+---------------+
-; FPGA_CLK1_50              ; FPGA_CLK1_50 ; Base ; Constrained   ;
-; FPGA_CLK2_50              ; FPGA_CLK2_50 ; Base ; Constrained   ;
-; FPGA_CLK3_50              ; FPGA_CLK3_50 ; Base ; Constrained   ;
-; encoder_decoder:f1|oCount ;              ; Base ; Unconstrained ;
-+---------------------------+--------------+------+---------------+
++----------------------------------------------------+
+; Clock Status Summary                               ;
++--------------+--------------+------+---------------+
+; Target       ; Clock        ; Type ; Status        ;
++--------------+--------------+------+---------------+
+; FPGA_CLK1_50 ; FPGA_CLK1_50 ; Base ; Constrained   ;
+; FPGA_CLK2_50 ; FPGA_CLK2_50 ; Base ; Constrained   ;
+; FPGA_CLK3_50 ; FPGA_CLK3_50 ; Base ; Constrained   ;
+; KEY[1]       ;              ; Base ; Unconstrained ;
++--------------+--------------+------+---------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                           ;
-+--------------+--------------------------------------------------------------------------------------+
-; Input Port   ; Comment                                                                              ;
-+--------------+--------------------------------------------------------------------------------------+
-; FPGA_CLK1_50 ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; GPIO_1[3]    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; KEY[0]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; KEY[1]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[0]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+--------------+--------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; GPIO_1[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[1]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[0]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -1250,6 +1251,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; GPIO_1[0]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; GPIO_1[1]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; GPIO_1[2]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; GPIO_1[4]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LED[0]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LED[1]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LED[2]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -1261,17 +1263,16 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------+---------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                           ;
-+--------------+--------------------------------------------------------------------------------------+
-; Input Port   ; Comment                                                                              ;
-+--------------+--------------------------------------------------------------------------------------+
-; FPGA_CLK1_50 ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; GPIO_1[3]    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; KEY[0]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; KEY[1]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[0]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+--------------+--------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; GPIO_1[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[1]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[0]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -1282,6 +1283,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; GPIO_1[0]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; GPIO_1[1]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; GPIO_1[2]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; GPIO_1[4]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LED[0]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LED[1]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LED[2]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -1299,114 +1301,114 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Apr 19 21:18:06 2018
+    Info: Processing started: Fri Apr 20 01:11:25 2018
 Info: Command: quartus_sta DE10_NANO -c DE10_NANO
 Info: qsta_default_script.tcl version: #3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is -40 degrees C
 Info (21077): High junction temperature is 100 degrees C
 Info (332104): Reading SDC File: 'DE10_NANO.SDC'
-Warning (332174): Ignored filter at DE10_NANO.sdc(14): altera_reserved_tck could not be matched with a port or pin or register or keeper or net or combinational node or node File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 14
-Warning (332049): Ignored create_clock at DE10_NANO.sdc(14): Argument <targets> is not an object ID File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 14
-    Info (332050): create_clock -name {altera_reserved_tck} -period 40 {altera_reserved_tck} File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 14
-Warning (332174): Ignored filter at DE10_NANO.sdc(15): altera_reserved_tdi could not be matched with a port File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
-Warning (332174): Ignored filter at DE10_NANO.sdc(15): altera_reserved_tck could not be matched with a clock File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
-Warning (332049): Ignored set_input_delay at DE10_NANO.sdc(15): Argument <targets> is an empty collection File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
-    Info (332050): set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tdi] File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
-Warning (332049): Ignored set_input_delay at DE10_NANO.sdc(15): Argument -clock is not an object ID File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
-Warning (332174): Ignored filter at DE10_NANO.sdc(16): altera_reserved_tms could not be matched with a port File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 16
-Warning (332049): Ignored set_input_delay at DE10_NANO.sdc(16): Argument <targets> is an empty collection File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 16
-    Info (332050): set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tms] File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 16
-Warning (332049): Ignored set_input_delay at DE10_NANO.sdc(16): Argument -clock is not an object ID File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 16
-Warning (332174): Ignored filter at DE10_NANO.sdc(17): altera_reserved_tdo could not be matched with a port File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 17
-Warning (332049): Ignored set_output_delay at DE10_NANO.sdc(17): Argument <targets> is an empty collection File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 17
-    Info (332050): set_output_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo] File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 17
-Warning (332049): Ignored set_output_delay at DE10_NANO.sdc(17): Argument -clock is not an object ID File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 17
+Warning (332174): Ignored filter at DE10_NANO.sdc(14): altera_reserved_tck could not be matched with a port or pin or register or keeper or net or combinational node or node File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 14
+Warning (332049): Ignored create_clock at DE10_NANO.sdc(14): Argument <targets> is not an object ID File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 14
+    Info (332050): create_clock -name {altera_reserved_tck} -period 40 {altera_reserved_tck} File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 14
+Warning (332174): Ignored filter at DE10_NANO.sdc(15): altera_reserved_tdi could not be matched with a port File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
+Warning (332174): Ignored filter at DE10_NANO.sdc(15): altera_reserved_tck could not be matched with a clock File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
+Warning (332049): Ignored set_input_delay at DE10_NANO.sdc(15): Argument <targets> is an empty collection File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
+    Info (332050): set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tdi] File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
+Warning (332049): Ignored set_input_delay at DE10_NANO.sdc(15): Argument -clock is not an object ID File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 15
+Warning (332174): Ignored filter at DE10_NANO.sdc(16): altera_reserved_tms could not be matched with a port File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 16
+Warning (332049): Ignored set_input_delay at DE10_NANO.sdc(16): Argument <targets> is an empty collection File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 16
+    Info (332050): set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tms] File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 16
+Warning (332049): Ignored set_input_delay at DE10_NANO.sdc(16): Argument -clock is not an object ID File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 16
+Warning (332174): Ignored filter at DE10_NANO.sdc(17): altera_reserved_tdo could not be matched with a port File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 17
+Warning (332049): Ignored set_output_delay at DE10_NANO.sdc(17): Argument <targets> is an empty collection File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 17
+    Info (332050): set_output_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo] File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 17
+Warning (332049): Ignored set_output_delay at DE10_NANO.sdc(17): Argument -clock is not an object ID File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.sdc Line: 17
 Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
-Warning (332060): Node: encoder_decoder:f1|oCount was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register position_counter:f2|oPosition[0] is being clocked by encoder_decoder:f1|oCount
+Warning (332060): Node: KEY[1] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register position_counter:f2|oPosition[3] is being clocked by KEY[1]
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 100C Model
-Info (332146): Worst-case setup slack is 14.078
+Info (332146): Worst-case setup slack is 13.590
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    14.078               0.000 FPGA_CLK1_50 
+    Info (332119):    13.590               0.000 FPGA_CLK1_50 
 Info (332146): Worst-case hold slack is 0.455
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.455               0.000 FPGA_CLK1_50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 8.866
+Info (332146): Worst-case minimum pulse width slack is 9.199
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     8.866               0.000 FPGA_CLK1_50 
+    Info (332119):     9.199               0.000 FPGA_CLK1_50 
 Info: Analyzing Slow 1100mV -40C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Warning (332060): Node: encoder_decoder:f1|oCount was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register position_counter:f2|oPosition[0] is being clocked by encoder_decoder:f1|oCount
+Warning (332060): Node: KEY[1] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register position_counter:f2|oPosition[3] is being clocked by KEY[1]
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 13.962
+Info (332146): Worst-case setup slack is 13.512
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    13.962               0.000 FPGA_CLK1_50 
-Info (332146): Worst-case hold slack is 0.508
+    Info (332119):    13.512               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case hold slack is 0.489
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.508               0.000 FPGA_CLK1_50 
+    Info (332119):     0.489               0.000 FPGA_CLK1_50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 8.870
+Info (332146): Worst-case minimum pulse width slack is 9.313
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     8.870               0.000 FPGA_CLK1_50 
+    Info (332119):     9.313               0.000 FPGA_CLK1_50 
 Info: Analyzing Fast 1100mV 100C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Warning (332060): Node: encoder_decoder:f1|oCount was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register position_counter:f2|oPosition[0] is being clocked by encoder_decoder:f1|oCount
+Warning (332060): Node: KEY[1] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register position_counter:f2|oPosition[3] is being clocked by KEY[1]
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 17.111
+Info (332146): Worst-case setup slack is 16.726
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    17.111               0.000 FPGA_CLK1_50 
+    Info (332119):    16.726               0.000 FPGA_CLK1_50 
 Info (332146): Worst-case hold slack is 0.183
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.183               0.000 FPGA_CLK1_50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 8.849
+Info (332146): Worst-case minimum pulse width slack is 9.113
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     8.849               0.000 FPGA_CLK1_50 
+    Info (332119):     9.113               0.000 FPGA_CLK1_50 
 Info: Analyzing Fast 1100mV -40C Model
-Warning (332060): Node: encoder_decoder:f1|oCount was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register position_counter:f2|oPosition[0] is being clocked by encoder_decoder:f1|oCount
+Warning (332060): Node: KEY[1] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register position_counter:f2|oPosition[3] is being clocked by KEY[1]
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 17.425
+Info (332146): Worst-case setup slack is 17.121
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    17.425               0.000 FPGA_CLK1_50 
-Info (332146): Worst-case hold slack is 0.168
+    Info (332119):    17.121               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case hold slack is 0.169
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.168               0.000 FPGA_CLK1_50 
+    Info (332119):     0.169               0.000 FPGA_CLK1_50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 8.806
+Info (332146): Worst-case minimum pulse width slack is 9.052
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     8.806               0.000 FPGA_CLK1_50 
+    Info (332119):     9.052               0.000 FPGA_CLK1_50 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 1070 megabytes
-    Info: Processing ended: Thu Apr 19 21:18:38 2018
-    Info: Elapsed time: 00:00:32
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Peak virtual memory: 1103 megabytes
+    Info: Processing ended: Fri Apr 20 01:11:33 2018
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
 
 

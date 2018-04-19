@@ -52,6 +52,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO_1[4]",
+					"strict" : false
+				},
+				{
 					"name" : "KEY[1]",
 					"strict" : false
 				},

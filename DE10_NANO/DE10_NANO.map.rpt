@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_NANO
-Thu Apr 19 21:15:37 2018
+Fri Apr 20 01:10:44 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -46,13 +46,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Apr 19 21:15:37 2018       ;
+; Analysis & Synthesis Status     ; Successful - Fri Apr 20 01:10:44 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 24                                          ;
+; Total registers                 ; 27                                          ;
 ; Total pins                      ; 145                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -158,25 +158,25 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                            ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; de10_nano.v                      ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; de10_nano.v                      ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------+
@@ -184,16 +184,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------+
 ; Resource                                    ; Usage           ;
 +---------------------------------------------+-----------------+
-; Estimate of Logic utilization (ALMs needed) ; 35              ;
+; Estimate of Logic utilization (ALMs needed) ; 36              ;
 ;                                             ;                 ;
-; Combinational ALUT usage for logic          ; 50              ;
+; Combinational ALUT usage for logic          ; 53              ;
 ;     -- 7 input functions                    ; 0               ;
-;     -- 6 input functions                    ; 19              ;
-;     -- 5 input functions                    ; 7               ;
-;     -- 4 input functions                    ; 8               ;
-;     -- <=3 input functions                  ; 16              ;
+;     -- 6 input functions                    ; 18              ;
+;     -- 5 input functions                    ; 5               ;
+;     -- 4 input functions                    ; 3               ;
+;     -- <=3 input functions                  ; 27              ;
 ;                                             ;                 ;
-; Dedicated logic registers                   ; 24              ;
+; Dedicated logic registers                   ; 27              ;
 ;                                             ;                 ;
 ; I/O pins                                    ; 145             ;
 ;                                             ;                 ;
@@ -201,8 +201,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                 ;
 ; Maximum fan-out node                        ; GPIO_1[3]~input ;
 ; Maximum fan-out                             ; 18              ;
-; Total fan-out                               ; 545             ;
-; Average fan-out                             ; 1.19            ;
+; Total fan-out                               ; 547             ;
+; Average fan-out                             ; 1.18            ;
 +---------------------------------------------+-----------------+
 
 
@@ -211,10 +211,10 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Entity Name      ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+------------------+--------------+
-; |DE10_NANO                 ; 50 (0)              ; 24 (0)                    ; 0                 ; 0          ; 145  ; 0            ; |DE10_NANO                     ; DE10_NANO        ; work         ;
+; |DE10_NANO                 ; 53 (1)              ; 27 (0)                    ; 0                 ; 0          ; 145  ; 0            ; |DE10_NANO                     ; DE10_NANO        ; work         ;
 ;    |digital_filter:f0|     ; 37 (37)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|digital_filter:f0   ; digital_filter   ; work         ;
 ;    |encoder_decoder:f1|    ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|encoder_decoder:f1  ; encoder_decoder  ; work         ;
-;    |position_counter:f2|   ; 12 (12)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|position_counter:f2 ; position_counter ; work         ;
+;    |position_counter:f2|   ; 14 (14)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|position_counter:f2 ; position_counter ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -224,12 +224,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 24    ;
-; Number of registers using Synchronous Clear  ; 20    ;
+; Total registers                              ; 27    ;
+; Number of registers using Synchronous Clear  ; 23    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Clock Enable       ; 11    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -239,7 +239,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |DE10_NANO|position_counter:f2|oPosition[0] ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |DE10_NANO|position_counter:f2|oPosition[9] ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|digital_filter:f0|count          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
@@ -259,20 +259,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-----------------------------------------+
 ; Parameter Name ; Value ; Type                                    ;
 +----------------+-------+-----------------------------------------+
-; width          ; 8     ; Signed Integer                          ;
-; MAX            ; 255   ; Signed Integer                          ;
+; width          ; 11    ; Signed Integer                          ;
+; MAX            ; 2048  ; Signed Integer                          ;
 +----------------+-------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "position_counter:f2"                                                                                                                           ;
-+--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                                                                                      ;
-+--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; iClk   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; oSpeed ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-+--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "position_counter:f2"                                                                                                                                    ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                      ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; oPosition[2..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; iClk            ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; oSpeed          ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -280,26 +281,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 24                          ;
-;     ENA SCLR          ; 8                           ;
+; arriav_ff             ; 27                          ;
+;     ENA SCLR          ; 11                          ;
 ;     SCLR              ; 12                          ;
 ;     plain             ; 4                           ;
 ; arriav_io_obuf        ; 95                          ;
-; arriav_lcell_comb     ; 51                          ;
-;     arith             ; 20                          ;
+; arriav_lcell_comb     ; 54                          ;
+;     arith             ; 23                          ;
 ;         1 data inputs ; 13                          ;
-;         4 data inputs ; 2                           ;
-;         5 data inputs ; 5                           ;
+;         2 data inputs ; 10                          ;
 ;     normal            ; 31                          ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 3                           ;
-;         4 data inputs ; 6                           ;
-;         5 data inputs ; 2                           ;
-;         6 data inputs ; 19                          ;
+;         2 data inputs ; 4                           ;
+;         4 data inputs ; 3                           ;
+;         5 data inputs ; 5                           ;
+;         6 data inputs ; 18                          ;
 ; boundary_port         ; 145                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.30                        ;
-; Average LUT depth     ; 1.60                        ;
+; Average LUT depth     ; 1.53                        ;
 +-----------------------+-----------------------------+
 
 
@@ -308,7 +308,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -318,186 +318,187 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Apr 19 21:15:12 2018
+    Info: Processing started: Fri Apr 20 01:10:35 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_NANO -c DE10_NANO
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Warning (10090): Verilog HDL syntax warning at de10_nano.v(132): extra block comment delimiter characters /* within block comment File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 132
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Warning (10090): Verilog HDL syntax warning at de10_nano.v(133): extra block comment delimiter characters /* within block comment File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 133
 Warning (12125): Using design file de10_nano.v, which is not specified as a design file for the current project, but contains definitions for 4 design units and 4 entities in project
-    Info (12023): Found entity 1: DE10_NANO File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 6
-    Info (12023): Found entity 2: position_counter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 152
-    Info (12023): Found entity 3: encoder_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 178
-    Info (12023): Found entity 4: digital_filter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 200
+    Info (12023): Found entity 1: DE10_NANO File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 6
+    Info (12023): Found entity 2: position_counter File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 153
+    Info (12023): Found entity 3: encoder_decoder File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 179
+    Info (12023): Found entity 4: digital_filter File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 201
 Info (12127): Elaborating entity "DE10_NANO" for the top level hierarchy
-Warning (10034): Output port "HDMI_TX_D" at de10_nano.v(32) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-Warning (10034): Output port "ADC_CONVST" at de10_nano.v(9) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
-Warning (10034): Output port "ADC_SCK" at de10_nano.v(10) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
-Warning (10034): Output port "ADC_SDI" at de10_nano.v(11) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
-Warning (10034): Output port "HDMI_TX_CLK" at de10_nano.v(30) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-Warning (10034): Output port "HDMI_TX_DE" at de10_nano.v(31) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
-Warning (10034): Output port "HDMI_TX_HS" at de10_nano.v(33) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
-Warning (10034): Output port "HDMI_TX_VS" at de10_nano.v(35) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
-Warning (10665): Bidirectional port "GPIO_1[3]" at de10_nano.v(51) has a one-way connection to bidirectional port "GPIO_1[0]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-Info (12128): Elaborating entity "digital_filter" for hierarchy "digital_filter:f0" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 84
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(217): truncated value with size 32 to match size of target (12) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 217
-Info (12128): Elaborating entity "encoder_decoder" for hierarchy "encoder_decoder:f1" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 88
-Info (12128): Elaborating entity "position_counter" for hierarchy "position_counter:f2" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 93
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(168): truncated value with size 32 to match size of target (8) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 168
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(172): truncated value with size 32 to match size of target (8) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 172
-Warning (10034): Output port "oSpeed" at de10_nano.v(156) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 156
+Warning (10034): Output port "HDMI_TX_D" at de10_nano.v(32) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+Warning (10034): Output port "ADC_CONVST" at de10_nano.v(9) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
+Warning (10034): Output port "ADC_SCK" at de10_nano.v(10) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
+Warning (10034): Output port "ADC_SDI" at de10_nano.v(11) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
+Warning (10034): Output port "HDMI_TX_CLK" at de10_nano.v(30) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+Warning (10034): Output port "HDMI_TX_DE" at de10_nano.v(31) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
+Warning (10034): Output port "HDMI_TX_HS" at de10_nano.v(33) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
+Warning (10034): Output port "HDMI_TX_VS" at de10_nano.v(35) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
+Warning (10665): Bidirectional port "GPIO_1[3]" at de10_nano.v(51) has a one-way connection to bidirectional port "GPIO_1[0]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+Info (12128): Elaborating entity "digital_filter" for hierarchy "digital_filter:f0" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 85
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(218): truncated value with size 32 to match size of target (12) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 218
+Info (12128): Elaborating entity "encoder_decoder" for hierarchy "encoder_decoder:f1" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 89
+Info (12128): Elaborating entity "position_counter" for hierarchy "position_counter:f2" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 94
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(169): truncated value with size 32 to match size of target (11) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 169
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(173): truncated value with size 32 to match size of target (11) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 173
+Warning (10034): Output port "oSpeed" at de10_nano.v(157) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 157
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[1]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[2]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[1]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[2]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[4]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 16
-    Warning (13040): bidirectional pin "HDMI_I2C_SCL" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 24
-    Warning (13040): bidirectional pin "HDMI_I2C_SDA" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 25
-    Warning (13040): bidirectional pin "HDMI_I2S" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "HDMI_LRCLK" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 27
-    Warning (13040): bidirectional pin "HDMI_MCLK" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 28
-    Warning (13040): bidirectional pin "HDMI_SCLK" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 29
-    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 16
+    Warning (13040): bidirectional pin "HDMI_I2C_SCL" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 24
+    Warning (13040): bidirectional pin "HDMI_I2C_SDA" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 25
+    Warning (13040): bidirectional pin "HDMI_I2S" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "HDMI_LRCLK" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 27
+    Warning (13040): bidirectional pin "HDMI_MCLK" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 28
+    Warning (13040): bidirectional pin "HDMI_SCLK" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 29
+    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GPIO_1[0]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13010): Node "GPIO_1[1]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13010): Node "GPIO_1[2]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[0]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[1]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[2]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[4]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
-    Warning (13410): Pin "ADC_SCK" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
-    Warning (13410): Pin "ADC_SDI" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
-    Warning (13410): Pin "HDMI_TX_CLK" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13410): Pin "HDMI_TX_DE" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
-    Warning (13410): Pin "HDMI_TX_D[0]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[1]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[2]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[3]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[4]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[5]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[6]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[7]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[8]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[9]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[10]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[11]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[12]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[13]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[14]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[15]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[16]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[17]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[18]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[19]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[20]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[21]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[22]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[23]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_HS" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
-    Warning (13410): Pin "HDMI_TX_VS" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
+    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
+    Warning (13410): Pin "ADC_SCK" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
+    Warning (13410): Pin "ADC_SDI" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
+    Warning (13410): Pin "HDMI_TX_CLK" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13410): Pin "HDMI_TX_DE" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
+    Warning (13410): Pin "HDMI_TX_D[0]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[1]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[2]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[3]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[4]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[5]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[6]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[7]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[8]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[9]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[10]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[11]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[12]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[13]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[14]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[15]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[16]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[17]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[18]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[19]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[20]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[21]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[22]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[23]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_HS" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
+    Warning (13410): Pin "HDMI_TX_VS" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 7 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ADC_SDO" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 12
-    Warning (15610): No output dependent on input pin "FPGA_CLK2_50" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (15610): No output dependent on input pin "FPGA_CLK3_50" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 21
-    Warning (15610): No output dependent on input pin "HDMI_TX_INT" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 34
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
-Info (21057): Implemented 201 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "ADC_SDO" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 12
+    Warning (15610): No output dependent on input pin "FPGA_CLK2_50" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (15610): No output dependent on input pin "FPGA_CLK3_50" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 21
+    Warning (15610): No output dependent on input pin "HDMI_TX_INT" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 34
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
+Info (21057): Implemented 204 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 39 output pins
     Info (21060): Implemented 95 bidirectional pins
-    Info (21061): Implemented 56 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 157 warnings
-    Info: Peak virtual memory: 726 megabytes
-    Info: Processing ended: Thu Apr 19 21:15:37 2018
-    Info: Elapsed time: 00:00:25
-    Info: Total CPU time (on all processors): 00:00:56
+    Info (21061): Implemented 59 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 158 warnings
+    Info: Peak virtual memory: 752 megabytes
+    Info: Processing ended: Fri Apr 20 01:10:44 2018
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:20
 
 
