@@ -59,39 +59,42 @@ module DE10_NANO(
 
 
 wire out;
+wire count;
 
 
 assign GPIO_1[0] = GPIO_1[3];
-assign GPIO_1[1] = out;
+
 assign GPIO_1[2] = FPGA_CLK1_50;
-assign LED[0] = out;
 
 
+assign GPIO_1[1] = out;
+
+
+
+
+
+
+
+//=======================================================
+//  Structural coding
+//=======================================================
 
 digital_filter f0 (	.iClk(FPGA_CLK1_50),
 							.iIn(GPIO_1[3]),
 							.oOut(out));
 							
-
-
-/*
-encoder_position u0 (.iClk(FPGA_CLK1_50), 
-							.iEncoder(KEY[0]), 
-							.iDirection(SW[0]), 
-							.iRst(SW[1]), 
+encoder_decoder f1 (	.iClk(FPGA_CLK1_50),
+							.iSignal(KEY[0]),
+							.oCount(count));
+							
+position_counter f2 (.iCount(count),
+							.iDirection(SW[0]),
+							.iRst(!KEY[1]),
 							.oPosition(LED[7:0]));
-
-
-
-
+							defparam f2.width=8;
+							defparam f2.MAX=255;
 /*
 
-
-assign LED = lights;
-assign ARDUINO_IO [7:0] = lights;
-//=======================================================
-//  Structural coding
-//=======================================================
 always @ (posedge FPGA_CLK1_50)
 begin
 
@@ -114,11 +117,11 @@ begin
 
 end
 
-*/
-/*
+
 
 endmodule
-
+*/
+/*
 module encoder_position(iClk, iEncoder, iDirection, iRst, oPosition);
 	input						iClk;
 	input						iEncoder;
@@ -144,8 +147,53 @@ module encoder_position(iClk, iEncoder, iDirection, iRst, oPosition);
 	
 endmodule
 	*/
-	
+endmodule
 
+module position_counter(iClk, iDirection, iCount, iRst, oPosition, oSpeed);
+	input iClk, iDirection, iCount, iRst;
+	parameter width = 13;
+	output reg [width-1:0]oPosition = 0;
+	output reg [width-1:0]oSpeed;
+	
+	parameter MAX = 5000;
+	
+	always @ (posedge iCount)
+		begin
+			if (iRst)
+				begin
+					oPosition <= 0;
+				end
+			else if ((iDirection == 1) && (oPosition < MAX))
+				begin
+					oPosition <= oPosition + 1;
+				end	
+			else if (oPosition > 0)
+				begin
+					oPosition <= oPosition - 1;
+				end
+		end
+
+endmodule
+
+module encoder_decoder(iClk, iSignal, oCount);
+	input iClk, iSignal;
+	output reg oCount;
+	
+	reg last_Signal;
+	
+	always @ (posedge iClk)
+		begin
+			if (last_Signal != iSignal)
+				begin
+					oCount <= 1;
+				end
+			else
+				begin
+					oCount <= 0;
+				end
+			last_Signal <= iSignal;
+		end
+		
 	
 endmodule
 
@@ -158,13 +206,8 @@ module digital_filter(iClk, iIn, oOut);
 	reg [11:0] count = 0;
 	reg last_In;
 	
-	
-	
-	
 	always @ (posedge iClk)
 		begin
-			
-			
 			if (last_In != iIn)
 				begin
 					count = 0;
@@ -173,13 +216,13 @@ module digital_filter(iClk, iIn, oOut);
 				begin
 					count = count + 1;
 				end
-			
 			if (count == samples)
 				begin
 					oOut = iIn;
 					count = 0;
 				end
-				
 			last_In = iIn;
 		end
 endmodule
+
+

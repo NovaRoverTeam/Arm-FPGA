@@ -20,7 +20,7 @@ ARDUINO_IO[13] <> <UNC>
 ARDUINO_IO[14] <> <UNC>
 ARDUINO_IO[15] <> <UNC>
 ARDUINO_RESET_N <> <UNC>
-FPGA_CLK1_50 => FPGA_CLK1_50.IN1
+FPGA_CLK1_50 => FPGA_CLK1_50.IN2
 FPGA_CLK2_50 => ~NO_FANOUT~
 FPGA_CLK3_50 => ~NO_FANOUT~
 HDMI_I2C_SCL <> <UNC>
@@ -58,17 +58,17 @@ HDMI_TX_D[23] <= <GND>
 HDMI_TX_HS <= <GND>
 HDMI_TX_INT => ~NO_FANOUT~
 HDMI_TX_VS <= <GND>
-KEY[0] => ~NO_FANOUT~
-KEY[1] => ~NO_FANOUT~
-LED[0] <= digital_filter:f0.oOut
-LED[1] <= <GND>
-LED[2] <= <GND>
-LED[3] <= <GND>
-LED[4] <= <GND>
-LED[5] <= <GND>
-LED[6] <= <GND>
-LED[7] <= <GND>
-SW[0] => ~NO_FANOUT~
+KEY[0] => KEY[0].IN1
+KEY[1] => _.IN1
+LED[0] <= position_counter:f2.oPosition
+LED[1] <= position_counter:f2.oPosition
+LED[2] <= position_counter:f2.oPosition
+LED[3] <= position_counter:f2.oPosition
+LED[4] <= position_counter:f2.oPosition
+LED[5] <= position_counter:f2.oPosition
+LED[6] <= position_counter:f2.oPosition
+LED[7] <= position_counter:f2.oPosition
+SW[0] => SW[0].IN1
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
 SW[3] => ~NO_FANOUT~
@@ -165,5 +165,50 @@ iIn => always0.IN1
 iIn => last_In.DATAIN
 iIn => oOut~reg0.DATAIN
 oOut <= oOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_NANO|encoder_decoder:f1
+iClk => last_Signal.CLK
+iClk => oCount~reg0.CLK
+iSignal => always0.IN1
+iSignal => last_Signal.DATAIN
+oCount <= oCount~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_NANO|position_counter:f2
+iClk => ~NO_FANOUT~
+iDirection => always0.IN1
+iCount => oPosition[0]~reg0.CLK
+iCount => oPosition[1]~reg0.CLK
+iCount => oPosition[2]~reg0.CLK
+iCount => oPosition[3]~reg0.CLK
+iCount => oPosition[4]~reg0.CLK
+iCount => oPosition[5]~reg0.CLK
+iCount => oPosition[6]~reg0.CLK
+iCount => oPosition[7]~reg0.CLK
+iRst => oPosition.OUTPUTSELECT
+iRst => oPosition.OUTPUTSELECT
+iRst => oPosition.OUTPUTSELECT
+iRst => oPosition.OUTPUTSELECT
+iRst => oPosition.OUTPUTSELECT
+iRst => oPosition.OUTPUTSELECT
+iRst => oPosition.OUTPUTSELECT
+iRst => oPosition.OUTPUTSELECT
+oPosition[0] <= oPosition[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oPosition[1] <= oPosition[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oPosition[2] <= oPosition[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oPosition[3] <= oPosition[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oPosition[4] <= oPosition[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oPosition[5] <= oPosition[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oPosition[6] <= oPosition[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oPosition[7] <= oPosition[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oSpeed[0] <= <GND>
+oSpeed[1] <= <GND>
+oSpeed[2] <= <GND>
+oSpeed[3] <= <GND>
+oSpeed[4] <= <GND>
+oSpeed[5] <= <GND>
+oSpeed[6] <= <GND>
+oSpeed[7] <= <GND>
 
 
