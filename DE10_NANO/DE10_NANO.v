@@ -60,21 +60,22 @@ module DE10_NANO(
 
 wire out;
 wire count;
-wire [10:0] position;
+wire count1;
+wire direction;
+wire [7:0] position;
+wire [10:0] position1;
 
 
 assign GPIO_1[0] = GPIO_1[3];
 
-assign GPIO_1[2] = position[0];
+assign GPIO_1[2] = position1[0];
 
 
 assign GPIO_1[1] = out;
 
 
-assign LED = position [10:3];
+assign LED = position [7:0];
 
-
-assign GPIO_1[4] = KEY[0];
 
 //=======================================================
 //  Structural coding
@@ -86,14 +87,28 @@ digital_filter f0 (	.iClk(FPGA_CLK1_50),
 							
 encoder_decoder f1 (	.iClk(FPGA_CLK1_50),
 							.iSignal(out),
-							.oCount(count));
+							.oCount(count1));
 							
-position_counter f2 (.iCount(count|!KEY[1]),
+position_counter f2 (.iCount(count1),
 							.iDirection(SW[0]),
-							.iRst(!KEY[1]),
-							.oPosition(position));
+							.iRst(SW[3]),
+							.oPosition(position1));
 							defparam f2.width=11;
-							defparam f2.MAX=2048;
+							defparam f2.MAX=2047;
+							
+quaderature_decoder f3 (	.iClk(FPGA_CLK1_50),
+									.iSignalA(KEY[1]),
+									.iSignalB(KEY[0]),
+									.oDirection(direction),
+									.oCount(count));
+									
+position_counter f4 (.iCount(count),
+							.iDirection(direction),
+							.iRst(SW[3]),
+							.oPosition(position));
+							defparam f4.width=8;
+							defparam f4.MAX=255;
+							
 /*
 
 always @ (posedge FPGA_CLK1_50)
@@ -159,7 +174,7 @@ module position_counter(iClk, iDirection, iCount, iRst, oPosition, oSpeed); // C
 	parameter MAX = 5000;
 	//1820 for linear actuator
 	
-	always @ (posedge iCount)
+	always @ (posedge iCount or posedge iRst)
 		begin
 			if (iRst)
 				begin
@@ -175,6 +190,67 @@ module position_counter(iClk, iDirection, iCount, iRst, oPosition, oSpeed); // C
 				end
 		end
 
+endmodule
+
+module quaderature_decoder(iClk, iSignalA, iSignalB, oDirection, oCount);
+	input iClk, iSignalA, iSignalB;
+	output reg oDirection, oCount;
+	
+	reg last_SignalA;
+	reg last_SignalB;
+	
+	always @ (posedge iClk)
+		begin
+			case ({last_SignalA, last_SignalB, iSignalA, iSignalB})
+				4'b0001:
+					begin
+						oDirection <= 1;
+						oCount <= 1;
+					end
+				4'b0010:
+					begin
+						oDirection <= 0;
+						oCount <= 1;
+					end
+				4'b0100:
+					begin
+						oDirection <= 0;
+						oCount <= 1;
+					end
+				4'b0111:
+					begin
+						oDirection <= 1;
+						oCount <= 1;
+					end
+				4'b1000:
+					begin
+						oDirection <= 1;
+						oCount <= 1;
+					end
+				4'b1011:
+					begin
+						oDirection <= 0;
+						oCount <= 1;
+					end
+				4'b1110:
+					begin
+						oDirection <= 1;
+						oCount <= 1;
+					end
+				4'b1101:
+					begin
+						oDirection = 0;
+						oCount <= 1;
+					end
+				default: 
+					begin
+						oCount <= 0;
+					end
+			
+			endcase
+			last_SignalA <= iSignalA;
+			last_SignalB <= iSignalB;
+		end
 endmodule
 
 module encoder_decoder(iClk, iSignal, oCount); // Single encoder line decoder. Returns a single clock pulse as output on an encoder signal change.

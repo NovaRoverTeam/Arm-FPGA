@@ -52,15 +52,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_1[4]",
+					"name" : "SW[3]",
 					"strict" : false
 				},
 				{
 					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
@@ -69,6 +65,10 @@
 				},
 				{
 					"name" : "FPGA_CLK1_50",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
 					"strict" : false
 				}
 			]
