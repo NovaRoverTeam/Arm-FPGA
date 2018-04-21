@@ -66,6 +66,7 @@ wire [7:0] position;
 wire [10:0] position1;
 
 
+
 assign GPIO_1[0] = GPIO_1[3];
 
 assign GPIO_1[2] = position1[0];
@@ -80,7 +81,7 @@ assign LED = position [7:0];
 //=======================================================
 //  Structural coding
 //=======================================================
-
+/*
 digital_filter f0 (	.iClk(FPGA_CLK1_50),
 							.iIn(GPIO_1[3]),
 							.oOut(out));
@@ -101,68 +102,62 @@ quaderature_decoder f3 (	.iClk(FPGA_CLK1_50),
 									.iSignalB(KEY[0]),
 									.oDirection(direction),
 									.oCount(count));
-									
-position_counter f4 (.iCount(count),
-							.iDirection(direction),
+									*/
+position_counter f4 (.iCount(KEY[0]),
+							.iDirection(SW[0]),
 							.iRst(SW[3]),
 							.oPosition(position));
 							defparam f4.width=8;
 							defparam f4.MAX=255;
 							
-/*
-
-always @ (posedge FPGA_CLK1_50)
-begin
-
-	reg last1;
-	reg last2;
-	reg current1;
-	reg current2;
-	
-	last1 <= current1;
-	current1 <= KEY[0];
-	last2 <= current2;
-	current2 <= KEY[1];
-	
-	if (current1==0 && last1==1) begin
-		
-		lights <= lights + 1;
-	end else if (current2==0 && last2==1)begin
-		lights <= lights - 1;
-	end
-
-end
-
-
+							
+PWM f5 (	.iClk(FPGA_CLK1_50),
+			.iDuty({position,4'b0}),
+			.oPwm(GPIO_1[4]),
+			.oPwm_clk(GPIO_1[5]));
+			defparam f5.frequency = 50;
+			
+			
+							
 
 endmodule
-*/
-/*
-module encoder_position(iClk, iEncoder, iDirection, iRst, oPosition);
-	input						iClk;
-	input						iEncoder;
-	input						iDirection;
-	input						iRst;
-	output reg	[7:0]	oPosition;
+
+module PWM(iClk, iDuty, oPwm, oPwm_clk);
+	input iClk;
+	parameter width = 12;
+	input [width-1:0] iDuty;
+	output reg oPwm = 0;
+	output wire oPwm_clk;
+	assign oPwm_clk = pwm_clk;
 	
-	/*always @ (iRst)
-	begin
-		if (iRst)
-			oPosition <= 0;
-	end*/
-	/*
-	always @ (iEncoder)
-	begin
-		if (iDirection && !iRst)
-			oPosition <= oPosition + 1;
-		else if (!iDirection && !iRst)
-			oPosition <= oPosition -1;
-		else
-			oPosition <= 0;
-	end
+	parameter frequency = 50;
+	parameter n = 2**width;
+	parameter maxclk = 50000000/frequency;//(frequency*n);
 	
-endmodule
-	*/
+	reg [26:0]counter1 = 0;
+	reg pwm_clk = 0;
+	
+	always @ (posedge iClk)
+		begin
+			if (counter1 >= maxclk)
+				begin
+					counter1 <= 0;
+				end
+			else
+				begin
+					counter1 <= counter1 + 1;
+				end
+			
+			if (counter1 >= iDuty*maxclk/n)
+				begin
+					oPwm <= 1;
+				end
+			else
+				begin
+					oPwm <= 0;
+				end
+			
+		end
 endmodule
 
 module position_counter(iClk, iDirection, iCount, iRst, oPosition, oSpeed); // Counts position of a joint

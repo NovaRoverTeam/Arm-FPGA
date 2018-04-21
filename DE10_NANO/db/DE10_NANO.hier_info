@@ -20,7 +20,7 @@ ARDUINO_IO[13] <> <UNC>
 ARDUINO_IO[14] <> <UNC>
 ARDUINO_IO[15] <> <UNC>
 ARDUINO_RESET_N <> <UNC>
-FPGA_CLK1_50 => FPGA_CLK1_50.IN3
+FPGA_CLK1_50 => FPGA_CLK1_50.IN1
 FPGA_CLK2_50 => ~NO_FANOUT~
 FPGA_CLK3_50 => ~NO_FANOUT~
 HDMI_I2C_SCL <> <UNC>
@@ -59,19 +59,19 @@ HDMI_TX_HS <= <GND>
 HDMI_TX_INT => ~NO_FANOUT~
 HDMI_TX_VS <= <GND>
 KEY[0] => KEY[0].IN1
-KEY[1] => KEY[1].IN1
-LED[0] <= position_counter:f4.oPosition
-LED[1] <= position_counter:f4.oPosition
-LED[2] <= position_counter:f4.oPosition
-LED[3] <= position_counter:f4.oPosition
-LED[4] <= position_counter:f4.oPosition
-LED[5] <= position_counter:f4.oPosition
-LED[6] <= position_counter:f4.oPosition
-LED[7] <= position_counter:f4.oPosition
+KEY[1] => ~NO_FANOUT~
+LED[0] <= position[0].DB_MAX_OUTPUT_PORT_TYPE
+LED[1] <= position[1].DB_MAX_OUTPUT_PORT_TYPE
+LED[2] <= position[2].DB_MAX_OUTPUT_PORT_TYPE
+LED[3] <= position[3].DB_MAX_OUTPUT_PORT_TYPE
+LED[4] <= position[4].DB_MAX_OUTPUT_PORT_TYPE
+LED[5] <= position[5].DB_MAX_OUTPUT_PORT_TYPE
+LED[6] <= position[6].DB_MAX_OUTPUT_PORT_TYPE
+LED[7] <= position[7].DB_MAX_OUTPUT_PORT_TYPE
 SW[0] => SW[0].IN1
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
-SW[3] => SW[3].IN2
+SW[3] => SW[3].IN1
 GPIO_0[0] <> <UNC>
 GPIO_0[1] <> <UNC>
 GPIO_0[2] <> <UNC>
@@ -109,11 +109,10 @@ GPIO_0[33] <> <UNC>
 GPIO_0[34] <> <UNC>
 GPIO_0[35] <> <UNC>
 GPIO_1[0] <> GPIO_1[0]
-GPIO_1[1] <> GPIO_1[1]
-GPIO_1[2] <> GPIO_1[2]
-GPIO_1[3] <> digital_filter:f0.iIn
-GPIO_1[4] <> <UNC>
-GPIO_1[5] <> <UNC>
+GPIO_1[1] <> <GND>
+GPIO_1[2] <> <GND>
+GPIO_1[4] <> PWM:f5.oPwm
+GPIO_1[5] <> PWM:f5.oPwm_clk
 GPIO_1[6] <> <UNC>
 GPIO_1[7] <> <UNC>
 GPIO_1[8] <> <UNC>
@@ -144,98 +143,6 @@ GPIO_1[32] <> <UNC>
 GPIO_1[33] <> <UNC>
 GPIO_1[34] <> <UNC>
 GPIO_1[35] <> <UNC>
-
-
-|DE10_NANO|digital_filter:f0
-iClk => last_In.CLK
-iClk => oOut~reg0.CLK
-iClk => count[0].CLK
-iClk => count[1].CLK
-iClk => count[2].CLK
-iClk => count[3].CLK
-iClk => count[4].CLK
-iClk => count[5].CLK
-iClk => count[6].CLK
-iClk => count[7].CLK
-iClk => count[8].CLK
-iClk => count[9].CLK
-iClk => count[10].CLK
-iClk => count[11].CLK
-iIn => always0.IN1
-iIn => last_In.DATAIN
-iIn => oOut~reg0.DATAIN
-oOut <= oOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|DE10_NANO|encoder_decoder:f1
-iClk => last_Signal.CLK
-iClk => oCount~reg0.CLK
-iSignal => always0.IN1
-iSignal => last_Signal.DATAIN
-oCount <= oCount~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|DE10_NANO|position_counter:f2
-iClk => ~NO_FANOUT~
-iDirection => always0.IN1
-iDirection => always0.IN1
-iCount => oPosition[0]~reg0.CLK
-iCount => oPosition[1]~reg0.CLK
-iCount => oPosition[2]~reg0.CLK
-iCount => oPosition[3]~reg0.CLK
-iCount => oPosition[4]~reg0.CLK
-iCount => oPosition[5]~reg0.CLK
-iCount => oPosition[6]~reg0.CLK
-iCount => oPosition[7]~reg0.CLK
-iCount => oPosition[8]~reg0.CLK
-iCount => oPosition[9]~reg0.CLK
-iCount => oPosition[10]~reg0.CLK
-iRst => oPosition[0]~reg0.ACLR
-iRst => oPosition[1]~reg0.ACLR
-iRst => oPosition[2]~reg0.ACLR
-iRst => oPosition[3]~reg0.ACLR
-iRst => oPosition[4]~reg0.ACLR
-iRst => oPosition[5]~reg0.ACLR
-iRst => oPosition[6]~reg0.ACLR
-iRst => oPosition[7]~reg0.ACLR
-iRst => oPosition[8]~reg0.ACLR
-iRst => oPosition[9]~reg0.ACLR
-iRst => oPosition[10]~reg0.ACLR
-oPosition[0] <= oPosition[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[1] <= oPosition[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[2] <= oPosition[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[3] <= oPosition[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[4] <= oPosition[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[5] <= oPosition[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[6] <= oPosition[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[7] <= oPosition[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[8] <= oPosition[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[9] <= oPosition[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oPosition[10] <= oPosition[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oSpeed[0] <= <GND>
-oSpeed[1] <= <GND>
-oSpeed[2] <= <GND>
-oSpeed[3] <= <GND>
-oSpeed[4] <= <GND>
-oSpeed[5] <= <GND>
-oSpeed[6] <= <GND>
-oSpeed[7] <= <GND>
-oSpeed[8] <= <GND>
-oSpeed[9] <= <GND>
-oSpeed[10] <= <GND>
-
-
-|DE10_NANO|quaderature_decoder:f3
-iClk => last_SignalB.CLK
-iClk => last_SignalA.CLK
-iClk => oDirection~reg0.CLK
-iClk => oCount~reg0.CLK
-iSignalA => Decoder0.IN0
-iSignalA => last_SignalA.DATAIN
-iSignalB => Decoder0.IN1
-iSignalB => last_SignalB.DATAIN
-oDirection <= oDirection~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oCount <= oCount~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |DE10_NANO|position_counter:f4
@@ -274,5 +181,50 @@ oSpeed[4] <= <GND>
 oSpeed[5] <= <GND>
 oSpeed[6] <= <GND>
 oSpeed[7] <= <GND>
+
+
+|DE10_NANO|PWM:f5
+iClk => oPwm~reg0.CLK
+iClk => counter1[0].CLK
+iClk => counter1[1].CLK
+iClk => counter1[2].CLK
+iClk => counter1[3].CLK
+iClk => counter1[4].CLK
+iClk => counter1[5].CLK
+iClk => counter1[6].CLK
+iClk => counter1[7].CLK
+iClk => counter1[8].CLK
+iClk => counter1[9].CLK
+iClk => counter1[10].CLK
+iClk => counter1[11].CLK
+iClk => counter1[12].CLK
+iClk => counter1[13].CLK
+iClk => counter1[14].CLK
+iClk => counter1[15].CLK
+iClk => counter1[16].CLK
+iClk => counter1[17].CLK
+iClk => counter1[18].CLK
+iClk => counter1[19].CLK
+iClk => counter1[20].CLK
+iClk => counter1[21].CLK
+iClk => counter1[22].CLK
+iClk => counter1[23].CLK
+iClk => counter1[24].CLK
+iClk => counter1[25].CLK
+iClk => counter1[26].CLK
+iDuty[0] => Mult0.IN31
+iDuty[1] => Mult0.IN30
+iDuty[2] => Mult0.IN29
+iDuty[3] => Mult0.IN28
+iDuty[4] => Mult0.IN27
+iDuty[5] => Mult0.IN26
+iDuty[6] => Mult0.IN25
+iDuty[7] => Mult0.IN24
+iDuty[8] => Mult0.IN23
+iDuty[9] => Mult0.IN22
+iDuty[10] => Mult0.IN21
+iDuty[11] => Mult0.IN20
+oPwm <= oPwm~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oPwm_clk <= <GND>
 
 
