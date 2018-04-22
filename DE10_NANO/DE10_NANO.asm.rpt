@@ -1,5 +1,5 @@
 Assembler report for DE10_NANO
-Sat Apr 21 17:22:49 2018
+Sun Apr 22 23:02:14 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Apr 21 17:22:49 2018 ;
+; Assembler Status      ; Successful - Sun Apr 22 23:02:14 2018 ;
 ; Revision Name         ; DE10_NANO                             ;
 ; Top-level Entity Name ; DE10_NANO                             ;
 ; Family                ; Cyclone V                             ;
@@ -66,8 +66,8 @@ refer to the applicable agreement for further details.
 +----------------+---------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                         ;
 +----------------+---------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00B1CA65                                                                      ;
-; Checksum       ; 0x00B1CA65                                                                      ;
+; JTAG usercode  ; 0x00B2CC2B                                                                      ;
+; Checksum       ; 0x00B2CC2B                                                                      ;
 +----------------+---------------------------------------------------------------------------------+
 
 
@@ -77,13 +77,13 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Apr 21 17:22:44 2018
+    Info: Processing started: Sun Apr 22 23:02:09 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off DE10_NANO -c DE10_NANO
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 757 megabytes
-    Info: Processing ended: Sat Apr 21 17:22:49 2018
+    Info: Peak virtual memory: 759 megabytes
+    Info: Processing ended: Sun Apr 22 23:02:14 2018
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:05
 

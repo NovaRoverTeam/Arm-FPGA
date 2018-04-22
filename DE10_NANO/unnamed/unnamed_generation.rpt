@@ -1,0 +1,28 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\James\Documents\Repositories\Arm-FPGA\DE10_NANO\unnamed.qsys --block-symbol-file --output-directory=C:\Users\James\Documents\Repositories\Arm-FPGA\DE10_NANO\unnamed --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading DE10_NANO/unnamed.qsys
+Progress: Reading input file
+Progress: Adding spislave_0 [spislave 17.1]
+Progress: Parameterizing module spislave_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\James\Documents\Repositories\Arm-FPGA\DE10_NANO\unnamed.qsys --synthesis=VERILOG --output-directory=C:\Users\James\Documents\Repositories\Arm-FPGA\DE10_NANO\unnamed\synthesis --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading DE10_NANO/unnamed.qsys
+Progress: Reading input file
+Progress: Adding spislave_0 [spislave 17.1]
+Progress: Parameterizing module spislave_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: unnamed: Generating unnamed "unnamed" for QUARTUS_SYNTH
+Info: spislave_0: "unnamed" instantiated spislave "spislave_0"
+Info: unnamed: Done "unnamed" with 2 modules, 2 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

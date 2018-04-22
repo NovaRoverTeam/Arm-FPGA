@@ -58,34 +58,41 @@ module DE10_NANO(
 //reg [7:0] lights = 0;
 
 
-wire out;
+wire outa;
+wire outb;
 wire count;
 wire count1;
 wire direction;
-wire [7:0] position;
+wire [15:0] position;
 wire [10:0] position1;
 
 
 
-assign GPIO_1[0] = GPIO_1[3];
+assign GPIO_1[0] = outa;
 
-assign GPIO_1[2] = position1[0];
-
-
-assign GPIO_1[1] = out;
+assign GPIO_1[2] = position[0];
 
 
-assign LED = position [7:0];
+assign GPIO_1[1] = outb;
 
+
+//assign LED = position [7:0];
+
+assign LED = ARDUINO_IO [15:8];
+assign ARDUINO_RESET_N = KEY[0];
 
 //=======================================================
 //  Structural coding
 //=======================================================
-/*
-digital_filter f0 (	.iClk(FPGA_CLK1_50),
+
+digital_filter fa (	.iClk(FPGA_CLK1_50),
 							.iIn(GPIO_1[3]),
-							.oOut(out));
+							.oOut(outa));
 							
+digital_filter fb (	.iClk(FPGA_CLK1_50),
+							.iIn(GPIO_1[4]),
+							.oOut(outb));							
+/*					
 encoder_decoder f1 (	.iClk(FPGA_CLK1_50),
 							.iSignal(out),
 							.oCount(count1));
@@ -96,46 +103,42 @@ position_counter f2 (.iCount(count1),
 							.oPosition(position1));
 							defparam f2.width=11;
 							defparam f2.MAX=2047;
-							
+*/							
 quaderature_decoder f3 (	.iClk(FPGA_CLK1_50),
-									.iSignalA(KEY[1]),
-									.iSignalB(KEY[0]),
+									.iSignalA(outa),
+									.iSignalB(outb),
 									.oDirection(direction),
 									.oCount(count));
-									*/
-position_counter f4 (.iCount(KEY[0]),
-							.iDirection(SW[0]),
-							.iRst(SW[3]),
+									
+position_counter f4 (.iCount(count),
+							.iDirection(direction),
+							.iRst(!KEY[1]),
 							.oPosition(position));
-							defparam f4.width=8;
-							defparam f4.MAX=255;
+							defparam f4.width=16;
+							defparam f4.MAX=65535;
 							
-							
+/*							
 PWM f5 (	.iClk(FPGA_CLK1_50),
 			.iDuty({position,4'b0}),
-			.oPwm(GPIO_1[4]),
-			.oPwm_clk(GPIO_1[5]));
+			.oPwm(GPIO_1[4]));
 			defparam f5.frequency = 50;
-			
+*/			
 			
 							
 
 endmodule
 
-module PWM(iClk, iDuty, oPwm, oPwm_clk);
+module PWM(iClk, iDuty, oPwm);
 	input iClk;
 	parameter width = 12;
 	input [width-1:0] iDuty;
 	output reg oPwm = 0;
-	output wire oPwm_clk;
-	assign oPwm_clk = pwm_clk;
 	
 	parameter frequency = 50;
 	parameter n = 2**width;
 	parameter maxclk = 50000000/frequency;//(frequency*n);
 	
 	reg [26:0]counter1 = 0;
-	reg pwm_clk = 0;
 	
 	always @ (posedge iClk)
 		begin
@@ -156,7 +159,6 @@ module PWM(iClk, iDuty, oPwm, oPwm_clk);
 				begin
 					oPwm <= 0;
 				end
-			
 		end
 endmodule
 
