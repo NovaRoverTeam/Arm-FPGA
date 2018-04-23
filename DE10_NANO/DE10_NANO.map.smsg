@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at de10_nano.v(199): always construct contains both blocking and non-blocking assignments File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 199
+Warning (10268): Verilog HDL information at de10_nano.v(280): always construct contains both blocking and non-blocking assignments File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 280

@@ -36,14 +36,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[8]",
-					"strict" : false
-				},
-				{
-					"name" : "ARDUINO_IO[9]",
-					"strict" : false
-				},
-				{
 					"name" : "ARDUINO_IO[10]",
 					"strict" : false
 				},
@@ -60,47 +52,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[14]",
-					"strict" : false
-				},
-				{
-					"name" : "ARDUINO_IO[15]",
-					"strict" : false
-				},
-				{
-					"name" : "ARDUINO_RESET_N",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_1[0]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_1[2]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_1[3]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_1[4]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[0]",
-					"strict" : false
-				},
-				{
 					"name" : "FPGA_CLK1_50",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[1]",
 					"strict" : false
 				}
 			]
