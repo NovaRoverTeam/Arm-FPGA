@@ -57,7 +57,10 @@ module DE10_NANO(
 //=======================================================
 //reg [7:0] lights = 0;
 
+
 /*
+=======
+wire out;
 wire outa;
 wire outb;
 wire count;
@@ -78,7 +81,7 @@ assign GPIO_1[1] = outb;
 
 //assign LED = position [7:0];
 
-assign LED = ARDUINO_IO [15:8];
+assign LED = ARDUINO_IO [7:0];
 assign ARDUINO_RESET_N = KEY[0];
 
 //=======================================================
@@ -92,7 +95,11 @@ digital_filter fa (	.iClk(FPGA_CLK1_50),
 digital_filter fb (	.iClk(FPGA_CLK1_50),
 							.iIn(GPIO_1[4]),
 							.oOut(outb));							
+
 				
+
+					
+
 encoder_decoder f1 (	.iClk(FPGA_CLK1_50),
 							.iSignal(out),
 							.oCount(count1));
@@ -123,85 +130,112 @@ PWM f5 (	.iClk(FPGA_CLK1_50),
 			.oPwm(GPIO_1[4]));
 			defparam f5.frequency = 50;
 */			
-SPI_slave f6(.clk(FPGA_CLK1_50), .SCK(ARDUINO_IO[13]), .MOSI(ARDUINO_IO[11]), .MISO(ARDUINO_IO[12]), .SSEL(ARDUINO_IO[10]) , .LED(LED[7:0]));			
-							
+SPI_slave s1(			.iClk(FPGA_CLK1_50), 
+							.iSCK(ARDUINO_IO[13]), 
+							.iMOSI(ARDUINO_IO[11]), 
+							.oMISO(ARDUINO_IO[12]), 
+							.iSSEL(ARDUINO_IO[10]) , 
+							.oRx(rx),
+							.iTx(position));
+				
+SPI_slave s2(			.iClk(FPGA_CLK1_50), 
+							.iSCK(ARDUINO_IO[13]), 
+							.iMOSI(ARDUINO_IO[11]), 
+							.oMISO(ARDUINO_IO[12]), 
+							.iSSEL(ARDUINO_IO[9]) , 
+							.oRx(rx2),
+							.iTx(65535-position));			
 
+				wire [15:0] rx;
+				wire [15:0] rx2;
+	assign LED[7:0] = {rx2[3:0],rx[3:0]};			
+
+	position_counter f4 (.iCount(KEY[0]),
+							.iDirection(KEY[1]),
+							.iRst(SW[3]),
+							.oPosition(position));
+							defparam f4.width=16;
+							defparam f4.MAX=65535;
+	wire [15:0] position;
+	
 endmodule
 
 
-module SPI_slave(clk, SCK, MOSI, MISO, SSEL, LED);
-	input clk;
+module SPI_slave(iClk, iSCK, iMOSI, oMISO, iSSEL, oRx, iTx);
+	input iClk;
 
-	input SCK, SSEL, MOSI;
-	output MISO;
+	input iSCK, iSSEL, iMOSI;
+	input [15:0] iTx;
+	output oMISO;
 
-	output [7:0] LED;
+	output reg [15:0] oRx;
 
-	// sync SCK to the FPGA clock using a 3-bits shift register
-	reg [2:0] SCKr;  always @(posedge clk) SCKr <= {SCKr[1:0], SCK};
-	wire SCK_risingedge = (SCKr[2:1]==2'b01);  // now we can detect SCK rising edges
-	wire SCK_fallingedge = (SCKr[2:1]==2'b10);  // and falling edges
+	// sync iSCK to the FPGA clock using a 3-bits shift register
+	reg [2:0] iSCKr;  always @(posedge iClk) iSCKr <= {iSCKr[1:0], iSCK};
+	wire iSCK_risingedge = (iSCKr[2:1]==2'b01);  // now we can detect iSCK rising edges
+	wire iSCK_fallingedge = (iSCKr[2:1]==2'b10);  // and falling edges
 
-	// same thing for SSEL
-	reg [2:0] SSELr;  always @(posedge clk) SSELr <= {SSELr[1:0], SSEL};
-	wire SSEL_active = ~SSELr[1];  // SSEL is active low
-	wire SSEL_startmessage = (SSELr[2:1]==2'b10);  // message starts at falling edge
-	wire SSEL_endmessage = (SSELr[2:1]==2'b01);  // message stops at rising edge
+	// same thing for iSSEL
+	reg [2:0] iSSELr;  always @(posedge iClk) iSSELr <= {iSSELr[1:0], iSSEL};
+	wire iSSEL_active = ~iSSELr[1];  // iSSEL is active low
+	wire iSSEL_startmessage = (iSSELr[2:1]==2'b10);  // message starts at falling edge
+	wire iSSEL_endmessage = (iSSELr[2:1]==2'b01);  // message stops at rising edge
 
-	// and for MOSI
-	reg [1:0] MOSIr;  always @(posedge clk) MOSIr <= {MOSIr[0], MOSI};
-	wire MOSI_data = MOSIr[1];
+	// and for iMOSI
+	reg [1:0] iMOSIr;  always @(posedge iClk) iMOSIr <= {iMOSIr[0], iMOSI};
+	wire iMOSI_data = iMOSIr[1];
 
 	// we handle SPI in 8-bits format, so we need a 3 bits counter to count the bits as they come in
-	reg [2:0] bitcnt;
+	reg [3:0] bitcnt;
 
 	reg byte_received;  // high when a byte has been received
-	reg [7:0] byte_data_received;
+	reg [15:0] byte_data_received;
 
-	always @(posedge clk)
+	always @(posedge iClk)
 	begin
-	  if(~SSEL_active)
-		 bitcnt <= 3'b000;
+	  if(~iSSEL_active)
+		 bitcnt <= 4'b0000;
 	  else
-	  if(SCK_risingedge)
+	  if(iSCK_risingedge)
 	  begin
-		 bitcnt <= bitcnt + 3'b001;
+		 bitcnt <= bitcnt + 4'b0001;
 
 		 // implement a shift-left register (since we receive the data MSB first)
-		 byte_data_received <= {byte_data_received[6:0], MOSI_data};
+		 byte_data_received <= {byte_data_received[15:0], iMOSI_data};
 	  end
 	end
 
-	always @(posedge clk) byte_received <= SSEL_active && SCK_risingedge && (bitcnt==3'b111);
+	always @(posedge iClk) byte_received <= iSSEL_active && iSCK_risingedge && (bitcnt==4'b1111);
 
-	// we use the LSB of the data received to control an LED
-	reg [7:0] LED;
-	always @(posedge clk) if(byte_received) LED <= byte_data_received;
+	// we use the LSB of the data received to control an oRx
+	always @(posedge iClk) if(byte_received) oRx <= byte_data_received[7:0];
 
-	reg [7:0] byte_data_sent;
+	reg [15:0] byte_data_sent;
 
-	reg [7:0] cnt;
-	always @(posedge clk) if(SSEL_startmessage) cnt<=cnt+8'h1;  // count the messages
+	reg [15:0] cnt;
+	always @(posedge iClk) if(iSSEL_startmessage) cnt<=cnt+16'h1;  // count the messages
 
-	always @(posedge clk)
-	if(SSEL_active)
+	always @(posedge iClk)
+	if(iSSEL_active)
 	begin
-	  if(SSEL_startmessage)
-		 byte_data_sent <= (byte_data_received+1)<<1;  // first byte sent in a message is the message count
+	  if(iSSEL_startmessage)
+		 byte_data_sent <= iTx;  // first byte sent in a message is the message count
 	  else
-	  if(SCK_fallingedge)
+	  if(iSCK_fallingedge)
 	  begin
-		 if(bitcnt==3'b000)
-			byte_data_sent <= 8'h00;  // after that, we send 0s
+		 if(bitcnt==4'b0000)
+			byte_data_sent <= 16'h0000;  // after that, we send 0s
 		 else
-			byte_data_sent <= {byte_data_sent[6:0], 1'b0};
+			byte_data_sent <= {byte_data_sent[15:0], 1'b0};
 	  end
 	end
 
-	assign MISO = byte_data_sent[7];  // send MSB first
+	assign oMISO = (iSSEL_active) ? byte_data_sent[15] : 1'bz;  // send MSB first
+	
+	
 	// we assume that there is only one slave on the SPI bus
-	// so we don't bother with a tri-state buffer for MISO
-	// otherwise we would need to tri-state MISO when SSEL is inactive
+	// so we don't bother with a tri-state buffer for oMISO
+	// otherwise we would need to tri-state oMISO when iSSEL is inactive
 
 endmodule
 
