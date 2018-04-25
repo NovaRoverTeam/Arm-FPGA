@@ -36,10 +36,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[9]",
-					"strict" : false
-				},
-				{
 					"name" : "ARDUINO_IO[10]",
 					"strict" : false
 				},
@@ -56,15 +52,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO_1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_1[35]",
+					"strict" : false
+				},
+				{
 					"name" : "FPGA_CLK1_50",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[0]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
 					"strict" : false
 				},
 				{

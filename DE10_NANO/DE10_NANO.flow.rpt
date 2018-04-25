@@ -1,5 +1,5 @@
 Flow report for DE10_NANO
-Tue Apr 24 20:07:31 2018
+Wed Apr 25 15:38:09 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,19 +40,19 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Apr 24 20:07:19 2018       ;
+; Flow Status                     ; Successful - Wed Apr 25 15:37:56 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEBA6U23I7                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 47 / 41,910 ( < 1 % )                       ;
-; Total registers                 ; 89                                          ;
+; Logic utilization (in ALMs)     ; 87 / 41,910 ( < 1 % )                       ;
+; Total registers                 ; 128                                         ;
 ; Total pins                      ; 145 / 314 ( 46 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                       ;
-; Total DSP Blocks                ; 0 / 112 ( 0 % )                             ;
+; Total DSP Blocks                ; 1 / 112 ( < 1 % )                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/24/2018 20:05:55 ;
+; Start date & time ; 04/25/2018 15:36:23 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE10_NANO           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 169736355951112.152456435420888        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 169736355951112.152463458200380        ; --            ; --          ; --         ;
 ; ENABLE_SIGNALTAP                    ; Off                                    ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 100                                    ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; -40                                    ; --            ; --          ; --         ;
@@ -96,11 +96,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 718 MB              ; 00:00:32                           ;
-; Fitter                    ; 00:00:58     ; 1.0                     ; 2189 MB             ; 00:01:25                           ;
-; Assembler                 ; 00:00:09     ; 1.0                     ; 750 MB              ; 00:00:08                           ;
-; TimeQuest Timing Analyzer ; 00:00:11     ; 1.0                     ; 1072 MB             ; 00:00:10                           ;
-; Total                     ; 00:01:32     ; --                      ; --                  ; 00:02:15                           ;
+; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 722 MB              ; 00:00:33                           ;
+; Fitter                    ; 00:01:04     ; 1.0                     ; 2189 MB             ; 00:01:35                           ;
+; Assembler                 ; 00:00:09     ; 1.0                     ; 752 MB              ; 00:00:09                           ;
+; TimeQuest Timing Analyzer ; 00:00:11     ; 1.0                     ; 1077 MB             ; 00:00:11                           ;
+; Total                     ; 00:01:40     ; --                      ; --                  ; 00:02:28                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

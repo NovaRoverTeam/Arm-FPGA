@@ -55,113 +55,81 @@ module DE10_NANO(
 //=======================================================
 //  REG/WIRE declarations
 //=======================================================
-//reg [7:0] lights = 0;
 
+wire lin_act_filtered;
+wire lin_act_count;
+wire [11:0] lin_act_position;
 
-/*
-=======
-wire out;
-wire outa;
-wire outb;
-wire count;
-wire count1;
-wire direction;
-wire [15:0] position;
-wire [10:0] position1;
+wire [15:0] lin_act_velocity;
+wire lin_act_direction;
+wire [15:0] lin_act_duty;
 
+assign LED[7:0] = lin_act_velocity[7:0];	
 
-
-assign GPIO_1[0] = outa;
-
-assign GPIO_1[2] = position[0];
-
-
-assign GPIO_1[1] = outb;
-
-
-//assign LED = position [7:0];
-
-assign LED = ARDUINO_IO [7:0];
-assign ARDUINO_RESET_N = KEY[0];
+assign GPIO_1[0] = lin_act_direction;
 
 //=======================================================
 //  Structural coding
 //=======================================================
 
-digital_filter fa (	.iClk(FPGA_CLK1_50),
-							.iIn(GPIO_1[3]),
-							.oOut(outa));
+digital_filter lin_act_enc (	.iClk(FPGA_CLK1_50),
+										.iIn(GPIO_1[35]),
+										.oOut(lin_act_filtered));
+										
+encoder_decoder	lin_act_dec(.iClk(FPGA_CLK1_50),
+										.iSignal(lin_act_filtered), 
+										.oCount(lin_act_count));										
+
+position_counter lin_act_pos (.iCount(lin_act_count),
+										.iDirection(!lin_act_velocity[15]),
+										.iRst(!KEY[1]),
+										.oPosition(lin_act_position));
+										defparam lin_act_pos .width=11;
+										defparam lin_act_pos .MAX=1820;
+
+
+SPI_slave lin_act_com (			.iClk(FPGA_CLK1_50), 
+										.iSCK(ARDUINO_IO[13]), 
+										.iMOSI(ARDUINO_IO[11]), 
+										.oMISO(ARDUINO_IO[12]), 
+										.iSSEL(ARDUINO_IO[10]), 
+										.oRx(lin_act_velocity),
+										.iTx({5'd0,lin_act_position}));
+										
+speed_decoder lin_act_spd (	.iVelocity(lin_act_velocity),
+										.oDirection(lin_act_direction),
+										.oDuty(lin_act_duty));
 							
-digital_filter fb (	.iClk(FPGA_CLK1_50),
-							.iIn(GPIO_1[4]),
-							.oOut(outb));							
-
-				
-
-					
-
-encoder_decoder f1 (	.iClk(FPGA_CLK1_50),
-							.iSignal(out),
-							.oCount(count1));
-							
-position_counter f2 (.iCount(count1),
-							.iDirection(SW[0]),
-							.iRst(SW[3]),
-							.oPosition(position1));
-							defparam f2.width=11;
-							defparam f2.MAX=2047;
-							
-quaderature_decoder f3 (	.iClk(FPGA_CLK1_50),
-									.iSignalA(outa),
-									.iSignalB(outb),
-									.oDirection(direction),
-									.oCount(count));
-									
-position_counter f4 (.iCount(count),
-							.iDirection(direction),
-							.iRst(!KEY[1]),
-							.oPosition(position));
-							defparam f4.width=16;
-							defparam f4.MAX=65535;
-							
-						
-PWM f5 (	.iClk(FPGA_CLK1_50),
-			.iDuty({position,4'b0}),
-			.oPwm(GPIO_1[4]));
-			defparam f5.frequency = 50;
-*/			
-SPI_slave s1(			.iClk(FPGA_CLK1_50), 
-							.iSCK(ARDUINO_IO[13]), 
-							.iMOSI(ARDUINO_IO[11]), 
-							.oMISO(ARDUINO_IO[12]), 
-							.iSSEL(ARDUINO_IO[10]) , 
-							.oRx(rx),
-							.iTx(position));
-				
-SPI_slave s2(			.iClk(FPGA_CLK1_50), 
-							.iSCK(ARDUINO_IO[13]), 
-							.iMOSI(ARDUINO_IO[11]), 
-							.oMISO(ARDUINO_IO[12]), 
-							.iSSEL(ARDUINO_IO[9]) , 
-							.oRx(rx2),
-							.iTx(65535-position));			
-
-				wire [15:0] rx;
-				wire [15:0] rx2;
-	assign LED[7:0] = {rx2[3:0],rx[3:0]};			
-
-	position_counter f4 (.iCount(KEY[0]),
-							.iDirection(KEY[1]),
-							.iRst(SW[3]),
-							.oPosition(position));
-							defparam f4.width=16;
-							defparam f4.MAX=65535;
-	wire [15:0] position;
+PWM lin_act_pwm (	.iClk(FPGA_CLK1_50), 
+						.iDuty(lin_act_duty[11:0]),
+						.oPwm(GPIO_1[1]));
+						defparam lin_act_pwm.frequency = 10000;
+						defparam lin_act_pwm.width = 12;
 	
 endmodule
 
+module speed_decoder(iVelocity, oDirection, oDuty);
+	input [15:0] iVelocity;
+	output reg oDirection;
+	parameter width = 16;
+	output reg [width-1:0] oDuty;
+	
+	always @(iVelocity)
+		begin
+			if (iVelocity[15]==1)
+				begin
+					oDirection = 1;
+					oDuty = (~(iVelocity-1'b1));
+				end
+			else 
+				begin
+					oDirection = 0;
+					oDuty = iVelocity;
+				end
+		end
+endmodule
 
-module SPI_slave(iClk, iSCK, iMOSI, oMISO, iSSEL, oRx, iTx);
+module SPI_slave(iClk, iTx, iSCK, iMOSI, oMISO, iSSEL, oRx);
 	input iClk;
 
 	input iSCK, iSSEL, iMOSI;
@@ -208,7 +176,7 @@ module SPI_slave(iClk, iSCK, iMOSI, oMISO, iSSEL, oRx, iTx);
 	always @(posedge iClk) byte_received <= iSSEL_active && iSCK_risingedge && (bitcnt==4'b1111);
 
 	// we use the LSB of the data received to control an oRx
-	always @(posedge iClk) if(byte_received) oRx <= byte_data_received[7:0];
+	always @(posedge iClk) if(byte_received) oRx <= byte_data_received[15:0];
 
 	reg [15:0] byte_data_sent;
 
@@ -268,11 +236,11 @@ module PWM(iClk, iDuty, oPwm);
 			
 			if (counter1 >= iDuty*maxclk/n)
 				begin
-					oPwm <= 1;
+					oPwm <= 0;
 				end
 			else
 				begin
-					oPwm <= 0;
+					oPwm <= 1;
 				end
 		end
 endmodule
