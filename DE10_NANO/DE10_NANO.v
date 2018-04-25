@@ -50,63 +50,87 @@ module DE10_NANO(
 	inout 		    [35:0]		GPIO_1
 );
 
+	//=======================================================
+	//  REG/WIRE declarations
+	//=======================================================
+	
+	//=======================================================
+	//  Structural coding
+	//=======================================================
 
-
-//=======================================================
-//  REG/WIRE declarations
-//=======================================================
-
-wire lin_act_filtered;
-wire lin_act_count;
-wire [11:0] lin_act_position;
-
-wire [15:0] lin_act_velocity;
-wire lin_act_direction;
-wire [15:0] lin_act_duty;
-
-assign LED[7:0] = lin_act_velocity[7:0];	
-
-assign GPIO_1[0] = lin_act_direction;
-
-//=======================================================
-//  Structural coding
-//=======================================================
-
-digital_filter lin_act_enc (	.iClk(FPGA_CLK1_50),
-										.iIn(GPIO_1[35]),
-										.oOut(lin_act_filtered));
-										
-encoder_decoder	lin_act_dec(.iClk(FPGA_CLK1_50),
-										.iSignal(lin_act_filtered), 
-										.oCount(lin_act_count));										
-
-position_counter lin_act_pos (.iCount(lin_act_count),
-										.iDirection(!lin_act_velocity[15]),
-										.iRst(!KEY[1]),
-										.oPosition(lin_act_position));
-										defparam lin_act_pos .width=11;
-										defparam lin_act_pos .MAX=1820;
-
-
-SPI_slave lin_act_com (			.iClk(FPGA_CLK1_50), 
-										.iSCK(ARDUINO_IO[13]), 
-										.iMOSI(ARDUINO_IO[11]), 
-										.oMISO(ARDUINO_IO[12]), 
-										.iSSEL(ARDUINO_IO[10]), 
-										.oRx(lin_act_velocity),
-										.iTx({5'd0,lin_act_position}));
-										
-speed_decoder lin_act_spd (	.iVelocity(lin_act_velocity),
-										.oDirection(lin_act_direction),
-										.oDuty(lin_act_duty));
-							
-PWM lin_act_pwm (	.iClk(FPGA_CLK1_50), 
-						.iDuty(lin_act_duty[11:0]),
-						.oPwm(GPIO_1[1]));
-						defparam lin_act_pwm.frequency = 10000;
-						defparam lin_act_pwm.width = 12;
+linear_actuator l1 (	.iClk(FPGA_CLK1_50),
+							.iEnc(GPIO_1[35]),
+							.iRst(!KEY[1]),
+							.iSSEL(ARDUINO_IO[10]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_1[0]),
+							.oPwm(GPIO_1[1]));
 	
 endmodule
+
+module linear_actuator (iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm);
+	input iClk, iEnc, iRst, iSSEL, iMOSI, iSCK;
+	output oDir, oPwm, oMISO;
+	
+	
+	//=======================================================
+	//  REG/WIRE declarations
+	//=======================================================
+
+	wire lin_act_filtered;
+	wire lin_act_count;
+	wire [11:0] lin_act_position;
+
+	wire [15:0] lin_act_velocity;
+	wire lin_act_direction;
+	wire [15:0] lin_act_duty;
+
+		
+
+	assign oDir = lin_act_direction;
+
+	//=======================================================
+	//  Structural coding
+	//=======================================================
+
+	digital_filter lin_act_enc (	.iClk(iClk),
+											.iIn(iEnc),
+											.oOut(lin_act_filtered));
+											
+	encoder_decoder	lin_act_dec(.iClk(iClk),
+											.iSignal(lin_act_filtered), 
+											.oCount(lin_act_count));										
+
+	position_counter lin_act_pos (.iCount(lin_act_count),
+											.iDirection(!lin_act_direction),
+											.iRst(iRst),
+											.oPosition(lin_act_position));
+											defparam lin_act_pos .width=11;
+											defparam lin_act_pos .MAX=1820;
+
+
+	SPI_slave lin_act_com (			.iClk(iClk), 
+											.iSCK(iSCK), 
+											.iMOSI(iMOSI), 
+											.oMISO(oMISO), 
+											.iSSEL(iSSEL), 
+											.oRx(lin_act_velocity),
+											.iTx({5'd0,lin_act_position}));
+											
+	speed_decoder lin_act_spd (	.iVelocity(lin_act_velocity),
+											.oDirection(lin_act_direction),
+											.oDuty(lin_act_duty));
+								
+	PWM lin_act_pwm (	.iClk(iClk), 
+							.iDuty(lin_act_duty[11:0]),
+							.oPwm(oPwm));
+							defparam lin_act_pwm.frequency = 10000;
+							defparam lin_act_pwm.width = 12;
+
+
+endmodule 
 
 module speed_decoder(iVelocity, oDirection, oDuty);
 	input [15:0] iVelocity;

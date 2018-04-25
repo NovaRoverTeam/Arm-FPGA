@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_NANO
-Wed Apr 25 15:36:39 2018
+Wed Apr 25 17:34:59 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -17,13 +17,13 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   9. Registers Removed During Synthesis
  10. General Register Statistics
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: digital_filter:lin_act_enc
- 13. Parameter Settings for User Entity Instance: position_counter:lin_act_pos
- 14. Parameter Settings for User Entity Instance: speed_decoder:lin_act_spd
- 15. Parameter Settings for User Entity Instance: PWM:lin_act_pwm
- 16. Port Connectivity Checks: "speed_decoder:lin_act_spd"
- 17. Port Connectivity Checks: "SPI_slave:lin_act_com"
- 18. Port Connectivity Checks: "position_counter:lin_act_pos"
+ 12. Parameter Settings for User Entity Instance: linear_actuator:l1|digital_filter:lin_act_enc
+ 13. Parameter Settings for User Entity Instance: linear_actuator:l1|position_counter:lin_act_pos
+ 14. Parameter Settings for User Entity Instance: linear_actuator:l1|speed_decoder:lin_act_spd
+ 15. Parameter Settings for User Entity Instance: linear_actuator:l1|PWM:lin_act_pwm
+ 16. Port Connectivity Checks: "linear_actuator:l1|speed_decoder:lin_act_spd"
+ 17. Port Connectivity Checks: "linear_actuator:l1|SPI_slave:lin_act_com"
+ 18. Port Connectivity Checks: "linear_actuator:l1|position_counter:lin_act_pos"
  19. Post-Synthesis Netlist Statistics for Top Partition
  20. Elapsed Time Per Partition
  21. Analysis & Synthesis Messages
@@ -53,7 +53,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Apr 25 15:36:39 2018       ;
+; Analysis & Synthesis Status     ; Successful - Wed Apr 25 17:34:59 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
@@ -208,24 +208,25 @@ refer to the applicable agreement for further details.
 ;                                             ;                    ;
 ; Maximum fan-out node                        ; FPGA_CLK1_50~input ;
 ; Maximum fan-out                             ; 102                ;
-; Total fan-out                               ; 1122               ;
-; Average fan-out                             ; 1.76               ;
+; Total fan-out                               ; 1114               ;
+; Average fan-out                             ; 1.74               ;
 +---------------------------------------------+--------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                    ;
-+-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Entity Name      ; Library Name ;
-+-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------+------------------+--------------+
-; |DE10_NANO                        ; 140 (0)             ; 113 (0)                   ; 0                 ; 1          ; 145  ; 0            ; |DE10_NANO                              ; DE10_NANO        ; work         ;
-;    |PWM:lin_act_pwm|              ; 44 (44)             ; 28 (28)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|PWM:lin_act_pwm              ; PWM              ; work         ;
-;    |SPI_slave:lin_act_com|        ; 18 (18)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|SPI_slave:lin_act_com        ; SPI_slave        ; work         ;
-;    |digital_filter:lin_act_enc|   ; 37 (37)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|digital_filter:lin_act_enc   ; digital_filter   ; work         ;
-;    |encoder_decoder:lin_act_dec|  ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|encoder_decoder:lin_act_dec  ; encoder_decoder  ; work         ;
-;    |position_counter:lin_act_pos| ; 16 (16)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|position_counter:lin_act_pos ; position_counter ; work         ;
-;    |speed_decoder:lin_act_spd|    ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|speed_decoder:lin_act_spd    ; speed_decoder    ; work         ;
-+-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------+------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                          ;
++--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                        ; Entity Name      ; Library Name ;
++--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+------------------+--------------+
+; |DE10_NANO                           ; 140 (0)             ; 113 (0)                   ; 0                 ; 1          ; 145  ; 0            ; |DE10_NANO                                                 ; DE10_NANO        ; work         ;
+;    |linear_actuator:l1|              ; 140 (0)             ; 113 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1                              ; linear_actuator  ; work         ;
+;       |PWM:lin_act_pwm|              ; 44 (44)             ; 28 (28)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|PWM:lin_act_pwm              ; PWM              ; work         ;
+;       |SPI_slave:lin_act_com|        ; 18 (18)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com        ; SPI_slave        ; work         ;
+;       |digital_filter:lin_act_enc|   ; 37 (37)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|digital_filter:lin_act_enc   ; digital_filter   ; work         ;
+;       |encoder_decoder:lin_act_dec|  ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|encoder_decoder:lin_act_dec  ; encoder_decoder  ; work         ;
+;       |position_counter:lin_act_pos| ; 16 (16)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|position_counter:lin_act_pos ; position_counter ; work         ;
+;       |speed_decoder:lin_act_spd|    ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|speed_decoder:lin_act_spd    ; speed_decoder    ; work         ;
++--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -241,14 +242,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------------+
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; SPI_slave:lin_act_com|oRx[12..14]     ; Lost fanout        ;
-; Total Number of Removed Registers = 3 ;                    ;
-+---------------------------------------+--------------------+
++---------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                        ;
++------------------------------------------------------+--------------------+
+; Register name                                        ; Reason for Removal ;
++------------------------------------------------------+--------------------+
+; linear_actuator:l1|SPI_slave:lin_act_com|oRx[12..14] ; Lost fanout        ;
+; Total Number of Removed Registers = 3                ;                    ;
++------------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -266,64 +267,64 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|SPI_slave:lin_act_com|bitcnt[3]          ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE10_NANO|SPI_slave:lin_act_com|byte_data_sent[6]  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|SPI_slave:lin_act_com|byte_data_sent[13] ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|digital_filter:lin_act_enc|count         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|bitcnt[0]          ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|byte_data_sent[6]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|byte_data_sent[14] ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|linear_actuator:l1|digital_filter:lin_act_enc|count         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: digital_filter:lin_act_enc ;
-+----------------+-------+------------------------------------------------+
-; Parameter Name ; Value ; Type                                           ;
-+----------------+-------+------------------------------------------------+
-; samples        ; 4095  ; Signed Integer                                 ;
-+----------------+-------+------------------------------------------------+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: linear_actuator:l1|digital_filter:lin_act_enc ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; samples        ; 4095  ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: position_counter:lin_act_pos ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; width          ; 11    ; Signed Integer                                   ;
-; MAX            ; 1820  ; Signed Integer                                   ;
-+----------------+-------+--------------------------------------------------+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: linear_actuator:l1|position_counter:lin_act_pos ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; width          ; 11    ; Signed Integer                                                      ;
+; MAX            ; 1820  ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: speed_decoder:lin_act_spd ;
-+----------------+-------+-----------------------------------------------+
-; Parameter Name ; Value ; Type                                          ;
-+----------------+-------+-----------------------------------------------+
-; width          ; 16    ; Signed Integer                                ;
-+----------------+-------+-----------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: linear_actuator:l1|speed_decoder:lin_act_spd ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; width          ; 16    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PWM:lin_act_pwm ;
-+----------------+-------+-------------------------------------+
-; Parameter Name ; Value ; Type                                ;
-+----------------+-------+-------------------------------------+
-; width          ; 12    ; Signed Integer                      ;
-; frequency      ; 10000 ; Signed Integer                      ;
-; n              ; 4096  ; Signed Integer                      ;
-; maxclk         ; 5000  ; Signed Integer                      ;
-+----------------+-------+-------------------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: linear_actuator:l1|PWM:lin_act_pwm ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; width          ; 12    ; Signed Integer                                         ;
+; frequency      ; 10000 ; Signed Integer                                         ;
+; n              ; 4096  ; Signed Integer                                         ;
+; maxclk         ; 5000  ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "speed_decoder:lin_act_spd"                                                                   ;
+; Port Connectivity Checks: "linear_actuator:l1|speed_decoder:lin_act_spd"                                                ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port          ; Type   ; Severity ; Details                                                                             ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -332,7 +333,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SPI_slave:lin_act_com"                                                                                                                                                                   ;
+; Port Connectivity Checks: "linear_actuator:l1|SPI_slave:lin_act_com"                                                                                                                                                ;
 +-------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port        ; Type  ; Severity ; Details                                                                                                                                                                            ;
 +-------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -342,7 +343,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "position_counter:lin_act_pos"                                                                                                                                                ;
+; Port Connectivity Checks: "linear_actuator:l1|position_counter:lin_act_pos"                                                                                                                             ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port      ; Type   ; Severity ; Details                                                                                                                                                                 ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -401,21 +402,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Apr 25 15:36:22 2018
+    Info: Processing started: Wed Apr 25 17:34:42 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_NANO -c DE10_NANO
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Warning (12125): Using design file de10_nano.v, which is not specified as a design file for the current project, but contains definitions for 8 design units and 8 entities in project
+Warning (12125): Using design file de10_nano.v, which is not specified as a design file for the current project, but contains definitions for 9 design units and 9 entities in project
     Info (12023): Found entity 1: DE10_NANO File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 6
-    Info (12023): Found entity 2: speed_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 111
-    Info (12023): Found entity 3: SPI_slave File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 132
-    Info (12023): Found entity 4: PWM File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 214
-    Info (12023): Found entity 5: position_counter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 248
-    Info (12023): Found entity 6: quaderature_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 275
-    Info (12023): Found entity 7: encoder_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 336
-    Info (12023): Found entity 8: digital_filter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 358
+    Info (12023): Found entity 2: linear_actuator File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 73
+    Info (12023): Found entity 3: speed_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 135
+    Info (12023): Found entity 4: SPI_slave File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 156
+    Info (12023): Found entity 5: PWM File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 238
+    Info (12023): Found entity 6: position_counter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 272
+    Info (12023): Found entity 7: quaderature_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 299
+    Info (12023): Found entity 8: encoder_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 360
+    Info (12023): Found entity 9: digital_filter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 382
 Info (12127): Elaborating entity "DE10_NANO" for the top level hierarchy
 Warning (10034): Output port "HDMI_TX_D" at de10_nano.v(32) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+Warning (10034): Output port "LED" at de10_nano.v(41) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
 Warning (10034): Output port "ADC_CONVST" at de10_nano.v(9) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
 Warning (10034): Output port "ADC_SCK" at de10_nano.v(10) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
 Warning (10034): Output port "ADC_SDI" at de10_nano.v(11) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
@@ -423,26 +426,23 @@ Warning (10034): Output port "HDMI_TX_CLK" at de10_nano.v(30) has no driver File
 Warning (10034): Output port "HDMI_TX_DE" at de10_nano.v(31) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
 Warning (10034): Output port "HDMI_TX_HS" at de10_nano.v(33) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
 Warning (10034): Output port "HDMI_TX_VS" at de10_nano.v(35) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
-Info (12128): Elaborating entity "digital_filter" for hierarchy "digital_filter:lin_act_enc" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 77
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(375): truncated value with size 32 to match size of target (12) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 375
-Info (12128): Elaborating entity "encoder_decoder" for hierarchy "encoder_decoder:lin_act_dec" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 81
-Info (12128): Elaborating entity "position_counter" for hierarchy "position_counter:lin_act_pos" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 86
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(265): truncated value with size 32 to match size of target (11) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 265
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(269): truncated value with size 32 to match size of target (11) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 269
-Warning (10034): Output port "oSpeed" at de10_nano.v(252) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 252
-Info (12128): Elaborating entity "SPI_slave" for hierarchy "SPI_slave:lin_act_com" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 97
-Warning (10036): Verilog HDL or VHDL warning at de10_nano.v(150): object "iSSEL_endmessage" assigned a value but never read File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 150
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(172): truncated value with size 17 to match size of target (16) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 172
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(197): truncated value with size 17 to match size of target (16) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 197
-Info (12128): Elaborating entity "speed_decoder" for hierarchy "speed_decoder:lin_act_spd" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 101
-Info (12128): Elaborating entity "PWM" for hierarchy "PWM:lin_act_pwm" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 105
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(234): truncated value with size 32 to match size of target (27) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 234
+Info (12128): Elaborating entity "linear_actuator" for hierarchy "linear_actuator:l1" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 69
+Info (12128): Elaborating entity "digital_filter" for hierarchy "linear_actuator:l1|digital_filter:lin_act_enc" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 100
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(399): truncated value with size 32 to match size of target (12) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 399
+Info (12128): Elaborating entity "encoder_decoder" for hierarchy "linear_actuator:l1|encoder_decoder:lin_act_dec" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 104
+Info (12128): Elaborating entity "position_counter" for hierarchy "linear_actuator:l1|position_counter:lin_act_pos" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 109
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(289): truncated value with size 32 to match size of target (11) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 289
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(293): truncated value with size 32 to match size of target (11) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 293
+Warning (10034): Output port "oSpeed" at de10_nano.v(276) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 276
+Info (12128): Elaborating entity "SPI_slave" for hierarchy "linear_actuator:l1|SPI_slave:lin_act_com" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 120
+Warning (10036): Verilog HDL or VHDL warning at de10_nano.v(174): object "iSSEL_endmessage" assigned a value but never read File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 174
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(196): truncated value with size 17 to match size of target (16) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 196
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(221): truncated value with size 17 to match size of target (16) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 221
+Info (12128): Elaborating entity "speed_decoder" for hierarchy "linear_actuator:l1|speed_decoder:lin_act_spd" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 124
+Info (12128): Elaborating entity "PWM" for hierarchy "linear_actuator:l1|PWM:lin_act_pwm" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 128
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(258): truncated value with size 32 to match size of target (27) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 258
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 61
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 61
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 61
+    Warning (12110): Net "linear_actuator:l1|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 84
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[0]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
@@ -575,6 +575,14 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HDMI_TX_D[23]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
     Warning (13410): Pin "HDMI_TX_HS" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
     Warning (13410): Pin "HDMI_TX_VS" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
+    Warning (13410): Pin "LED[0]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[1]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[2]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[3]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[4]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[5]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[6]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[7]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg
@@ -596,9 +604,9 @@ Info (21057): Implemented 339 device resources after synthesis - the final resou
     Info (21060): Implemented 95 bidirectional pins
     Info (21061): Implemented 193 logic cells
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 166 warnings
-    Info: Peak virtual memory: 731 megabytes
-    Info: Processing ended: Wed Apr 25 15:36:39 2018
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 171 warnings
+    Info: Peak virtual memory: 727 megabytes
+    Info: Processing ended: Wed Apr 25 17:34:59 2018
     Info: Elapsed time: 00:00:17
     Info: Total CPU time (on all processors): 00:00:34
 

@@ -13,14 +13,14 @@ ARDUINO_IO[6] <> <UNC>
 ARDUINO_IO[7] <> <UNC>
 ARDUINO_IO[8] <> <UNC>
 ARDUINO_IO[9] <> <UNC>
-ARDUINO_IO[10] <> SPI_slave:lin_act_com.iSSEL
-ARDUINO_IO[11] <> SPI_slave:lin_act_com.iMOSI
-ARDUINO_IO[12] <> SPI_slave:lin_act_com.oMISO
-ARDUINO_IO[13] <> SPI_slave:lin_act_com.iSCK
+ARDUINO_IO[10] <> linear_actuator:l1.iSSEL
+ARDUINO_IO[11] <> linear_actuator:l1.iMOSI
+ARDUINO_IO[12] <> linear_actuator:l1.oMISO
+ARDUINO_IO[13] <> linear_actuator:l1.iSCK
 ARDUINO_IO[14] <> <UNC>
 ARDUINO_IO[15] <> <UNC>
 ARDUINO_RESET_N <> <UNC>
-FPGA_CLK1_50 => FPGA_CLK1_50.IN4
+FPGA_CLK1_50 => FPGA_CLK1_50.IN1
 FPGA_CLK2_50 => ~NO_FANOUT~
 FPGA_CLK3_50 => ~NO_FANOUT~
 HDMI_I2C_SCL <> <UNC>
@@ -60,14 +60,14 @@ HDMI_TX_INT => ~NO_FANOUT~
 HDMI_TX_VS <= <GND>
 KEY[0] => ~NO_FANOUT~
 KEY[1] => _.IN1
-LED[0] <= lin_act_velocity[0].DB_MAX_OUTPUT_PORT_TYPE
-LED[1] <= lin_act_velocity[1].DB_MAX_OUTPUT_PORT_TYPE
-LED[2] <= lin_act_velocity[2].DB_MAX_OUTPUT_PORT_TYPE
-LED[3] <= lin_act_velocity[3].DB_MAX_OUTPUT_PORT_TYPE
-LED[4] <= lin_act_velocity[4].DB_MAX_OUTPUT_PORT_TYPE
-LED[5] <= lin_act_velocity[5].DB_MAX_OUTPUT_PORT_TYPE
-LED[6] <= lin_act_velocity[6].DB_MAX_OUTPUT_PORT_TYPE
-LED[7] <= lin_act_velocity[7].DB_MAX_OUTPUT_PORT_TYPE
+LED[0] <= <GND>
+LED[1] <= <GND>
+LED[2] <= <GND>
+LED[3] <= <GND>
+LED[4] <= <GND>
+LED[5] <= <GND>
+LED[6] <= <GND>
+LED[7] <= <GND>
 SW[0] => ~NO_FANOUT~
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
@@ -108,8 +108,8 @@ GPIO_0[32] <> <UNC>
 GPIO_0[33] <> <UNC>
 GPIO_0[34] <> <UNC>
 GPIO_0[35] <> <UNC>
-GPIO_1[0] <> GPIO_1[0]
-GPIO_1[1] <> PWM:lin_act_pwm.oPwm
+GPIO_1[0] <> linear_actuator:l1.oDir
+GPIO_1[1] <> linear_actuator:l1.oPwm
 GPIO_1[2] <> <UNC>
 GPIO_1[3] <> <UNC>
 GPIO_1[4] <> <UNC>
@@ -143,10 +143,22 @@ GPIO_1[31] <> <UNC>
 GPIO_1[32] <> <UNC>
 GPIO_1[33] <> <UNC>
 GPIO_1[34] <> <UNC>
-GPIO_1[35] <> digital_filter:lin_act_enc.iIn
+GPIO_1[35] <> linear_actuator:l1.iEnc
 
 
-|DE10_NANO|digital_filter:lin_act_enc
+|DE10_NANO|linear_actuator:l1
+iClk => iClk.IN4
+iEnc => iEnc.IN1
+iRst => iRst.IN1
+iSSEL => iSSEL.IN1
+iMOSI => iMOSI.IN1
+iSCK => iSCK.IN1
+oMISO <= SPI_slave:lin_act_com.oMISO
+oDir <= speed_decoder:lin_act_spd.oDirection
+oPwm <= PWM:lin_act_pwm.oPwm
+
+
+|DE10_NANO|linear_actuator:l1|digital_filter:lin_act_enc
 iClk => last_In.CLK
 iClk => oOut~reg0.CLK
 iClk => count[0].CLK
@@ -167,7 +179,7 @@ iIn => oOut~reg0.DATAIN
 oOut <= oOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE10_NANO|encoder_decoder:lin_act_dec
+|DE10_NANO|linear_actuator:l1|encoder_decoder:lin_act_dec
 iClk => last_Signal.CLK
 iClk => oCount~reg0.CLK
 iSignal => always0.IN1
@@ -175,7 +187,7 @@ iSignal => last_Signal.DATAIN
 oCount <= oCount~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE10_NANO|position_counter:lin_act_pos
+|DE10_NANO|linear_actuator:l1|position_counter:lin_act_pos
 iClk => ~NO_FANOUT~
 iDirection => always0.IN1
 iDirection => always0.IN1
@@ -225,7 +237,7 @@ oSpeed[9] <= <GND>
 oSpeed[10] <= <GND>
 
 
-|DE10_NANO|SPI_slave:lin_act_com
+|DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com
 iClk => byte_data_sent[0].CLK
 iClk => byte_data_sent[1].CLK
 iClk => byte_data_sent[2].CLK
@@ -325,7 +337,7 @@ oRx[14] <= oRx[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 oRx[15] <= oRx[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE10_NANO|speed_decoder:lin_act_spd
+|DE10_NANO|linear_actuator:l1|speed_decoder:lin_act_spd
 iVelocity[0] => Add0.IN32
 iVelocity[0] => oDuty.DATAA
 iVelocity[1] => Add0.IN31
@@ -393,7 +405,7 @@ oDuty[14] <= oDuty.DB_MAX_OUTPUT_PORT_TYPE
 oDuty[15] <= oDuty.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DE10_NANO|PWM:lin_act_pwm
+|DE10_NANO|linear_actuator:l1|PWM:lin_act_pwm
 iClk => oPwm~reg0.CLK
 iClk => counter1[0].CLK
 iClk => counter1[1].CLK
