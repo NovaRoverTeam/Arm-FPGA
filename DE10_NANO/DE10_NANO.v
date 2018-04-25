@@ -67,8 +67,90 @@ linear_actuator l1 (	.iClk(FPGA_CLK1_50),
 							.oMISO(ARDUINO_IO[12]),
 							.oDir(GPIO_1[0]),
 							.oPwm(GPIO_1[1]));
+							
+wormgear_motor m1 (	.iClk(FPGA_CLK1_50),
+							.iEncA(GPIO_1[33]),
+							.iEncB(GPIO_1[32]),
+							.iRst(!KEY[1]),
+							.iSSEL(ARDUINO_IO[9]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_1[2]),
+							.oPwm(GPIO_1[3]));
+							
+							
 	
 endmodule
+
+module wormgear_motor (iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm);
+	input iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK;
+	output oDir, oPwm, oMISO;
+	
+	
+	//=======================================================
+	//  REG/WIRE declarations
+	//=======================================================
+
+	wire wormgear_filteredA;
+	wire wormgear_filteredB;
+	wire wormgear_count;
+	wire [14:0] wormgear_position;
+
+	wire [15:0] wormgear_velocity;
+	wire wormgear_direction;
+	wire [15:0] wormgear_duty;
+
+		
+
+	
+
+	//=======================================================
+	//  Structural coding
+	//=======================================================
+
+	digital_filter wormgear_encA (	.iClk(iClk),
+											.iIn(iEncA),
+											.oOut(wormgear_filteredA));
+											
+	digital_filter wormgear_encB (	.iClk(iClk),
+											.iIn(iEncB),
+											.oOut(wormgear_filteredB));
+											
+	quaderature_decoder	wormgear_dec(.iClk(iClk),
+											.iSignalA(wormgear_filteredA), 
+											.iSignalB(wormgear_filteredB),
+											.oDirection(wormgear_direction),
+											.oCount(wormgear_count));										
+
+	position_counter wormgear_pos (.iCount(wormgear_count),
+											.iDirection(!wormgear_direction),
+											.iRst(iRst),
+											.oPosition(wormgear_position));
+											defparam wormgear_pos .width=15;
+											defparam wormgear_pos .MAX=24000;
+
+
+	SPI_slave wormgear_com (			.iClk(iClk), 
+											.iSCK(iSCK), 
+											.iMOSI(iMOSI), 
+											.oMISO(oMISO), 
+											.iSSEL(iSSEL), 
+											.oRx(wormgear_velocity),
+											.iTx({5'd0,wormgear_position}));
+											
+	speed_decoder wormgear_spd (	.iVelocity(wormgear_velocity),
+											.oDirection(oDir),
+											.oDuty(wormgear_duty));
+								
+	PWM wormgear_pwm (	.iClk(iClk), 
+							.iDuty(wormgear_duty[11:0]),
+							.oPwm(oPwm));
+							defparam wormgear_pwm.frequency = 10000;
+							defparam wormgear_pwm.width = 12;
+
+
+endmodule 
 
 module linear_actuator (iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm);
 	input iClk, iEnc, iRst, iSSEL, iMOSI, iSCK;
@@ -89,7 +171,7 @@ module linear_actuator (iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm)
 
 		
 
-	assign oDir = lin_act_direction;
+	assign oDir = !lin_act_direction;
 
 	//=======================================================
 	//  Structural coding

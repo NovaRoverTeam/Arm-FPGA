@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_NANO
-Wed Apr 25 17:34:59 2018
+Thu Apr 26 00:04:24 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -21,13 +21,21 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  13. Parameter Settings for User Entity Instance: linear_actuator:l1|position_counter:lin_act_pos
  14. Parameter Settings for User Entity Instance: linear_actuator:l1|speed_decoder:lin_act_spd
  15. Parameter Settings for User Entity Instance: linear_actuator:l1|PWM:lin_act_pwm
- 16. Port Connectivity Checks: "linear_actuator:l1|speed_decoder:lin_act_spd"
- 17. Port Connectivity Checks: "linear_actuator:l1|SPI_slave:lin_act_com"
- 18. Port Connectivity Checks: "linear_actuator:l1|position_counter:lin_act_pos"
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
- 22. Analysis & Synthesis Suppressed Messages
+ 16. Parameter Settings for User Entity Instance: wormgear_motor:m1|digital_filter:wormgear_encA
+ 17. Parameter Settings for User Entity Instance: wormgear_motor:m1|digital_filter:wormgear_encB
+ 18. Parameter Settings for User Entity Instance: wormgear_motor:m1|position_counter:wormgear_pos
+ 19. Parameter Settings for User Entity Instance: wormgear_motor:m1|speed_decoder:wormgear_spd
+ 20. Parameter Settings for User Entity Instance: wormgear_motor:m1|PWM:wormgear_pwm
+ 21. Port Connectivity Checks: "wormgear_motor:m1|speed_decoder:wormgear_spd"
+ 22. Port Connectivity Checks: "wormgear_motor:m1|SPI_slave:wormgear_com"
+ 23. Port Connectivity Checks: "wormgear_motor:m1|position_counter:wormgear_pos"
+ 24. Port Connectivity Checks: "linear_actuator:l1|speed_decoder:lin_act_spd"
+ 25. Port Connectivity Checks: "linear_actuator:l1|SPI_slave:lin_act_com"
+ 26. Port Connectivity Checks: "linear_actuator:l1|position_counter:lin_act_pos"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+ 30. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -53,17 +61,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Apr 25 17:34:59 2018       ;
+; Analysis & Synthesis Status     ; Successful - Thu Apr 26 00:04:24 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 113                                         ;
+; Total registers                 ; 214                                         ;
 ; Total pins                      ; 145                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 1                                           ;
+; Total DSP Blocks                ; 2                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -165,25 +173,25 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                            ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; de10_nano.v                      ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; de10_nano.v                      ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------+
@@ -191,42 +199,50 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------+
 ; Resource                                    ; Usage              ;
 +---------------------------------------------+--------------------+
-; Estimate of Logic utilization (ALMs needed) ; 92                 ;
+; Estimate of Logic utilization (ALMs needed) ; 199                ;
 ;                                             ;                    ;
-; Combinational ALUT usage for logic          ; 140                ;
+; Combinational ALUT usage for logic          ; 294                ;
 ;     -- 7 input functions                    ; 1                  ;
-;     -- 6 input functions                    ; 28                 ;
-;     -- 5 input functions                    ; 19                 ;
-;     -- 4 input functions                    ; 14                 ;
-;     -- <=3 input functions                  ; 78                 ;
+;     -- 6 input functions                    ; 70                 ;
+;     -- 5 input functions                    ; 51                 ;
+;     -- 4 input functions                    ; 33                 ;
+;     -- <=3 input functions                  ; 139                ;
 ;                                             ;                    ;
-; Dedicated logic registers                   ; 113                ;
+; Dedicated logic registers                   ; 214                ;
 ;                                             ;                    ;
 ; I/O pins                                    ; 145                ;
 ;                                             ;                    ;
-; Total DSP Blocks                            ; 1                  ;
+; Total DSP Blocks                            ; 2                  ;
 ;                                             ;                    ;
 ; Maximum fan-out node                        ; FPGA_CLK1_50~input ;
-; Maximum fan-out                             ; 102                ;
-; Total fan-out                               ; 1114               ;
-; Average fan-out                             ; 1.74               ;
+; Maximum fan-out                             ; 188                ;
+; Total fan-out                               ; 2100               ;
+; Average fan-out                             ; 2.35               ;
 +---------------------------------------------+--------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                          ;
-+--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                        ; Entity Name      ; Library Name ;
-+--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+------------------+--------------+
-; |DE10_NANO                           ; 140 (0)             ; 113 (0)                   ; 0                 ; 1          ; 145  ; 0            ; |DE10_NANO                                                 ; DE10_NANO        ; work         ;
-;    |linear_actuator:l1|              ; 140 (0)             ; 113 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1                              ; linear_actuator  ; work         ;
-;       |PWM:lin_act_pwm|              ; 44 (44)             ; 28 (28)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|PWM:lin_act_pwm              ; PWM              ; work         ;
-;       |SPI_slave:lin_act_com|        ; 18 (18)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com        ; SPI_slave        ; work         ;
-;       |digital_filter:lin_act_enc|   ; 37 (37)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|digital_filter:lin_act_enc   ; digital_filter   ; work         ;
-;       |encoder_decoder:lin_act_dec|  ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|encoder_decoder:lin_act_dec  ; encoder_decoder  ; work         ;
-;       |position_counter:lin_act_pos| ; 16 (16)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|position_counter:lin_act_pos ; position_counter ; work         ;
-;       |speed_decoder:lin_act_spd|    ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|speed_decoder:lin_act_spd    ; speed_decoder    ; work         ;
-+--------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                           ; Entity Name         ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+---------------------+--------------+
+; |DE10_NANO                               ; 294 (0)             ; 214 (0)                   ; 0                 ; 2          ; 145  ; 0            ; |DE10_NANO                                                    ; DE10_NANO           ; work         ;
+;    |linear_actuator:l1|                  ; 143 (0)             ; 113 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1                                 ; linear_actuator     ; work         ;
+;       |PWM:lin_act_pwm|                  ; 44 (44)             ; 28 (28)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|PWM:lin_act_pwm                 ; PWM                 ; work         ;
+;       |SPI_slave:lin_act_com|            ; 20 (20)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com           ; SPI_slave           ; work         ;
+;       |digital_filter:lin_act_enc|       ; 38 (38)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|digital_filter:lin_act_enc      ; digital_filter      ; work         ;
+;       |encoder_decoder:lin_act_dec|      ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|encoder_decoder:lin_act_dec     ; encoder_decoder     ; work         ;
+;       |position_counter:lin_act_pos|     ; 16 (16)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|position_counter:lin_act_pos    ; position_counter    ; work         ;
+;       |speed_decoder:lin_act_spd|        ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:l1|speed_decoder:lin_act_spd       ; speed_decoder       ; work         ;
+;    |wormgear_motor:m1|                   ; 151 (0)             ; 101 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:m1                                  ; wormgear_motor      ; work         ;
+;       |PWM:wormgear_pwm|                 ; 11 (11)             ; 1 (1)                     ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:m1|PWM:wormgear_pwm                 ; PWM                 ; work         ;
+;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 53 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:m1|SPI_slave:wormgear_com           ; SPI_slave           ; work         ;
+;       |digital_filter:wormgear_encA|     ; 39 (39)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:m1|digital_filter:wormgear_encA     ; digital_filter      ; work         ;
+;       |digital_filter:wormgear_encB|     ; 39 (39)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:m1|digital_filter:wormgear_encB     ; digital_filter      ; work         ;
+;       |position_counter:wormgear_pos|    ; 22 (22)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:m1|position_counter:wormgear_pos    ; position_counter    ; work         ;
+;       |quaderature_decoder:wormgear_dec| ; 2 (2)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:m1|quaderature_decoder:wormgear_dec ; quaderature_decoder ; work         ;
+;       |speed_decoder:wormgear_spd|       ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:m1|speed_decoder:wormgear_spd       ; speed_decoder       ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -235,21 +251,54 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------------+
 ; Statistic                       ; Number Used ;
 +---------------------------------+-------------+
-; Two Independent 18x18           ; 1           ;
-; Total number of DSP blocks      ; 1           ;
+; Two Independent 18x18           ; 2           ;
+; Total number of DSP blocks      ; 2           ;
 ;                                 ;             ;
-; Fixed Point Unsigned Multiplier ; 1           ;
+; Fixed Point Unsigned Multiplier ; 2           ;
 +---------------------------------+-------------+
 
 
-+---------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                        ;
-+------------------------------------------------------+--------------------+
-; Register name                                        ; Reason for Removal ;
-+------------------------------------------------------+--------------------+
-; linear_actuator:l1|SPI_slave:lin_act_com|oRx[12..14] ; Lost fanout        ;
-; Total Number of Removed Registers = 3                ;                    ;
-+------------------------------------------------------+--------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                    ;
++------------------------------------------------------+----------------------------------------------------------------+
+; Register name                                        ; Reason for Removal                                             ;
++------------------------------------------------------+----------------------------------------------------------------+
+; wormgear_motor:m1|SPI_slave:wormgear_com|oRx[12..14] ; Lost fanout                                                    ;
+; linear_actuator:l1|SPI_slave:lin_act_com|oRx[12..14] ; Lost fanout                                                    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[26]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[26]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[25]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[25]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[24]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[24]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[23]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[23]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[22]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[22]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[21]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[21]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[20]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[20]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[19]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[19]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[18]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[18]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[17]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[17]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[16]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[16]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[15]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[15]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[14]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[14]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[13]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[13]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[12]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[12]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[11]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[11]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[10]      ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[10]    ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[9]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[9]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[8]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[8]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[7]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[7]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[6]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[6]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[5]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[5]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[4]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[4]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[3]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[3]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[2]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[2]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[1]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[1]     ;
+; wormgear_motor:m1|PWM:wormgear_pwm|counter1[0]       ; Merged with linear_actuator:l1|PWM:lin_act_pwm|counter1[0]     ;
+; wormgear_motor:m1|SPI_slave:wormgear_com|iSCKr[2]    ; Merged with linear_actuator:l1|SPI_slave:lin_act_com|iSCKr[2]  ;
+; wormgear_motor:m1|SPI_slave:wormgear_com|iSCKr[1]    ; Merged with linear_actuator:l1|SPI_slave:lin_act_com|iSCKr[1]  ;
+; wormgear_motor:m1|SPI_slave:wormgear_com|iSCKr[0]    ; Merged with linear_actuator:l1|SPI_slave:lin_act_com|iSCKr[0]  ;
+; wormgear_motor:m1|SPI_slave:wormgear_com|iMOSIr[1]   ; Merged with linear_actuator:l1|SPI_slave:lin_act_com|iMOSIr[1] ;
+; wormgear_motor:m1|SPI_slave:wormgear_com|iMOSIr[0]   ; Merged with linear_actuator:l1|SPI_slave:lin_act_com|iMOSIr[0] ;
+; Total Number of Removed Registers = 38               ;                                                                ;
++------------------------------------------------------+----------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -257,12 +306,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 113   ;
-; Number of registers using Synchronous Clear  ; 49    ;
-; Number of registers using Synchronous Load   ; 10    ;
-; Number of registers using Asynchronous Clear ; 11    ;
+; Total registers                              ; 214   ;
+; Number of registers using Synchronous Clear  ; 87    ;
+; Number of registers using Synchronous Load   ; 24    ;
+; Number of registers using Asynchronous Clear ; 26    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 60    ;
+; Number of registers using Clock Enable       ; 124   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -272,9 +321,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|bitcnt[0]          ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|byte_data_sent[6]  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|byte_data_sent[14] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|bitcnt[1]          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:m1|SPI_slave:wormgear_com|bitcnt[1]          ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|byte_data_sent[1]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:l1|SPI_slave:lin_act_com|byte_data_sent[12] ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:m1|SPI_slave:wormgear_com|byte_data_sent[10] ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:m1|digital_filter:wormgear_encB|count        ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:m1|digital_filter:wormgear_encA|count        ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|linear_actuator:l1|digital_filter:lin_act_enc|count         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 
@@ -323,6 +376,89 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wormgear_motor:m1|digital_filter:wormgear_encA ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; samples        ; 4095  ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wormgear_motor:m1|digital_filter:wormgear_encB ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; samples        ; 4095  ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wormgear_motor:m1|position_counter:wormgear_pos ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; width          ; 15    ; Signed Integer                                                      ;
+; MAX            ; 24000 ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wormgear_motor:m1|speed_decoder:wormgear_spd ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; width          ; 16    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wormgear_motor:m1|PWM:wormgear_pwm ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; width          ; 12    ; Signed Integer                                         ;
+; frequency      ; 10000 ; Signed Integer                                         ;
+; n              ; 4096  ; Signed Integer                                         ;
+; maxclk         ; 5000  ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wormgear_motor:m1|speed_decoder:wormgear_spd"                                                ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; oDuty[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wormgear_motor:m1|SPI_slave:wormgear_com"                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; iTx     ; Input ; Warning  ; Input port expression (20 bits) is wider than the input port (16 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; iTx[15] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wormgear_motor:m1|position_counter:wormgear_pos"                                                                                               ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                                      ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; iClk   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; oSpeed ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "linear_actuator:l1|speed_decoder:lin_act_spd"                                                ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -358,32 +494,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 113                         ;
-;     ENA               ; 39                          ;
-;     ENA CLR           ; 11                          ;
-;     ENA SCLR SLD      ; 10                          ;
-;     SCLR              ; 39                          ;
-;     plain             ; 14                          ;
+; arriav_ff             ; 214                         ;
+;     ENA               ; 74                          ;
+;     ENA CLR           ; 26                          ;
+;     ENA SCLR SLD      ; 24                          ;
+;     SCLR              ; 63                          ;
+;     plain             ; 27                          ;
 ; arriav_io_obuf        ; 95                          ;
-; arriav_lcell_comb     ; 141                         ;
-;     arith             ; 62                          ;
-;         1 data inputs ; 52                          ;
-;         4 data inputs ; 2                           ;
-;         5 data inputs ; 8                           ;
+; arriav_lcell_comb     ; 295                         ;
+;     arith             ; 113                         ;
+;         1 data inputs ; 89                          ;
+;         4 data inputs ; 4                           ;
+;         5 data inputs ; 20                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 78                          ;
+;     normal            ; 181                         ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 10                          ;
-;         3 data inputs ; 16                          ;
-;         4 data inputs ; 12                          ;
-;         5 data inputs ; 11                          ;
-;         6 data inputs ; 28                          ;
-; arriav_mac            ; 1                           ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 33                          ;
+;         4 data inputs ; 29                          ;
+;         5 data inputs ; 31                          ;
+;         6 data inputs ; 70                          ;
+; arriav_mac            ; 2                           ;
 ; boundary_port         ; 145                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.30                        ;
-; Average LUT depth     ; 2.01                        ;
+; Max LUT depth         ; 4.70                        ;
+; Average LUT depth     ; 2.39                        ;
 +-----------------------+-----------------------------+
 
 
@@ -392,7 +528,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -402,218 +538,227 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Apr 25 17:34:42 2018
+    Info: Processing started: Thu Apr 26 00:04:14 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_NANO -c DE10_NANO
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Warning (12125): Using design file de10_nano.v, which is not specified as a design file for the current project, but contains definitions for 9 design units and 9 entities in project
-    Info (12023): Found entity 1: DE10_NANO File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 6
-    Info (12023): Found entity 2: linear_actuator File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 73
-    Info (12023): Found entity 3: speed_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 135
-    Info (12023): Found entity 4: SPI_slave File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 156
-    Info (12023): Found entity 5: PWM File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 238
-    Info (12023): Found entity 6: position_counter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 272
-    Info (12023): Found entity 7: quaderature_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 299
-    Info (12023): Found entity 8: encoder_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 360
-    Info (12023): Found entity 9: digital_filter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 382
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Warning (12125): Using design file de10_nano.v, which is not specified as a design file for the current project, but contains definitions for 10 design units and 10 entities in project
+    Info (12023): Found entity 1: DE10_NANO File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 6
+    Info (12023): Found entity 2: wormgear_motor File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 86
+    Info (12023): Found entity 3: linear_actuator File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 155
+    Info (12023): Found entity 4: speed_decoder File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 217
+    Info (12023): Found entity 5: SPI_slave File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 238
+    Info (12023): Found entity 6: PWM File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 320
+    Info (12023): Found entity 7: position_counter File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 354
+    Info (12023): Found entity 8: quaderature_decoder File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 381
+    Info (12023): Found entity 9: encoder_decoder File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 442
+    Info (12023): Found entity 10: digital_filter File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 464
 Info (12127): Elaborating entity "DE10_NANO" for the top level hierarchy
-Warning (10034): Output port "HDMI_TX_D" at de10_nano.v(32) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-Warning (10034): Output port "LED" at de10_nano.v(41) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-Warning (10034): Output port "ADC_CONVST" at de10_nano.v(9) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
-Warning (10034): Output port "ADC_SCK" at de10_nano.v(10) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
-Warning (10034): Output port "ADC_SDI" at de10_nano.v(11) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
-Warning (10034): Output port "HDMI_TX_CLK" at de10_nano.v(30) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-Warning (10034): Output port "HDMI_TX_DE" at de10_nano.v(31) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
-Warning (10034): Output port "HDMI_TX_HS" at de10_nano.v(33) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
-Warning (10034): Output port "HDMI_TX_VS" at de10_nano.v(35) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
-Info (12128): Elaborating entity "linear_actuator" for hierarchy "linear_actuator:l1" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 69
-Info (12128): Elaborating entity "digital_filter" for hierarchy "linear_actuator:l1|digital_filter:lin_act_enc" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 100
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(399): truncated value with size 32 to match size of target (12) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 399
-Info (12128): Elaborating entity "encoder_decoder" for hierarchy "linear_actuator:l1|encoder_decoder:lin_act_dec" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 104
-Info (12128): Elaborating entity "position_counter" for hierarchy "linear_actuator:l1|position_counter:lin_act_pos" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 109
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(289): truncated value with size 32 to match size of target (11) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 289
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(293): truncated value with size 32 to match size of target (11) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 293
-Warning (10034): Output port "oSpeed" at de10_nano.v(276) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 276
-Info (12128): Elaborating entity "SPI_slave" for hierarchy "linear_actuator:l1|SPI_slave:lin_act_com" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 120
-Warning (10036): Verilog HDL or VHDL warning at de10_nano.v(174): object "iSSEL_endmessage" assigned a value but never read File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 174
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(196): truncated value with size 17 to match size of target (16) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 196
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(221): truncated value with size 17 to match size of target (16) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 221
-Info (12128): Elaborating entity "speed_decoder" for hierarchy "linear_actuator:l1|speed_decoder:lin_act_spd" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 124
-Info (12128): Elaborating entity "PWM" for hierarchy "linear_actuator:l1|PWM:lin_act_pwm" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 128
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(258): truncated value with size 32 to match size of target (27) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 258
+Warning (10034): Output port "HDMI_TX_D" at de10_nano.v(32) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+Warning (10034): Output port "LED" at de10_nano.v(41) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+Warning (10034): Output port "ADC_CONVST" at de10_nano.v(9) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
+Warning (10034): Output port "ADC_SCK" at de10_nano.v(10) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
+Warning (10034): Output port "ADC_SDI" at de10_nano.v(11) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
+Warning (10034): Output port "HDMI_TX_CLK" at de10_nano.v(30) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+Warning (10034): Output port "HDMI_TX_DE" at de10_nano.v(31) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
+Warning (10034): Output port "HDMI_TX_HS" at de10_nano.v(33) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
+Warning (10034): Output port "HDMI_TX_VS" at de10_nano.v(35) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
+Info (12128): Elaborating entity "linear_actuator" for hierarchy "linear_actuator:l1" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 69
+Info (12128): Elaborating entity "digital_filter" for hierarchy "linear_actuator:l1|digital_filter:lin_act_enc" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 182
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(481): truncated value with size 32 to match size of target (12) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 481
+Info (12128): Elaborating entity "encoder_decoder" for hierarchy "linear_actuator:l1|encoder_decoder:lin_act_dec" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 186
+Info (12128): Elaborating entity "position_counter" for hierarchy "linear_actuator:l1|position_counter:lin_act_pos" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 191
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(371): truncated value with size 32 to match size of target (11) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 371
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(375): truncated value with size 32 to match size of target (11) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 375
+Warning (10034): Output port "oSpeed" at de10_nano.v(358) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 358
+Info (12128): Elaborating entity "SPI_slave" for hierarchy "linear_actuator:l1|SPI_slave:lin_act_com" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 202
+Warning (10036): Verilog HDL or VHDL warning at de10_nano.v(256): object "iSSEL_endmessage" assigned a value but never read File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 256
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(278): truncated value with size 17 to match size of target (16) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 278
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(303): truncated value with size 17 to match size of target (16) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 303
+Info (12128): Elaborating entity "speed_decoder" for hierarchy "linear_actuator:l1|speed_decoder:lin_act_spd" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 206
+Info (12128): Elaborating entity "PWM" for hierarchy "linear_actuator:l1|PWM:lin_act_pwm" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 210
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(340): truncated value with size 32 to match size of target (27) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 340
+Info (12128): Elaborating entity "wormgear_motor" for hierarchy "wormgear_motor:m1" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 80
+Info (12128): Elaborating entity "quaderature_decoder" for hierarchy "wormgear_motor:m1|quaderature_decoder:wormgear_dec" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 124
+Info (12128): Elaborating entity "position_counter" for hierarchy "wormgear_motor:m1|position_counter:wormgear_pos" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 129
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(371): truncated value with size 32 to match size of target (15) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 371
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(375): truncated value with size 32 to match size of target (15) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 375
+Warning (10034): Output port "oSpeed" at de10_nano.v(358) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 358
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "linear_actuator:l1|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 84
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Warning (12110): Net "linear_actuator:l1|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 166
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[0]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[1]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[0]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[1]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[2]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[3]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 16
-    Warning (13040): bidirectional pin "HDMI_I2C_SCL" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 24
-    Warning (13040): bidirectional pin "HDMI_I2C_SDA" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 25
-    Warning (13040): bidirectional pin "HDMI_I2S" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "HDMI_LRCLK" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 27
-    Warning (13040): bidirectional pin "HDMI_MCLK" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 28
-    Warning (13040): bidirectional pin "HDMI_SCLK" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 29
-    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
-    Warning (13040): bidirectional pin "GPIO_1[2]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
+    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 16
+    Warning (13040): bidirectional pin "HDMI_I2C_SCL" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 24
+    Warning (13040): bidirectional pin "HDMI_I2C_SDA" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 25
+    Warning (13040): bidirectional pin "HDMI_I2S" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "HDMI_LRCLK" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 27
+    Warning (13040): bidirectional pin "HDMI_MCLK" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 28
+    Warning (13040): bidirectional pin "HDMI_SCLK" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 29
+    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GPIO_1[0]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13010): Node "GPIO_1[1]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[0]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[1]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[2]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[3]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
-    Warning (13410): Pin "ADC_SCK" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
-    Warning (13410): Pin "ADC_SDI" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
-    Warning (13410): Pin "HDMI_TX_CLK" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13410): Pin "HDMI_TX_DE" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
-    Warning (13410): Pin "HDMI_TX_D[0]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[1]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[2]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[3]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[4]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[5]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[6]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[7]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[8]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[9]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[10]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[11]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[12]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[13]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[14]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[15]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[16]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[17]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[18]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[19]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[20]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[21]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[22]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_D[23]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-    Warning (13410): Pin "HDMI_TX_HS" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
-    Warning (13410): Pin "HDMI_TX_VS" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
-    Warning (13410): Pin "LED[0]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[1]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[2]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[3]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[4]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[5]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[6]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[7]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
+    Warning (13410): Pin "ADC_SCK" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
+    Warning (13410): Pin "ADC_SDI" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
+    Warning (13410): Pin "HDMI_TX_CLK" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13410): Pin "HDMI_TX_DE" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 31
+    Warning (13410): Pin "HDMI_TX_D[0]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[1]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[2]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[3]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[4]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[5]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[6]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[7]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[8]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[9]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[10]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[11]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[12]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[13]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[14]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[15]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[16]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[17]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[18]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[19]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[20]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[21]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[22]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_D[23]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
+    Warning (13410): Pin "HDMI_TX_HS" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
+    Warning (13410): Pin "HDMI_TX_VS" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
+    Warning (13410): Pin "LED[0]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[1]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[2]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[3]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[4]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[5]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[6]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+    Warning (13410): Pin "LED[7]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 3 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ADC_SDO" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 12
-    Warning (15610): No output dependent on input pin "FPGA_CLK2_50" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (15610): No output dependent on input pin "FPGA_CLK3_50" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 21
-    Warning (15610): No output dependent on input pin "HDMI_TX_INT" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 34
-    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 38
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
-Info (21057): Implemented 339 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "ADC_SDO" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 12
+    Warning (15610): No output dependent on input pin "FPGA_CLK2_50" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (15610): No output dependent on input pin "FPGA_CLK3_50" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 21
+    Warning (15610): No output dependent on input pin "HDMI_TX_INT" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 34
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 38
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 44
+Info (21057): Implemented 552 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 39 output pins
     Info (21060): Implemented 95 bidirectional pins
-    Info (21061): Implemented 193 logic cells
-    Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 171 warnings
-    Info: Peak virtual memory: 727 megabytes
-    Info: Processing ended: Wed Apr 25 17:34:59 2018
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:34
+    Info (21061): Implemented 405 logic cells
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 176 warnings
+    Info: Peak virtual memory: 752 megabytes
+    Info: Processing ended: Thu Apr 26 00:04:24 2018
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg.
+The suppressed messages can be found in C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg.
 
 
