@@ -4,6 +4,38 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[7]",
+					"strict" : false
+				},
+				{
 					"name" : "ARDUINO_IO[9]",
 					"strict" : false
 				},
@@ -24,15 +56,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_1[0]",
-					"strict" : false
-				},
-				{
 					"name" : "GPIO_1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO_1[2]",
 					"strict" : false
 				},
 				{
@@ -40,11 +64,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_1[32]",
+					"name" : "GPIO_1[5]",
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_1[33]",
+					"name" : "GPIO_1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_1[30]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_1[31]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_1[34]",
 					"strict" : false
 				},
 				{

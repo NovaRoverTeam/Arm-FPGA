@@ -63,15 +63,14 @@ HDMI_TX_INT => ~NO_FANOUT~
 HDMI_TX_VS <= <GND>
 KEY[0] => ~NO_FANOUT~
 KEY[1] => _.IN1
-KEY[1] => _.IN1
-LED[0] <= <GND>
-LED[1] <= <GND>
-LED[2] <= <GND>
-LED[3] <= <GND>
-LED[4] <= <GND>
-LED[5] <= <GND>
-LED[6] <= <GND>
-LED[7] <= <GND>
+LED[0] <= LED[0].DB_MAX_OUTPUT_PORT_TYPE
+LED[1] <= LED[1].DB_MAX_OUTPUT_PORT_TYPE
+LED[2] <= LED[2].DB_MAX_OUTPUT_PORT_TYPE
+LED[3] <= LED[3].DB_MAX_OUTPUT_PORT_TYPE
+LED[4] <= LED[4].DB_MAX_OUTPUT_PORT_TYPE
+LED[5] <= LED[5].DB_MAX_OUTPUT_PORT_TYPE
+LED[6] <= LED[6].DB_MAX_OUTPUT_PORT_TYPE
+LED[7] <= LED[7].DB_MAX_OUTPUT_PORT_TYPE
 SW[0] => ~NO_FANOUT~
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
@@ -112,14 +111,14 @@ GPIO_0[32] <> <UNC>
 GPIO_0[33] <> <UNC>
 GPIO_0[34] <> <UNC>
 GPIO_0[35] <> <UNC>
-GPIO_1[0] <> linear_actuator:l1.oDir
-GPIO_1[1] <> linear_actuator:l1.oPwm
-GPIO_1[2] <> wormgear_motor:m1.oDir
-GPIO_1[3] <> wormgear_motor:m1.oPwm
+GPIO_1[0] <> <UNC>
+GPIO_1[1] <> linear_actuator:l1.oDir
+GPIO_1[2] <> <UNC>
+GPIO_1[3] <> linear_actuator:l1.oPwm
 GPIO_1[4] <> <UNC>
-GPIO_1[5] <> <UNC>
+GPIO_1[5] <> wormgear_motor:m1.oDir
 GPIO_1[6] <> <UNC>
-GPIO_1[7] <> <UNC>
+GPIO_1[7] <> wormgear_motor:m1.oPwm
 GPIO_1[8] <> <UNC>
 GPIO_1[9] <> <UNC>
 GPIO_1[10] <> <UNC>
@@ -142,12 +141,11 @@ GPIO_1[26] <> <UNC>
 GPIO_1[27] <> <UNC>
 GPIO_1[28] <> <UNC>
 GPIO_1[29] <> <UNC>
-GPIO_1[30] <> <UNC>
-GPIO_1[31] <> <UNC>
-GPIO_1[32] <> wormgear_motor:m1.iEncB
-GPIO_1[33] <> wormgear_motor:m1.iEncA
-GPIO_1[34] <> <UNC>
-GPIO_1[35] <> linear_actuator:l1.iEnc
+GPIO_1[31] <> wormgear_motor:m1.iEncA
+GPIO_1[32] <> <UNC>
+GPIO_1[33] <> <UNC>
+GPIO_1[34] <> linear_actuator:l1.iEnc
+GPIO_1[35] <> wormgear_motor:m1.iEncB
 
 
 |DE10_NANO|linear_actuator:l1

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_NANO
-Thu Apr 26 00:04:24 2018
+Thu Apr 26 23:25:56 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -61,7 +61,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Apr 26 00:04:24 2018       ;
+; Analysis & Synthesis Status     ; Successful - Thu Apr 26 23:25:56 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
@@ -216,8 +216,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                    ;
 ; Maximum fan-out node                        ; FPGA_CLK1_50~input ;
 ; Maximum fan-out                             ; 188                ;
-; Total fan-out                               ; 2100               ;
-; Average fan-out                             ; 2.35               ;
+; Total fan-out                               ; 2108               ;
+; Average fan-out                             ; 2.36               ;
 +---------------------------------------------+--------------------+
 
 
@@ -538,7 +538,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Apr 26 00:04:14 2018
+    Info: Processing started: Thu Apr 26 23:25:47 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_NANO -c DE10_NANO
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -555,7 +555,6 @@ Warning (12125): Using design file de10_nano.v, which is not specified as a desi
     Info (12023): Found entity 10: digital_filter File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 464
 Info (12127): Elaborating entity "DE10_NANO" for the top level hierarchy
 Warning (10034): Output port "HDMI_TX_D" at de10_nano.v(32) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
-Warning (10034): Output port "LED" at de10_nano.v(41) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
 Warning (10034): Output port "ADC_CONVST" at de10_nano.v(9) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
 Warning (10034): Output port "ADC_SCK" at de10_nano.v(10) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
 Warning (10034): Output port "ADC_SDI" at de10_nano.v(11) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 11
@@ -588,17 +587,18 @@ Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "linear_actuator:l1|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 166
 Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[0]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[1]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[2]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[3]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[5]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[7]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
     Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
     Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
     Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
-    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
     Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 15
@@ -654,10 +654,10 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
     Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
     Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[0]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[2]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
@@ -680,14 +680,13 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GPIO_1[0]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13010): Node "GPIO_1[1]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
-    Warning (13010): Node "GPIO_1[2]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
     Warning (13010): Node "GPIO_1[3]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[5]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
+    Warning (13010): Node "GPIO_1[7]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 51
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
     Warning (13410): Pin "ADC_SCK" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 10
@@ -720,15 +719,15 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HDMI_TX_D[23]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 32
     Warning (13410): Pin "HDMI_TX_HS" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 33
     Warning (13410): Pin "HDMI_TX_VS" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 35
-    Warning (13410): Pin "LED[0]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[1]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[2]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[3]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[4]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[5]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[6]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
-    Warning (13410): Pin "LED[7]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
 Info (286030): Timing-Driven Synthesis is running
+Warning (14632): Output pin "LED[7]" driven by bidirectional pin "GPIO_1[30]" cannot be tri-stated File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+Warning (14632): Output pin "LED[6]" driven by bidirectional pin "GPIO_1[30]" cannot be tri-stated File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+Warning (14632): Output pin "LED[5]" driven by bidirectional pin "GPIO_1[30]" cannot be tri-stated File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+Warning (14632): Output pin "LED[4]" driven by bidirectional pin "GPIO_1[30]" cannot be tri-stated File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+Warning (14632): Output pin "LED[3]" driven by bidirectional pin "GPIO_1[30]" cannot be tri-stated File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+Warning (14632): Output pin "LED[2]" driven by bidirectional pin "GPIO_1[30]" cannot be tri-stated File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+Warning (14632): Output pin "LED[1]" driven by bidirectional pin "GPIO_1[30]" cannot be tri-stated File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
+Warning (14632): Output pin "LED[0]" driven by bidirectional pin "GPIO_1[30]" cannot be tri-stated File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 41
 Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -749,11 +748,11 @@ Info (21057): Implemented 552 device resources after synthesis - the final resou
     Info (21060): Implemented 95 bidirectional pins
     Info (21061): Implemented 405 logic cells
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 176 warnings
-    Info: Peak virtual memory: 752 megabytes
-    Info: Processing ended: Thu Apr 26 00:04:24 2018
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 175 warnings
+    Info: Peak virtual memory: 756 megabytes
+    Info: Processing ended: Thu Apr 26 23:25:56 2018
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:20
 
 
 +------------------------------------------+

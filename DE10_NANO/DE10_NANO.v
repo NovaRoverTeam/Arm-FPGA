@@ -59,27 +59,27 @@ module DE10_NANO(
 	//=======================================================
 
 linear_actuator l1 (	.iClk(FPGA_CLK1_50),
-							.iEnc(GPIO_1[35]),
+							.iEnc(GPIO_1[34]),
 							.iRst(!KEY[1]),
 							.iSSEL(ARDUINO_IO[10]),
 							.iMOSI(ARDUINO_IO[11]),
 							.iSCK(ARDUINO_IO[13]),
 							.oMISO(ARDUINO_IO[12]),
-							.oDir(GPIO_1[0]),
-							.oPwm(GPIO_1[1]));
+							.oDir(GPIO_1[1]),
+							.oPwm(GPIO_1[3]));
 							
 wormgear_motor m1 (	.iClk(FPGA_CLK1_50),
-							.iEncA(GPIO_1[33]),
-							.iEncB(GPIO_1[32]),
-							.iRst(!KEY[1]),
+							.iEncA(GPIO_1[31]),
+							.iEncB(GPIO_1[35]),
+							.iRst(!GPIO_1[30]),
 							.iSSEL(ARDUINO_IO[9]),
 							.iMOSI(ARDUINO_IO[11]),
 							.iSCK(ARDUINO_IO[13]),
 							.oMISO(ARDUINO_IO[12]),
-							.oDir(GPIO_1[2]),
-							.oPwm(GPIO_1[3]));
+							.oDir(GPIO_1[5]),
+							.oPwm(GPIO_1[7]));
 							
-							
+assign LED = {GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30]};
 	
 endmodule
 
