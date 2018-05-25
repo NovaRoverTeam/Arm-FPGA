@@ -4,13 +4,6 @@
 //=======================================================
 
 module DE10_NANO(
-
-	//////////// ADC //////////
-	output		          		ADC_CONVST,
-	output		          		ADC_SCK,
-	output		          		ADC_SDI,
-	input 		          		ADC_SDO,
-
 	//////////// ARDUINO //////////
 	inout 		    [15:0]		ARDUINO_IO,
 	inout 		          		ARDUINO_RESET_N,
@@ -19,20 +12,6 @@ module DE10_NANO(
 	input 		          		FPGA_CLK1_50,
 	input 		          		FPGA_CLK2_50,
 	input 		          		FPGA_CLK3_50,
-
-	//////////// HDMI //////////
-	inout 		          		HDMI_I2C_SCL,
-	inout 		          		HDMI_I2C_SDA,
-	inout 		          		HDMI_I2S,
-	inout 		          		HDMI_LRCLK,
-	inout 		          		HDMI_MCLK,
-	inout 		          		HDMI_SCLK,
-	output		          		HDMI_TX_CLK,
-	output		          		HDMI_TX_DE,
-	output		    [23:0]		HDMI_TX_D,
-	output		          		HDMI_TX_HS,
-	input 		          		HDMI_TX_INT,
-	output		          		HDMI_TX_VS,
 
 	//////////// KEY //////////
 	input 		     [1:0]		KEY,
@@ -50,43 +29,266 @@ module DE10_NANO(
 	inout 		    [35:0]		GPIO_1
 );
 
-	//=======================================================
+//=======================================================
 	//  REG/WIRE declarations
 	//=======================================================
+	/*
+	// Base Signals
+	wire wBase_Enc = GPIO_0[0];
+	wire wBase_Dir = GPIO_0[6];
+	wire wBase_Pwm = GPIO_0[4];
+	wire wBase_Brake = GPIO_0[2];
+	wire wBase_Rst = GPIO_0[8];
+		
+	// Actuator Lower
+	wire wActuator_Lower_Dir = GPIO_0[17];
+	wire wActuator_Lower_PWM = GPIO_0[15];
+	wire wActuator_Lower_Enc = GPIO_0[1];
+	
+	// Actuator Lower
+	wire wActuator_Upper_Dir = GPIO_0[13];
+	wire wActuator_Upper_Pwm = GPIO_0[11];
+	wire wActuator_Upper_Enc = GPIO_0[10];	
+	
+	// Wrist Horizontal
+	wire wWrist_Horizontal_Dir = GPIO_0[23];
+	wire wWrist_Horizontal_Pwm = GPIO_0[25];
+	wire wWrist_Horizontal_EncA = GPIO_0[20];
+	wire wWrist_Horizontal_EncB = GPIO_0[22];
+	wire wWrist_Horizontal_Rst = GPIO_0[18];
+	
+	// Wrist Vertical
+	wire wWrist_Vertical_Dir = GPIO_0[19];
+	wire wWrist_Vertical_Pwm = GPIO_0[21];
+	wire wWrist_Vertical_EncA = GPIO_0[14];
+	wire wWrist_Vertical_EncB = GPIO_0[16];
+	wire wWrist_Vertical_Rst = GPIO_0[12];
+	
+	// Wrist Rotation
+	wire wWrist_Rotation_Dir = GPIO_0[29];
+	wire wWrist_Rotation_Pwm = GPIO_0[27];
+	wire wWrist_Rotation_EncA = GPIO_0[31];
+	wire wWrist_Rotation_EncB = GPIO_0[33];
+	wire wWrist_Rotation_Rst = GPIO_0[35];
+	
+	// Effector Angle
+	wire wEffector_Angle_Dir = GPIO_0[3];
+	wire wEffector_Angle_Pwm = GPIO_0[5];
+	wire wEffector_Angle_EncA = GPIO_0[32];
+	wire wEffector_Angle_EncB = GPIO_0[28];
+	wire wEffector_Angle_Rst = GPIO_0[34];
+	
+	// Effector Position
+	wire wEffector_Position_Dir = GPIO_0[7];
+	wire wEffector_Position_Pwm = GPIO_0[9];
+	wire wEffector_Position_EncA = GPIO_0[26];
+	wire wEffector_Position_EncB = GPIO_0[24];
+	wire wEffector_Position_Rst = GPIO_0[30];
+	
+	*/
+	//assign GPIO_1[35:0] = GPIO_0[35:0];
+	
+	//assign LED = {!wEffector_Position_Rst,!wEffector_Angle_Rst,!wWrist_Rotation_Rst,!wWrist_Vertical_Rst,!wWrist_Horizontal_Rst,0,0,!wBase_Rst};
 	
 	//=======================================================
 	//  Structural coding
 	//=======================================================
+	//assign GPIO_0[35:0] = {FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50};
+	
+	reg key0, key1;
+	
+	always @(posedge FPGA_CLK1_50) begin
+		key0 <= KEY[0];
+		key1 <= KEY[1];
+	end
 
-linear_actuator l1 (	.iClk(FPGA_CLK1_50),
-							.iEnc(GPIO_1[34]),
-							.iRst(!KEY[1]),
-							.iSSEL(ARDUINO_IO[10]),
-							.iMOSI(ARDUINO_IO[11]),
-							.iSCK(ARDUINO_IO[13]),
-							.oMISO(ARDUINO_IO[12]),
-							.oDir(GPIO_1[1]),
-							.oPwm(GPIO_1[3]));
-							
-wormgear_motor m1 (	.iClk(FPGA_CLK1_50),
-							.iEncA(GPIO_1[31]),
-							.iEncB(GPIO_1[35]),
-							.iRst(!GPIO_1[30]),
+	
+	linear_actuator lower (	.iClk(FPGA_CLK1_50),
+							.iEnc(GPIO_0[35]),
+							.iRst(!key1||!key0),
 							.iSSEL(ARDUINO_IO[9]),
 							.iMOSI(ARDUINO_IO[11]),
 							.iSCK(ARDUINO_IO[13]),
 							.oMISO(ARDUINO_IO[12]),
-							.oDir(GPIO_1[5]),
-							.oPwm(GPIO_1[7]));
-							
-assign LED = {GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30],GPIO_1[30]};
+							.oDir(GPIO_0[19]),
+							.oPwm(GPIO_0[5]));
+						
+	linear_actuator upper (	.iClk(FPGA_CLK1_50),
+							.iEnc(GPIO_0[24]),
+							.iRst(!key1||!key0),
+							.iSSEL(ARDUINO_IO[8]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_0[23]),
+							.oPwm(GPIO_0[25]));		
 	
+	wormgear_motor wrist_horizontal (	.iClk(FPGA_CLK1_50),
+							.iEncA(GPIO_0[14]),
+							.iEncB(GPIO_0[12]),
+							.iRst(!GPIO_0[16]||!key0),
+							.iSSEL(ARDUINO_IO[7]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_0[13]),
+							.oPwm(GPIO_0[11]));
+
+	wormgear_motor wrist_vertical (	.iClk(FPGA_CLK1_50),
+							.iEncA(!GPIO_0[18]),
+							.iEncB(!GPIO_0[20]),
+							.iRst(!GPIO_0[22]||!key0),
+							.iSSEL(ARDUINO_IO[6]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_0[17]),
+							.oPwm(GPIO_0[15]));
+							
+	
+	direct_drive wrist_rotation (	.iClk(FPGA_CLK1_50),
+							.iSSEL(ARDUINO_IO[5]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_0[7]),
+							.oPwm(GPIO_0[9])
+							);
+						
+							
+	base_motor b1 (	.iClk(FPGA_CLK1_50),
+							.iEnc(GPIO_0[34]),
+							.iRst(!GPIO_0[26]||!key0),
+							.iSSEL(ARDUINO_IO[10]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_0[28]),
+							.oPwm(GPIO_0[30]),
+							.oBrake(GPIO_0[32]));
+							
+							
+							
+	wormgear_motor end_angle (	.iClk(FPGA_CLK1_50),
+							.iEncA(GPIO_0[2]),
+							.iEncB(GPIO_0[6]),
+							.iRst(!GPIO_0[0]||!key0),
+							.iSSEL(ARDUINO_IO[4]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_0[33]),
+							.oPwm(GPIO_0[31]));
+							
+	wormgear_motor end_position (	.iClk(FPGA_CLK1_50),
+							.iEncA(GPIO_0[8]),
+							.iEncB(GPIO_0[10]),
+							.iRst(!GPIO_0[4]||!key0),
+							.iSSEL(ARDUINO_IO[3]),
+							.iMOSI(ARDUINO_IO[11]),
+							.iSCK(ARDUINO_IO[13]),
+							.oMISO(ARDUINO_IO[12]),
+							.oDir(GPIO_0[29]),
+							.oPwm(GPIO_0[27]));
+							
+							
+							
+
 endmodule
 
-module wormgear_motor (iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm);
-	input iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK;
+module base_motor(iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm, oBrake, oCount);
+	input iClk, iEnc, iRst, iSSEL, iMOSI, iSCK;
+	output oDir, oPwm, oBrake, oMISO;
+	output [11:0] oCount;
+	
+	//=======================================================
+	//  REG/WIRE declarations
+	//=======================================================
+
+	wire base_filtered;
+	wire base_count;
+	wire [11:0] base_position;
+
+	wire [15:0] base_velocity;
+	wire base_direction;
+	wire [15:0] base_duty;
+
+		
+	assign oCount = base_position;
+	
+	assign oDir = base_direction;
+	assign oBrake = !(base_velocity==0);
+
+	//=======================================================
+	//  Structural coding
+	//=======================================================
+
+	digital_filter base_enc (	.iClk(iClk),
+											.iIn(iEnc),
+											.oOut(base_filtered));
+											
+	encoder_decoder	base_dec(.iClk(iClk),
+											.iSignal(base_filtered), 
+											.oCount(base_count));										
+
+	position_counter base_pos (.iCount(base_count),
+											.iDirection(base_direction),
+											.iRst(iRst),
+											.oPosition(base_position));
+											defparam base_pos .width=15;
+											defparam base_pos .MAX=6000;
+
+	SPI_slave base_com (			.iClk(iClk), 
+											.iSCK(iSCK), 
+											.iMOSI(iMOSI), 
+											.oMISO(oMISO), 
+											.iSSEL(iSSEL), 
+											.oRx(base_velocity),
+											.iTx({5'd0,base_position}));
+											
+	speed_decoder base_spd (	.iVelocity(base_velocity),
+											.oDirection(base_direction),
+											.oDuty(base_duty));
+								
+	PWM base_pwm (	.iClk(iClk), 
+							.iDuty(4095-base_duty[11:0]),
+							.oPwm(oPwm));
+							defparam base_pwm.frequency = 10000;
+							defparam base_pwm.width = 12;
+endmodule 
+
+module direct_drive (iClk,iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm);
+	input iClk, iSSEL, iMOSI, iSCK;
 	output oDir, oPwm, oMISO;
 	
+	wire [15:0] motor_velocity;
+	wire [15:0] motor_duty;
+	
+	SPI_slave motor_com (			.iClk(iClk), 
+											.iSCK(iSCK), 
+											.iMOSI(iMOSI), 
+											.oMISO(oMISO), 
+											.iSSEL(iSSEL), 
+											.oRx(motor_velocity),
+											.iTx({16'd12345}));
+											
+	speed_decoder motor_spd (	.iVelocity(motor_velocity),
+											.oDirection(oDir),
+											.oDuty(motor_duty));
+								
+	PWM motor_pwm (	.iClk(iClk), 
+							.iDuty(motor_duty[11:0]),
+							.oPwm(oPwm));
+							defparam motor_pwm.frequency = 10000;
+							defparam motor_pwm.width = 12;
+
+endmodule 
+
+
+module wormgear_motor (iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm, oCount);
+	input iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK;
+	output oDir, oPwm, oMISO;
+	output [14:0] oCount;
 	
 	//=======================================================
 	//  REG/WIRE declarations
@@ -102,7 +304,7 @@ module wormgear_motor (iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir
 	wire [15:0] wormgear_duty;
 
 		
-
+	assign oCount = wormgear_position;
 	
 
 	//=======================================================
@@ -152,9 +354,10 @@ module wormgear_motor (iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir
 
 endmodule 
 
-module linear_actuator (iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm);
+module linear_actuator (iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm, oCount);
 	input iClk, iEnc, iRst, iSSEL, iMOSI, iSCK;
 	output oDir, oPwm, oMISO;
+	output [11:0] oCount;
 	
 	
 	//=======================================================
@@ -170,7 +373,7 @@ module linear_actuator (iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm)
 	wire [15:0] lin_act_duty;
 
 		
-
+	assign oCount = lin_act_position;
 	assign oDir = !lin_act_direction;
 
 	//=======================================================
@@ -488,5 +691,6 @@ module digital_filter(iClk, iIn, oOut);		// Filters signal change bounce by maki
 			last_In = iIn;
 		end
 endmodule
+
 
 

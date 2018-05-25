@@ -74,7 +74,7 @@
  ---------------------------------------------------------------------------------
 
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-CHIP  "DE10_NANO"  ASSIGNED TO AN: 5CSEBA6U23I7
+CHIP  "DE10_NANO"  ASSIGNED TO AN: 5CSEMA6U23I7
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
@@ -107,7 +107,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : A27       :        :                   :      
 GND                          : AA1       : gnd    :                   :         :           :                
 GND                          : AA2       : gnd    :                   :         :           :                
 GND                          : AA3       : gnd    :                   :         :           :                
-HDMI_I2C_SDA                 : AA4       : bidir  : 3.3-V LVTTL       :         : 3A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AA4       :        :                   :         : 3A        :                
 VCCIO3A                      : AA5       : power  :                   : 3.3V    : 3A        :                
 nCSO, DATA4                  : AA6       :        :                   :         : 3A        :                
 DCLK                         : AA8       :        :                   :         : 3A        :                
@@ -133,7 +133,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AA28      :        :                   :      
 GND                          : AB1       : gnd    :                   :         :           :                
 GND                          : AB2       : gnd    :                   :         :           :                
 GND                          : AB3       : gnd    :                   :         :           :                
-HDMI_TX_D[11]                : AB4       : output : 3.3-V LVTTL       :         : 3A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AB4       :        :                   :         : 3A        :                
 TCK                          : AB5       : input  :                   :         : 3A        :                
 AS_DATA3, DATA3              : AB6       :        :                   :         : 3A        :                
 GPIO_0[23]                   : AB23      : bidir  : 3.3-V LVTTL       :         : 5A        : Y              
@@ -145,7 +145,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AB28      :        :                   :      
 GND                          : AC1       : gnd    :                   :         :           :                
 GND                          : AC2       : gnd    :                   :         :           :                
 GND                          : AC3       : gnd    :                   :         :           :                
-ADC_SDI                      : AC4       : output : 3.3-V LVTTL       :         : 3A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AC4       :        :                   :         : 3A        :                
 AS_DATA2, DATA2              : AC5       :        :                   :         : 3A        :                
 AS_DATA1, DATA1              : AC6       :        :                   :         : 3A        :                
 TMS                          : AC7       : input  :                   :         : 3A        :                
@@ -161,22 +161,22 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AC28      :        :                   :      
 DNU                          : AD1       :        :                   :         :           :                
 DNU                          : AD2       :        :                   :         :           :                
 GND                          : AD3       : gnd    :                   :         :           :                
-ADC_SDO                      : AD4       : input  : 3.3-V LVTTL       :         : 3A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AD4       :        :                   :         : 3A        :                
 GPIO_0[10]                   : AD5       : bidir  : 3.3-V LVTTL       :         : 3A        : Y              
 GND                          : AD6       : gnd    :                   :         :           :                
 AS_DATA0, ASDO, DATA0        : AD7       :        :                   :         : 3A        :                
 GND                          : AD8       : gnd    :                   :         :           :                
 VCCPD3B4A                    : AD9       : power  :                   : 3.3V    : 3B, 4A    :                
-HDMI_TX_D[5]                 : AD10      : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[4]                 : AD11      : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[0]                 : AD12      : output : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AD10      :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AD11      :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AD12      :        :                   :         : 3B        :                
 VCCPD3B4A                    : AD13      : power  :                   : 3.3V    : 3B, 4A    :                
 GND                          : AD14      : gnd    :                   :         :           :                
 VCC_AUX                      : AD15      : power  :                   : 2.5V    :           :                
 VCCPD3B4A                    : AD16      : power  :                   : 3.3V    : 3B, 4A    :                
 GPIO_0[19]                   : AD17      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 VCCPD3B4A                    : AD18      : power  :                   : 3.3V    : 3B, 4A    :                
-HDMI_TX_DE                   : AD19      : output : 3.3-V LVTTL       :         : 4A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AD19      :        :                   :         : 4A        :                
 GPIO_0[17]                   : AD20      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 VCCPD3B4A                    : AD21      : power  :                   : 3.3V    : 3B, 4A    :                
 GND                          : AD22      : gnd    :                   :         :           :                
@@ -189,15 +189,15 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AD28      :        :                   :      
 GND                          : AE1       : gnd    :                   :         :           :                
 GND                          : AE2       : gnd    :                   :         :           :                
 GND                          : AE3       : gnd    :                   :         :           :                
-HDMI_TX_D[16]                : AE4       : output : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AE4       :        :                   :         : 3B        :                
 VREFB3AN0                    : AE5       : power  :                   :         : 3A        :                
 GPIO_0[13]                   : AE6       : bidir  : 3.3-V LVTTL       :         : 3A        : Y              
-HDMI_TX_D[12]                : AE7       : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[23]                : AE8       : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[10]                : AE9       : output : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AE7       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AE8       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AE9       :        :                   :         : 3B        :                
 VCCIO3B                      : AE10      : power  :                   : 3.3V    : 3B        :                
-HDMI_TX_D[6]                 : AE11      : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[1]                 : AE12      : output : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AE11      :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AE12      :        :                   :         : 3B        :                
 VCCIO3B                      : AE13      : power  :                   : 3.3V    : 3B        :                
 DNU                          : AE14      :        :                   :         :           :                
 ARDUINO_IO[9]                : AE15      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
@@ -218,13 +218,13 @@ GND                          : AF1       : gnd    :                   :         
 GND                          : AF2       : gnd    :                   :         :           :                
 GND                          : AF3       : gnd    :                   :         :           :                
 GPIO_0[8]                    : AF4       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[15]                : AF5       : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[13]                : AF6       : output : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AF5       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AF6       :        :                   :         : 3B        :                
 GPIO_0[6]                    : AF7       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[14]                : AF8       : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[22]                : AF9       : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[8]                 : AF10      : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_INT                  : AF11      : input  : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AF8       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AF9       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AF10      :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AF11      :        :                   :         : 3B        :                
 VREFB3BN0                    : AF12      : power  :                   :         : 3B        :                
 ARDUINO_IO[1]                : AF13      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 VCCIO4A                      : AF14      : power  :                   : 3.3V    : 4A        :                
@@ -246,8 +246,8 @@ GND                          : AG1       : gnd    :                   :         
 GND                          : AG2       : gnd    :                   :         :           :                
 GND                          : AG3       : gnd    :                   :         :           :                
 VCCIO3B                      : AG4       : power  :                   : 3.3V    : 3B        :                
-HDMI_TX_CLK                  : AG5       : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[21]                : AG6       : output : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AG5       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AG6       :        :                   :         : 3B        :                
 GND                          : AG7       : gnd    :                   :         :           :                
 ARDUINO_IO[6]                : AG8       : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 ARDUINO_IO[3]                : AG9       : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
@@ -270,11 +270,11 @@ GPIO_1[10]                   : AG25      : bidir  : 3.3-V LVTTL       :         
 GPIO_1[8]                    : AG26      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : AG27      : gnd    :                   :         :           :                
 GPIO_1[4]                    : AG28      : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
-HDMI_TX_D[17]                : AH2       : output : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AH2       :        :                   :         : 3B        :                
 GPIO_0[9]                    : AH3       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[18]                : AH4       : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[19]                : AH5       : output : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_D[20]                : AH6       : output : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AH4       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AH5       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : AH6       :        :                   :         : 3B        :                
 ARDUINO_RESET_N              : AH7       : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 ARDUINO_IO[7]                : AH8       : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 ARDUINO_IO[14]               : AH9       : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
@@ -635,12 +635,12 @@ DNU                          : T2        :        :                   :         
 GND                          : T3        : gnd    :                   :         :           :                
 VCC                          : T4        : power  :                   : 1.1V    :           :                
 VCC                          : T5        : power  :                   : 1.1V    :           :                
-HDMI_TX_HS                   : T8        : output : 3.3-V LVTTL       :         : 3A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T8        :        :                   :         : 3A        :                
 VCC                          : T9        : power  :                   : 1.1V    :           :                
 GND                          : T10       : gnd    :                   :         :           :                
-HDMI_LRCLK                   : T11       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_SCLK                    : T12       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_I2S                     : T13       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T11       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T12       :        :                   :         : 3B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T13       :        :                   :         : 3B        :                
 GND                          : T14       : gnd    :                   :         :           :                
 VCC                          : T15       : power  :                   : 1.1V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : T16       :        :                   :         : 6B        :                
@@ -660,9 +660,9 @@ GND                          : U3        : gnd    :                   :         
 VCCA_FPLL                    : U4        : power  :                   : 2.5V    :           :                
 GND                          : U5        : gnd    :                   :         :           :                
 DNU                          : U8        :        :                   :         :           :                
-ADC_CONVST                   : U9        : output : 3.3-V LVTTL       :         : 3A        : Y              
-HDMI_I2C_SCL                 : U10       : bidir  : 3.3-V LVTTL       :         : 3A        : Y              
-HDMI_MCLK                    : U11       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : U9        :        :                   :         : 3A        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U10       :        :                   :         : 3A        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U11       :        :                   :         : 3B        :                
 GND                          : U12       : gnd    :                   :         :           :                
 ARDUINO_IO[5]                : U13       : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
 ARDUINO_IO[4]                : U14       : bidir  : 3.3-V LVTTL       :         : 4A        : Y              
@@ -685,10 +685,10 @@ GND                          : V4        : gnd    :                   :         
 GND                          : V5        : gnd    :                   :         :           :                
 GND                          : V8        : gnd    :                   :         :           :                
 GND                          : V9        : gnd    :                   :         :           :                
-ADC_SCK                      : V10       : output : 3.3-V LVTTL       :         : 3A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : V10       :        :                   :         : 3A        :                
 FPGA_CLK1_50                 : V11       : input  : 3.3-V LVTTL       :         : 3B        : Y              
 GPIO_0[0]                    : V12       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
-HDMI_TX_VS                   : V13       : output : 3.3-V LVTTL       :         : 4A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : V13       :        :                   :         : 4A        :                
 GND                          : V14       : gnd    :                   :         :           :                
 LED[3]                       : V15       : output : 3.3-V LVTTL       :         : 5A        : Y              
 LED[2]                       : V16       : output : 3.3-V LVTTL       :         : 5A        : Y              
@@ -707,7 +707,7 @@ GND                          : W2        : gnd    :                   :         
 GND                          : W3        : gnd    :                   :         :           :                
 GND                          : W4        : gnd    :                   :         :           :                
 VCCA_FPLL                    : W5        : power  :                   : 2.5V    :           :                
-HDMI_TX_D[2]                 : W8        : output : 3.3-V LVTTL       :         : 3A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W8        :        :                   :         : 3A        :                
 VCCIO3A                      : W9        : power  :                   : 3.3V    : 3A        :                
 TDI                          : W10       : input  :                   :         : 3A        :                
 GPIO_0[25]                   : W11       : bidir  : 3.3-V LVTTL       :         : 3B        : Y              
@@ -729,9 +729,9 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : W28       :        :                   :      
 DNU                          : Y1        :        :                   :         :           :                
 DNU                          : Y2        :        :                   :         :           :                
 GND                          : Y3        : gnd    :                   :         :           :                
-HDMI_TX_D[9]                 : Y4        : output : 3.3-V LVTTL       :         : 3A        : Y              
-HDMI_TX_D[7]                 : Y5        : output : 3.3-V LVTTL       :         : 3A        : Y              
-HDMI_TX_D[3]                 : Y8        : output : 3.3-V LVTTL       :         : 3A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y4        :        :                   :         : 3A        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y5        :        :                   :         : 3A        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y8        :        :                   :         : 3A        :                
 TDO                          : Y9        : output :                   :         : 3A        :                
 VCCPGM                       : Y10       : power  :                   : 1.8V/2.5V/3.0V/3.3V :           :                
 GPIO_0[32]                   : Y11       : bidir  : 3.3-V LVTTL       :         : 3A        : Y              
