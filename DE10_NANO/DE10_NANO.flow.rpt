@@ -1,5 +1,5 @@
 Flow report for DE10_NANO
-Thu May 24 11:58:18 2018
+Sat May 26 11:28:19 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu May 24 11:58:03 2018       ;
+; Flow Status                     ; Successful - Sat May 26 11:27:42 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/24/2018 11:55:55 ;
+; Start date & time ; 05/26/2018 11:23:19 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE10_NANO           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 169736355951112.152712695409000        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 169736355951112.152729779811652        ; --            ; --          ; --         ;
 ; ENABLE_SIGNALTAP                    ; Off                                    ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 100                                    ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; -40                                    ; --            ; --          ; --         ;
@@ -96,11 +96,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:24     ; 1.0                     ; 4828 MB             ; 00:00:34                           ;
-; Fitter                    ; 00:01:27     ; 1.0                     ; 6307 MB             ; 00:02:12                           ;
-; Assembler                 ; 00:00:13     ; 1.0                     ; 4855 MB             ; 00:00:10                           ;
-; TimeQuest Timing Analyzer ; 00:00:13     ; 1.2                     ; 5190 MB             ; 00:00:14                           ;
-; Total                     ; 00:02:17     ; --                      ; --                  ; 00:03:10                           ;
+; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 4839 MB             ; 00:00:49                           ;
+; Fitter                    ; 00:03:04     ; 1.0                     ; 6236 MB             ; 00:04:11                           ;
+; Assembler                 ; 00:00:31     ; 1.0                     ; 4864 MB             ; 00:00:21                           ;
+; TimeQuest Timing Analyzer ; 00:00:34     ; 1.2                     ; 5190 MB             ; 00:00:33                           ;
+; Total                     ; 00:04:50     ; --                      ; --                  ; 00:05:54                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

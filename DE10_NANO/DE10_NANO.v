@@ -216,7 +216,7 @@ module base_motor(iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm, oBrak
 		
 	assign oCount = base_position;
 	
-	assign oDir = base_direction;
+	assign oDir = !base_direction;
 	assign oBrake = !(base_velocity==0);
 
 	//=======================================================
