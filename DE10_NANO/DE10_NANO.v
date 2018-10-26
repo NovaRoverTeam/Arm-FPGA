@@ -96,12 +96,31 @@ module DE10_NANO(
 	//assign GPIO_0[35:0] = {FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50,FPGA_CLK1_50};
 	
 	reg key0, key1;
+	reg [10:0] count1000;
+	reg CLK50k;
 	
 	always @(posedge FPGA_CLK1_50) begin
 		key0 <= KEY[0];
 		key1 <= KEY[1];
 	end
+	
+	always @(posedge FPGA_CLK1_50) begin
+		
+		if (count1000 >= 250)
+			begin
+				count1000 <= 0;
+				CLK50k <= !CLK50k;
+			end
+		else
+			begin
+				count1000 <= count1000+1;
+			end
+	end
+	
+	assign GPIO_1[0] = CLK50k;
 
+	assign GPIO_1[34] = GPIO_0[0];
+	assign GPIO_1[35] = GPIO_0[8];
 	
 	linear_actuator lower (	.iClk(FPGA_CLK1_50),
 							.iEnc(GPIO_0[35]),
@@ -172,7 +191,7 @@ module DE10_NANO(
 	wormgear_motor end_angle (	.iClk(FPGA_CLK1_50),
 							.iEncA(GPIO_0[2]),
 							.iEncB(GPIO_0[6]),
-							.iRst(!GPIO_0[0]||!key0),
+							.iRst(!GPIO_0[4]||!key0),
 							.iSSEL(ARDUINO_IO[4]),
 							.iMOSI(ARDUINO_IO[11]),
 							.iSCK(ARDUINO_IO[13]),
@@ -181,9 +200,9 @@ module DE10_NANO(
 							.oPwm(GPIO_0[31]));
 							
 	wormgear_motor end_position (	.iClk(FPGA_CLK1_50),
-							.iEncA(GPIO_0[8]),
-							.iEncB(GPIO_0[10]),
-							.iRst(!GPIO_0[4]||!key0),
+							.iEncA(GPIO_0[0]),
+							.iEncB(GPIO_0[8]),
+							.iRst(!GPIO_0[10]||!key0),
 							.iSSEL(ARDUINO_IO[3]),
 							.iMOSI(ARDUINO_IO[11]),
 							.iSCK(ARDUINO_IO[13]),
@@ -191,7 +210,7 @@ module DE10_NANO(
 							.oDir(GPIO_0[29]),
 							.oPwm(GPIO_0[27]));
 							
-							
+
 							
 
 endmodule
@@ -342,6 +361,7 @@ module wormgear_motor (iClk, iEncA, iEncB, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir
 											.iTx({5'd0,wormgear_position}));
 											
 	speed_decoder wormgear_spd (	.iVelocity(wormgear_velocity),
+											.iRst(iRst),
 											.oDirection(oDir),
 											.oDuty(wormgear_duty));
 								
@@ -417,8 +437,9 @@ module linear_actuator (iClk, iEnc, iRst, iSSEL, iMOSI, iSCK, oMISO, oDir, oPwm,
 
 endmodule 
 
-module speed_decoder(iVelocity, oDirection, oDuty);
+module speed_decoder(iVelocity, iRst, oDirection, oDuty);
 	input [15:0] iVelocity;
+	input iRst;
 	output reg oDirection;
 	parameter width = 16;
 	output reg [width-1:0] oDuty;
@@ -433,7 +454,15 @@ module speed_decoder(iVelocity, oDirection, oDuty);
 			else 
 				begin
 					oDirection = 0;
-					oDuty = iVelocity;
+					
+					if (iRst == 1 && iVelocity == 4095)
+						begin
+							oDuty = 0;
+						end
+					else
+						begin
+							oDuty = iVelocity;
+						end
 				end
 		end
 endmodule

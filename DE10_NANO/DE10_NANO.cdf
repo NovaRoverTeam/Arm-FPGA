@@ -6,9 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEBA6) Path("C:/Users/james/Documents/Arm-FPGA/DE10_NANO/") File("Good_Config3_Base_Flipped.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 1));
-	P ActionCode(Ign)
-		Device PartName(5CSEBA6) MfrSpec(OpMask(0) SEC_Device(EPCS64) Child_OpMask(1 0) FullPath("C:/Users/james/Documents/Arm-FPGA/DE10_NANO/Good Config2 (pin moved).jic"));
+		Device PartName(5CSEBA6) Path("C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/") File("output_file2.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 1));
 
 ChainEnd;
 

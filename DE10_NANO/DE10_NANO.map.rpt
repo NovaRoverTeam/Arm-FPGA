@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_NANO
-Sat May 26 11:23:59 2018
+Fri Oct 26 13:27:05 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -99,13 +99,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 26 11:23:58 2018       ;
+; Analysis & Synthesis Status     ; Successful - Fri Oct 26 13:27:04 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 742                                         ;
+; Total registers                 ; 766                                         ;
 ; Total pins                      ; 106                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -211,25 +211,27 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                            ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; de10_nano.v                      ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; de10_nano.v                      ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------+
@@ -237,25 +239,25 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------+
 ; Resource                                    ; Usage              ;
 +---------------------------------------------+--------------------+
-; Estimate of Logic utilization (ALMs needed) ; 705                ;
+; Estimate of Logic utilization (ALMs needed) ; 749                ;
 ;                                             ;                    ;
-; Combinational ALUT usage for logic          ; 1031               ;
+; Combinational ALUT usage for logic          ; 1056               ;
 ;     -- 7 input functions                    ; 2                  ;
-;     -- 6 input functions                    ; 256                ;
+;     -- 6 input functions                    ; 317                ;
 ;     -- 5 input functions                    ; 189                ;
 ;     -- 4 input functions                    ; 124                ;
-;     -- <=3 input functions                  ; 460                ;
+;     -- <=3 input functions                  ; 424                ;
 ;                                             ;                    ;
-; Dedicated logic registers                   ; 742                ;
+; Dedicated logic registers                   ; 766                ;
 ;                                             ;                    ;
 ; I/O pins                                    ; 106                ;
 ;                                             ;                    ;
 ; Total DSP Blocks                            ; 8                  ;
 ;                                             ;                    ;
 ; Maximum fan-out node                        ; FPGA_CLK1_50~input ;
-; Maximum fan-out                             ; 645                ;
-; Total fan-out                               ; 6824               ;
-; Average fan-out                             ; 3.28               ;
+; Maximum fan-out                             ; 669                ;
+; Total fan-out                               ; 7143               ;
+; Average fan-out                             ; 3.35               ;
 +---------------------------------------------+--------------------+
 
 
@@ -264,7 +266,7 @@ refer to the applicable agreement for further details.
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name         ; Library Name ;
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+---------------------+--------------+
-; |DE10_NANO                               ; 1031 (6)            ; 742 (2)                   ; 0                 ; 8          ; 106  ; 0            ; |DE10_NANO                                                                  ; DE10_NANO           ; work         ;
+; |DE10_NANO                               ; 1056 (20)           ; 766 (14)                  ; 0                 ; 8          ; 106  ; 0            ; |DE10_NANO                                                                  ; DE10_NANO           ; work         ;
 ;    |base_motor:b1|                       ; 150 (4)             ; 120 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|base_motor:b1                                                    ; base_motor          ; work         ;
 ;       |PWM:base_pwm|                     ; 44 (44)             ; 28 (28)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|base_motor:b1|PWM:base_pwm                                       ; PWM                 ; work         ;
 ;       |SPI_slave:base_com|               ; 17 (17)             ; 61 (61)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|base_motor:b1|SPI_slave:base_com                                 ; SPI_slave           ; work         ;
@@ -290,38 +292,38 @@ refer to the applicable agreement for further details.
 ;       |encoder_decoder:lin_act_dec|      ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:upper|encoder_decoder:lin_act_dec                ; encoder_decoder     ; work         ;
 ;       |position_counter:lin_act_pos|     ; 16 (16)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:upper|position_counter:lin_act_pos               ; position_counter    ; work         ;
 ;       |speed_decoder:lin_act_spd|        ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|linear_actuator:upper|speed_decoder:lin_act_spd                  ; speed_decoder       ; work         ;
-;    |wormgear_motor:end_angle|            ; 149 (0)             ; 101 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle                                         ; wormgear_motor      ; work         ;
+;    |wormgear_motor:end_angle|            ; 152 (0)             ; 104 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle                                         ; wormgear_motor      ; work         ;
 ;       |PWM:wormgear_pwm|                 ; 11 (11)             ; 1 (1)                     ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|PWM:wormgear_pwm                        ; PWM                 ; work         ;
-;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 53 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|SPI_slave:wormgear_com                  ; SPI_slave           ; work         ;
+;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|SPI_slave:wormgear_com                  ; SPI_slave           ; work         ;
 ;       |digital_filter:wormgear_encA|     ; 38 (38)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|digital_filter:wormgear_encA            ; digital_filter      ; work         ;
 ;       |digital_filter:wormgear_encB|     ; 38 (38)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|digital_filter:wormgear_encB            ; digital_filter      ; work         ;
 ;       |position_counter:wormgear_pos|    ; 22 (22)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|position_counter:wormgear_pos           ; position_counter    ; work         ;
 ;       |quaderature_decoder:wormgear_dec| ; 2 (2)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|quaderature_decoder:wormgear_dec        ; quaderature_decoder ; work         ;
-;       |speed_decoder:wormgear_spd|       ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|speed_decoder:wormgear_spd              ; speed_decoder       ; work         ;
-;    |wormgear_motor:end_position|         ; 149 (0)             ; 101 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position                                      ; wormgear_motor      ; work         ;
+;       |speed_decoder:wormgear_spd|       ; 27 (27)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_angle|speed_decoder:wormgear_spd              ; speed_decoder       ; work         ;
+;    |wormgear_motor:end_position|         ; 152 (0)             ; 104 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position                                      ; wormgear_motor      ; work         ;
 ;       |PWM:wormgear_pwm|                 ; 11 (11)             ; 1 (1)                     ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|PWM:wormgear_pwm                     ; PWM                 ; work         ;
-;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 53 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|SPI_slave:wormgear_com               ; SPI_slave           ; work         ;
+;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|SPI_slave:wormgear_com               ; SPI_slave           ; work         ;
 ;       |digital_filter:wormgear_encA|     ; 38 (38)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|digital_filter:wormgear_encA         ; digital_filter      ; work         ;
 ;       |digital_filter:wormgear_encB|     ; 38 (38)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|digital_filter:wormgear_encB         ; digital_filter      ; work         ;
 ;       |position_counter:wormgear_pos|    ; 22 (22)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|position_counter:wormgear_pos        ; position_counter    ; work         ;
 ;       |quaderature_decoder:wormgear_dec| ; 2 (2)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|quaderature_decoder:wormgear_dec     ; quaderature_decoder ; work         ;
-;       |speed_decoder:wormgear_spd|       ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|speed_decoder:wormgear_spd           ; speed_decoder       ; work         ;
-;    |wormgear_motor:wrist_horizontal|     ; 150 (0)             ; 101 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal                                  ; wormgear_motor      ; work         ;
+;       |speed_decoder:wormgear_spd|       ; 27 (27)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:end_position|speed_decoder:wormgear_spd           ; speed_decoder       ; work         ;
+;    |wormgear_motor:wrist_horizontal|     ; 152 (0)             ; 104 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal                                  ; wormgear_motor      ; work         ;
 ;       |PWM:wormgear_pwm|                 ; 11 (11)             ; 1 (1)                     ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|PWM:wormgear_pwm                 ; PWM                 ; work         ;
-;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 53 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com           ; SPI_slave           ; work         ;
-;       |digital_filter:wormgear_encA|     ; 39 (39)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|digital_filter:wormgear_encA     ; digital_filter      ; work         ;
+;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com           ; SPI_slave           ; work         ;
+;       |digital_filter:wormgear_encA|     ; 38 (38)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|digital_filter:wormgear_encA     ; digital_filter      ; work         ;
 ;       |digital_filter:wormgear_encB|     ; 38 (38)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|digital_filter:wormgear_encB     ; digital_filter      ; work         ;
 ;       |position_counter:wormgear_pos|    ; 22 (22)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|position_counter:wormgear_pos    ; position_counter    ; work         ;
 ;       |quaderature_decoder:wormgear_dec| ; 2 (2)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|quaderature_decoder:wormgear_dec ; quaderature_decoder ; work         ;
-;       |speed_decoder:wormgear_spd|       ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|speed_decoder:wormgear_spd       ; speed_decoder       ; work         ;
-;    |wormgear_motor:wrist_vertical|       ; 152 (0)             ; 101 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical                                    ; wormgear_motor      ; work         ;
+;       |speed_decoder:wormgear_spd|       ; 27 (27)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_horizontal|speed_decoder:wormgear_spd       ; speed_decoder       ; work         ;
+;    |wormgear_motor:wrist_vertical|       ; 155 (0)             ; 104 (0)                   ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical                                    ; wormgear_motor      ; work         ;
 ;       |PWM:wormgear_pwm|                 ; 11 (11)             ; 1 (1)                     ; 0                 ; 1          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|PWM:wormgear_pwm                   ; PWM                 ; work         ;
-;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 53 (53)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|SPI_slave:wormgear_com             ; SPI_slave           ; work         ;
-;       |digital_filter:wormgear_encA|     ; 40 (40)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|digital_filter:wormgear_encA       ; digital_filter      ; work         ;
-;       |digital_filter:wormgear_encB|     ; 39 (39)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|digital_filter:wormgear_encB       ; digital_filter      ; work         ;
+;       |SPI_slave:wormgear_com|           ; 14 (14)             ; 56 (56)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|SPI_slave:wormgear_com             ; SPI_slave           ; work         ;
+;       |digital_filter:wormgear_encA|     ; 39 (39)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|digital_filter:wormgear_encA       ; digital_filter      ; work         ;
+;       |digital_filter:wormgear_encB|     ; 40 (40)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|digital_filter:wormgear_encB       ; digital_filter      ; work         ;
 ;       |position_counter:wormgear_pos|    ; 22 (22)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|position_counter:wormgear_pos      ; position_counter    ; work         ;
 ;       |quaderature_decoder:wormgear_dec| ; 2 (2)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|quaderature_decoder:wormgear_dec   ; quaderature_decoder ; work         ;
-;       |speed_decoder:wormgear_spd|       ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|speed_decoder:wormgear_spd         ; speed_decoder       ; work         ;
+;       |speed_decoder:wormgear_spd|       ; 27 (27)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_NANO|wormgear_motor:wrist_vertical|speed_decoder:wormgear_spd         ; speed_decoder       ; work         ;
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -338,244 +340,240 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                          ;
-+--------------------------------------------------------------------+--------------------------------------------------------+
-; Register name                                                      ; Reason for Removal                                     ;
-+--------------------------------------------------------------------+--------------------------------------------------------+
-; wormgear_motor:end_position|SPI_slave:wormgear_com|oRx[12..14]     ; Lost fanout                                            ;
-; wormgear_motor:end_angle|SPI_slave:wormgear_com|oRx[12..14]        ; Lost fanout                                            ;
-; direct_drive:wrist_rotation|SPI_slave:motor_com|oRx[12..14]        ; Lost fanout                                            ;
-; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|oRx[12..14]   ; Lost fanout                                            ;
-; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|oRx[12..14] ; Lost fanout                                            ;
-; linear_actuator:upper|SPI_slave:lin_act_com|oRx[12..14]            ; Lost fanout                                            ;
-; linear_actuator:lower|SPI_slave:lin_act_com|oRx[12..14]            ; Lost fanout                                            ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[26]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[26]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[26]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[26]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[26]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[26]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[26]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[25]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[25]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[25]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[25]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[25]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[25]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[25]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[24]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[24]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[24]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[24]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[24]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[24]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[24]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[23]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[23]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[23]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[23]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[23]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[23]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[23]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[22]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[22]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[22]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[22]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[22]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[22]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[22]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[21]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[21]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[21]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[21]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[21]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[21]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[21]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[20]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[20]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[20]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[20]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[20]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[20]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[20]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[19]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[19]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[19]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[19]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[19]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[19]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[19]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[18]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[18]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[18]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[18]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[18]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[18]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[18]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[17]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[17]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[17]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[17]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[17]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[17]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[17]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[16]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[16]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[16]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[16]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[16]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[16]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[16]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[15]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[15]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[15]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[15]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[15]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[15]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[15]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[14]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[14]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[14]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[14]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[14]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[14]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[14]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[13]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[13]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[13]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[13]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[13]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[13]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[13]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[12]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[12]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[12]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[12]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[12]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[12]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[12]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[11]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[11]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[11]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[11]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[11]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[11]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[11]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[10]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[10]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[10]                 ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[10]             ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[10]          ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[10]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[10]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[9]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[9]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[9]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[9]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[9]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[9]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[9]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[8]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[8]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[8]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[8]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[8]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[8]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[8]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[7]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[7]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[7]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[7]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[7]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[7]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[7]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[6]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[6]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[6]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[6]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[6]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[6]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[6]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[5]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[5]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[5]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[5]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[5]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[5]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[5]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[4]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[4]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[4]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[4]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[4]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[4]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[4]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[3]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[3]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[3]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[3]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[3]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[3]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[3]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[2]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[2]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[2]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[2]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[2]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[2]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[2]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[1]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[1]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[1]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[1]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[1]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[1]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[1]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
-; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[0]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
-; linear_actuator:lower|PWM:lin_act_pwm|counter1[0]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
-; linear_actuator:upper|PWM:lin_act_pwm|counter1[0]                  ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
-; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[0]              ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
-; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[0]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
-; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[0]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
-; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[0]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
-; direct_drive:wrist_rotation|SPI_slave:motor_com|iSCKr[2]           ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
-; linear_actuator:lower|SPI_slave:lin_act_com|iSCKr[2]               ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
-; linear_actuator:upper|SPI_slave:lin_act_com|iSCKr[2]               ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
-; wormgear_motor:end_angle|SPI_slave:wormgear_com|iSCKr[2]           ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
-; wormgear_motor:end_position|SPI_slave:wormgear_com|iSCKr[2]        ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
-; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iSCKr[2]    ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
-; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iSCKr[2]      ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
-; direct_drive:wrist_rotation|SPI_slave:motor_com|iSCKr[1]           ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
-; linear_actuator:lower|SPI_slave:lin_act_com|iSCKr[1]               ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
-; linear_actuator:upper|SPI_slave:lin_act_com|iSCKr[1]               ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
-; wormgear_motor:end_angle|SPI_slave:wormgear_com|iSCKr[1]           ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
-; wormgear_motor:end_position|SPI_slave:wormgear_com|iSCKr[1]        ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
-; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iSCKr[1]    ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
-; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iSCKr[1]      ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
-; direct_drive:wrist_rotation|SPI_slave:motor_com|iMOSIr[1]          ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
-; linear_actuator:lower|SPI_slave:lin_act_com|iMOSIr[1]              ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
-; linear_actuator:upper|SPI_slave:lin_act_com|iMOSIr[1]              ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
-; wormgear_motor:end_angle|SPI_slave:wormgear_com|iMOSIr[1]          ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
-; wormgear_motor:end_position|SPI_slave:wormgear_com|iMOSIr[1]       ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
-; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iMOSIr[1]   ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
-; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iMOSIr[1]     ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
-; direct_drive:wrist_rotation|SPI_slave:motor_com|iSCKr[0]           ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
-; linear_actuator:lower|SPI_slave:lin_act_com|iSCKr[0]               ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
-; linear_actuator:upper|SPI_slave:lin_act_com|iSCKr[0]               ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
-; wormgear_motor:end_angle|SPI_slave:wormgear_com|iSCKr[0]           ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
-; wormgear_motor:end_position|SPI_slave:wormgear_com|iSCKr[0]        ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
-; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iSCKr[0]    ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
-; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iSCKr[0]      ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
-; direct_drive:wrist_rotation|SPI_slave:motor_com|iMOSIr[0]          ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
-; linear_actuator:lower|SPI_slave:lin_act_com|iMOSIr[0]              ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
-; linear_actuator:upper|SPI_slave:lin_act_com|iMOSIr[0]              ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
-; wormgear_motor:end_angle|SPI_slave:wormgear_com|iMOSIr[0]          ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
-; wormgear_motor:end_position|SPI_slave:wormgear_com|iMOSIr[0]       ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
-; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iMOSIr[0]   ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
-; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iMOSIr[0]     ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
-; Total Number of Removed Registers = 245                            ;                                                        ;
-+--------------------------------------------------------------------+--------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                        ;
++------------------------------------------------------------------+--------------------------------------------------------+
+; Register name                                                    ; Reason for Removal                                     ;
++------------------------------------------------------------------+--------------------------------------------------------+
+; direct_drive:wrist_rotation|SPI_slave:motor_com|oRx[12..14]      ; Lost fanout                                            ;
+; linear_actuator:upper|SPI_slave:lin_act_com|oRx[12..14]          ; Lost fanout                                            ;
+; linear_actuator:lower|SPI_slave:lin_act_com|oRx[12..14]          ; Lost fanout                                            ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[26]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[26]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[26]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[26]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[26]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[26]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[26]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[26]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[25]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[25]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[25]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[25]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[25]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[25]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[25]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[25]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[24]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[24]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[24]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[24]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[24]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[24]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[24]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[24]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[23]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[23]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[23]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[23]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[23]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[23]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[23]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[23]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[22]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[22]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[22]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[22]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[22]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[22]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[22]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[22]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[21]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[21]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[21]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[21]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[21]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[21]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[21]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[21]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[20]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[20]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[20]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[20]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[20]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[20]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[20]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[20]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[19]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[19]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[19]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[19]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[19]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[19]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[19]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[19]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[18]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[18]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[18]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[18]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[18]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[18]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[18]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[18]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[17]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[17]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[17]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[17]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[17]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[17]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[17]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[17]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[16]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[16]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[16]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[16]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[16]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[16]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[16]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[16]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[15]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[15]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[15]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[15]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[15]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[15]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[15]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[15]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[14]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[14]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[14]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[14]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[14]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[14]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[14]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[14]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[13]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[13]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[13]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[13]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[13]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[13]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[13]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[13]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[12]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[12]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[12]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[12]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[12]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[12]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[12]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[12]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[11]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[11]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[11]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[11]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[11]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[11]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[11]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[11]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[10]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[10]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[10]               ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[10]           ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[10]        ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[10]    ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[10]      ; Merged with base_motor:b1|PWM:base_pwm|counter1[10]    ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[9]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[9]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[9]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[9]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[9]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[9]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[9]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[9]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[8]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[8]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[8]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[8]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[8]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[8]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[8]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[8]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[7]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[7]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[7]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[7]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[7]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[7]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[7]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[7]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[6]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[6]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[6]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[6]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[6]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[6]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[6]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[6]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[5]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[5]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[5]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[5]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[5]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[5]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[5]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[5]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[4]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[4]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[4]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[4]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[4]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[4]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[4]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[4]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[3]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[3]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[3]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[3]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[3]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[3]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[3]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[3]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[2]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[2]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[2]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[2]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[2]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[2]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[2]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[2]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[1]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[1]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[1]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[1]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[1]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[1]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[1]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[1]     ;
+; direct_drive:wrist_rotation|PWM:motor_pwm|counter1[0]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
+; linear_actuator:lower|PWM:lin_act_pwm|counter1[0]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
+; linear_actuator:upper|PWM:lin_act_pwm|counter1[0]                ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
+; wormgear_motor:end_angle|PWM:wormgear_pwm|counter1[0]            ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
+; wormgear_motor:end_position|PWM:wormgear_pwm|counter1[0]         ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
+; wormgear_motor:wrist_horizontal|PWM:wormgear_pwm|counter1[0]     ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
+; wormgear_motor:wrist_vertical|PWM:wormgear_pwm|counter1[0]       ; Merged with base_motor:b1|PWM:base_pwm|counter1[0]     ;
+; direct_drive:wrist_rotation|SPI_slave:motor_com|iSCKr[2]         ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
+; linear_actuator:lower|SPI_slave:lin_act_com|iSCKr[2]             ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
+; linear_actuator:upper|SPI_slave:lin_act_com|iSCKr[2]             ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
+; wormgear_motor:end_angle|SPI_slave:wormgear_com|iSCKr[2]         ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
+; wormgear_motor:end_position|SPI_slave:wormgear_com|iSCKr[2]      ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
+; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iSCKr[2]  ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
+; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iSCKr[2]    ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[2]  ;
+; direct_drive:wrist_rotation|SPI_slave:motor_com|iSCKr[1]         ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
+; linear_actuator:lower|SPI_slave:lin_act_com|iSCKr[1]             ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
+; linear_actuator:upper|SPI_slave:lin_act_com|iSCKr[1]             ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
+; wormgear_motor:end_angle|SPI_slave:wormgear_com|iSCKr[1]         ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
+; wormgear_motor:end_position|SPI_slave:wormgear_com|iSCKr[1]      ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
+; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iSCKr[1]  ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
+; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iSCKr[1]    ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[1]  ;
+; direct_drive:wrist_rotation|SPI_slave:motor_com|iMOSIr[1]        ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
+; linear_actuator:lower|SPI_slave:lin_act_com|iMOSIr[1]            ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
+; linear_actuator:upper|SPI_slave:lin_act_com|iMOSIr[1]            ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
+; wormgear_motor:end_angle|SPI_slave:wormgear_com|iMOSIr[1]        ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
+; wormgear_motor:end_position|SPI_slave:wormgear_com|iMOSIr[1]     ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
+; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iMOSIr[1] ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
+; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iMOSIr[1]   ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[1] ;
+; direct_drive:wrist_rotation|SPI_slave:motor_com|iSCKr[0]         ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
+; linear_actuator:lower|SPI_slave:lin_act_com|iSCKr[0]             ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
+; linear_actuator:upper|SPI_slave:lin_act_com|iSCKr[0]             ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
+; wormgear_motor:end_angle|SPI_slave:wormgear_com|iSCKr[0]         ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
+; wormgear_motor:end_position|SPI_slave:wormgear_com|iSCKr[0]      ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
+; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iSCKr[0]  ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
+; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iSCKr[0]    ; Merged with base_motor:b1|SPI_slave:base_com|iSCKr[0]  ;
+; direct_drive:wrist_rotation|SPI_slave:motor_com|iMOSIr[0]        ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
+; linear_actuator:lower|SPI_slave:lin_act_com|iMOSIr[0]            ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
+; linear_actuator:upper|SPI_slave:lin_act_com|iMOSIr[0]            ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
+; wormgear_motor:end_angle|SPI_slave:wormgear_com|iMOSIr[0]        ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
+; wormgear_motor:end_position|SPI_slave:wormgear_com|iMOSIr[0]     ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
+; wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|iMOSIr[0] ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
+; wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|iMOSIr[0]   ; Merged with base_motor:b1|SPI_slave:base_com|iMOSIr[0] ;
+; Total Number of Removed Registers = 233                          ;                                                        ;
++------------------------------------------------------------------+--------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -583,53 +581,57 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 742   ;
-; Number of registers using Synchronous Clear  ; 255   ;
+; Total registers                              ; 766   ;
+; Number of registers using Synchronous Clear  ; 266   ;
 ; Number of registers using Synchronous Load   ; 87    ;
 ; Number of registers using Asynchronous Clear ; 97    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 492   ;
+; Number of registers using Clock Enable       ; 504   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:lower|SPI_slave:lin_act_com|bitcnt[3]                     ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:upper|SPI_slave:lin_act_com|bitcnt[3]                     ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|bitcnt[0]          ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|bitcnt[3]            ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|direct_drive:wrist_rotation|SPI_slave:motor_com|bitcnt[1]                 ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|base_motor:b1|SPI_slave:base_com|bitcnt[1]                                ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:end_angle|SPI_slave:wormgear_com|bitcnt[0]                 ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:end_position|SPI_slave:wormgear_com|bitcnt[1]              ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE10_NANO|linear_actuator:lower|SPI_slave:lin_act_com|byte_data_sent[4]             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:lower|SPI_slave:lin_act_com|byte_data_sent[13]            ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE10_NANO|linear_actuator:upper|SPI_slave:lin_act_com|byte_data_sent[9]             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:upper|SPI_slave:lin_act_com|byte_data_sent[14]            ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|byte_data_sent[11] ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|byte_data_sent[14]   ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |DE10_NANO|direct_drive:wrist_rotation|SPI_slave:motor_com|byte_data_sent[4]         ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |DE10_NANO|direct_drive:wrist_rotation|SPI_slave:motor_com|byte_data_sent[10]        ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |DE10_NANO|base_motor:b1|SPI_slave:base_com|byte_data_sent[3]                        ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|base_motor:b1|SPI_slave:base_com|byte_data_sent[12]                       ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:end_angle|SPI_slave:wormgear_com|byte_data_sent[7]         ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:end_position|SPI_slave:wormgear_com|byte_data_sent[10]     ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_horizontal|digital_filter:wormgear_encB|count        ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_horizontal|digital_filter:wormgear_encA|count        ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_vertical|digital_filter:wormgear_encB|count          ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_vertical|digital_filter:wormgear_encA|count          ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_angle|digital_filter:wormgear_encB|count               ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_angle|digital_filter:wormgear_encA|count               ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_position|digital_filter:wormgear_encB|count            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_position|digital_filter:wormgear_encA|count            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|base_motor:b1|digital_filter:base_enc|count                               ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|linear_actuator:lower|digital_filter:lin_act_enc|count                    ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|linear_actuator:upper|digital_filter:lin_act_enc|count                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:lower|SPI_slave:lin_act_com|bitcnt[3]                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:upper|SPI_slave:lin_act_com|bitcnt[0]                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|bitcnt[2]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|bitcnt[2]           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|direct_drive:wrist_rotation|SPI_slave:motor_com|bitcnt[0]                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|base_motor:b1|SPI_slave:base_com|bitcnt[3]                               ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:end_angle|SPI_slave:wormgear_com|bitcnt[0]                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE10_NANO|wormgear_motor:end_position|SPI_slave:wormgear_com|bitcnt[2]             ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE10_NANO|linear_actuator:lower|SPI_slave:lin_act_com|byte_data_sent[9]            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:lower|SPI_slave:lin_act_com|byte_data_sent[14]           ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE10_NANO|linear_actuator:upper|SPI_slave:lin_act_com|byte_data_sent[3]            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|linear_actuator:upper|SPI_slave:lin_act_com|byte_data_sent[13]           ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:wrist_horizontal|SPI_slave:wormgear_com|byte_data_sent[8] ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:wrist_vertical|SPI_slave:wormgear_com|byte_data_sent[14]  ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |DE10_NANO|direct_drive:wrist_rotation|SPI_slave:motor_com|byte_data_sent[5]        ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |DE10_NANO|direct_drive:wrist_rotation|SPI_slave:motor_com|byte_data_sent[11]       ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |DE10_NANO|base_motor:b1|SPI_slave:base_com|byte_data_sent[3]                       ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |DE10_NANO|base_motor:b1|SPI_slave:base_com|byte_data_sent[14]                      ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:end_angle|SPI_slave:wormgear_com|byte_data_sent[9]        ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |DE10_NANO|wormgear_motor:end_position|SPI_slave:wormgear_com|byte_data_sent[9]     ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_horizontal|speed_decoder:wormgear_spd|oDuty[11]     ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_vertical|speed_decoder:wormgear_spd|oDuty[9]        ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_position|speed_decoder:wormgear_spd|oDuty[0]          ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_angle|speed_decoder:wormgear_spd|oDuty[9]             ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_horizontal|digital_filter:wormgear_encB|count       ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_horizontal|digital_filter:wormgear_encA|count       ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_vertical|digital_filter:wormgear_encB|count         ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:wrist_vertical|digital_filter:wormgear_encA|count         ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_angle|digital_filter:wormgear_encB|count              ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_angle|digital_filter:wormgear_encA|count              ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_position|digital_filter:wormgear_encB|count           ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|wormgear_motor:end_position|digital_filter:wormgear_encA|count           ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|base_motor:b1|digital_filter:base_enc|count                              ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|linear_actuator:lower|digital_filter:lin_act_enc|count                   ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_NANO|linear_actuator:upper|digital_filter:lin_act_enc|count                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------+
@@ -1030,13 +1032,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "base_motor:b1|speed_decoder:base_spd"                                                        ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port          ; Type   ; Severity ; Details                                                                             ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; oDuty[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "base_motor:b1|speed_decoder:base_spd"                                                                                                                 ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                      ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; oDuty[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; iRst          ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1069,13 +1072,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "direct_drive:wrist_rotation|speed_decoder:motor_spd"                                         ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port          ; Type   ; Severity ; Details                                                                             ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; oDuty[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "direct_drive:wrist_rotation|speed_decoder:motor_spd"                                                                                                  ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                      ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; oDuty[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; iRst          ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------+
@@ -1148,13 +1152,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "linear_actuator:lower|speed_decoder:lin_act_spd"                                             ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port          ; Type   ; Severity ; Details                                                                             ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; oDuty[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "linear_actuator:lower|speed_decoder:lin_act_spd"                                                                                                      ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                      ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; oDuty[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; iRst          ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1192,34 +1197,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 742                         ;
-;     ENA               ; 299                         ;
+; arriav_ff             ; 766                         ;
+;     ENA               ; 311                         ;
 ;     ENA CLR           ; 97                          ;
 ;     ENA SCLR          ; 9                           ;
 ;     ENA SCLR SLD      ; 87                          ;
-;     SCLR              ; 159                         ;
-;     plain             ; 91                          ;
+;     SCLR              ; 170                         ;
+;     plain             ; 92                          ;
 ; arriav_io_obuf        ; 89                          ;
-; arriav_lcell_comb     ; 1032                        ;
-;     arith             ; 352                         ;
-;         1 data inputs ; 262                         ;
+; arriav_lcell_comb     ; 1057                        ;
+;     arith             ; 363                         ;
+;         1 data inputs ; 273                         ;
 ;         4 data inputs ; 14                          ;
 ;         5 data inputs ; 76                          ;
 ;     extend            ; 2                           ;
 ;         7 data inputs ; 2                           ;
-;     normal            ; 678                         ;
+;     normal            ; 692                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 60                          ;
-;         3 data inputs ; 136                         ;
+;         2 data inputs ; 61                          ;
+;         3 data inputs ; 88                          ;
 ;         4 data inputs ; 110                         ;
 ;         5 data inputs ; 113                         ;
-;         6 data inputs ; 256                         ;
+;         6 data inputs ; 317                         ;
 ; arriav_mac            ; 8                           ;
 ; boundary_port         ; 106                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.70                        ;
-; Average LUT depth     ; 2.62                        ;
+; Average LUT depth     ; 2.61                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1228,7 +1233,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -1238,209 +1243,214 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat May 26 11:23:16 2018
+    Info: Processing started: Fri Oct 26 13:26:55 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_NANO -c DE10_NANO
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Warning (12125): Using design file de10_nano.v, which is not specified as a design file for the current project, but contains definitions for 12 design units and 12 entities in project
-    Info (12023): Found entity 1: DE10_NANO File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 6
-    Info (12023): Found entity 2: base_motor File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 199
-    Info (12023): Found entity 3: direct_drive File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 260
-    Info (12023): Found entity 4: wormgear_motor File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 288
-    Info (12023): Found entity 5: linear_actuator File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 357
-    Info (12023): Found entity 6: speed_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 420
-    Info (12023): Found entity 7: SPI_slave File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 441
-    Info (12023): Found entity 8: PWM File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 523
-    Info (12023): Found entity 9: position_counter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 557
-    Info (12023): Found entity 10: quaderature_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 584
-    Info (12023): Found entity 11: encoder_decoder File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 645
-    Info (12023): Found entity 12: digital_filter File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 667
+    Info (12023): Found entity 1: DE10_NANO File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 6
+    Info (12023): Found entity 2: base_motor File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 218
+    Info (12023): Found entity 3: direct_drive File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 279
+    Info (12023): Found entity 4: wormgear_motor File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 307
+    Info (12023): Found entity 5: linear_actuator File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 377
+    Info (12023): Found entity 6: speed_decoder File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 440
+    Info (12023): Found entity 7: SPI_slave File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 470
+    Info (12023): Found entity 8: PWM File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 552
+    Info (12023): Found entity 9: position_counter File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 586
+    Info (12023): Found entity 10: quaderature_decoder File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 613
+    Info (12023): Found entity 11: encoder_decoder File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 674
+    Info (12023): Found entity 12: digital_filter File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 696
 Info (12127): Elaborating entity "DE10_NANO" for the top level hierarchy
-Warning (10034): Output port "LED" at de10_nano.v(20) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-Info (12128): Elaborating entity "linear_actuator" for hierarchy "linear_actuator:lower" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 114
-Info (12128): Elaborating entity "digital_filter" for hierarchy "linear_actuator:lower|digital_filter:lin_act_enc" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 385
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(684): truncated value with size 32 to match size of target (12) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 684
-Info (12128): Elaborating entity "encoder_decoder" for hierarchy "linear_actuator:lower|encoder_decoder:lin_act_dec" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 389
-Info (12128): Elaborating entity "position_counter" for hierarchy "linear_actuator:lower|position_counter:lin_act_pos" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 394
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(574): truncated value with size 32 to match size of target (11) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 574
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(578): truncated value with size 32 to match size of target (11) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 578
-Warning (10034): Output port "oSpeed" at de10_nano.v(561) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 561
-Info (12128): Elaborating entity "SPI_slave" for hierarchy "linear_actuator:lower|SPI_slave:lin_act_com" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 405
-Warning (10036): Verilog HDL or VHDL warning at de10_nano.v(459): object "iSSEL_endmessage" assigned a value but never read File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 459
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(481): truncated value with size 17 to match size of target (16) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 481
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(506): truncated value with size 17 to match size of target (16) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 506
-Info (12128): Elaborating entity "speed_decoder" for hierarchy "linear_actuator:lower|speed_decoder:lin_act_spd" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 409
-Info (12128): Elaborating entity "PWM" for hierarchy "linear_actuator:lower|PWM:lin_act_pwm" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 413
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(543): truncated value with size 32 to match size of target (27) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 543
-Info (12128): Elaborating entity "wormgear_motor" for hierarchy "wormgear_motor:wrist_horizontal" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 135
-Info (12128): Elaborating entity "quaderature_decoder" for hierarchy "wormgear_motor:wrist_horizontal|quaderature_decoder:wormgear_dec" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 326
-Info (12128): Elaborating entity "position_counter" for hierarchy "wormgear_motor:wrist_horizontal|position_counter:wormgear_pos" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 331
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(574): truncated value with size 32 to match size of target (15) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 574
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(578): truncated value with size 32 to match size of target (15) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 578
-Warning (10034): Output port "oSpeed" at de10_nano.v(561) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 561
-Info (12128): Elaborating entity "direct_drive" for hierarchy "direct_drive:wrist_rotation" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 156
-Info (12128): Elaborating entity "base_motor" for hierarchy "base_motor:b1" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 168
-Info (12128): Elaborating entity "position_counter" for hierarchy "base_motor:b1|position_counter:base_pos" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 237
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(574): truncated value with size 32 to match size of target (15) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 574
-Warning (10230): Verilog HDL assignment warning at de10_nano.v(578): truncated value with size 32 to match size of target (15) File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 578
-Warning (10034): Output port "oSpeed" at de10_nano.v(561) has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 561
-Warning (12020): Port "iTx" on the entity instantiation of "wormgear_com" is connected to a signal of width 20. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 342
-Warning (12020): Port "iTx" on the entity instantiation of "wormgear_com" is connected to a signal of width 20. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 342
-Warning (12020): Port "iTx" on the entity instantiation of "wormgear_com" is connected to a signal of width 20. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 342
-Warning (12020): Port "iTx" on the entity instantiation of "lin_act_com" is connected to a signal of width 17. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 405
-Warning (12030): Port "oPosition" on the entity instantiation of "lin_act_pos" is connected to a signal of width 12. The formal width of the signal in the module is 11.  The extra bits will be left dangling without any fan-out logic. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 394
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(116): truncated value with size 32 to match size of target (11) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 116
+Warning (10034): Output port "LED" at de10_nano.v(20) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+Warning (10665): Bidirectional port "GPIO_0[8]" at de10_nano.v(26) has a one-way connection to bidirectional port "GPIO_1[35]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+Warning (10665): Bidirectional port "GPIO_0[0]" at de10_nano.v(26) has a one-way connection to bidirectional port "GPIO_1[34]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+Info (12128): Elaborating entity "linear_actuator" for hierarchy "linear_actuator:lower" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 133
+Info (12128): Elaborating entity "digital_filter" for hierarchy "linear_actuator:lower|digital_filter:lin_act_enc" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 405
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(713): truncated value with size 32 to match size of target (12) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 713
+Info (12128): Elaborating entity "encoder_decoder" for hierarchy "linear_actuator:lower|encoder_decoder:lin_act_dec" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 409
+Info (12128): Elaborating entity "position_counter" for hierarchy "linear_actuator:lower|position_counter:lin_act_pos" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 414
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(603): truncated value with size 32 to match size of target (11) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 603
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(607): truncated value with size 32 to match size of target (11) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 607
+Warning (10034): Output port "oSpeed" at de10_nano.v(590) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 590
+Info (12128): Elaborating entity "SPI_slave" for hierarchy "linear_actuator:lower|SPI_slave:lin_act_com" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 425
+Warning (10036): Verilog HDL or VHDL warning at de10_nano.v(488): object "iSSEL_endmessage" assigned a value but never read File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 488
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(510): truncated value with size 17 to match size of target (16) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 510
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(535): truncated value with size 17 to match size of target (16) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 535
+Info (12128): Elaborating entity "speed_decoder" for hierarchy "linear_actuator:lower|speed_decoder:lin_act_spd" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 429
+Warning (10235): Verilog HDL Always Construct warning at de10_nano.v(458): variable "iRst" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 458
+Info (12128): Elaborating entity "PWM" for hierarchy "linear_actuator:lower|PWM:lin_act_pwm" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 433
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(572): truncated value with size 32 to match size of target (27) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 572
+Info (12128): Elaborating entity "wormgear_motor" for hierarchy "wormgear_motor:wrist_horizontal" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 154
+Info (12128): Elaborating entity "quaderature_decoder" for hierarchy "wormgear_motor:wrist_horizontal|quaderature_decoder:wormgear_dec" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 345
+Info (12128): Elaborating entity "position_counter" for hierarchy "wormgear_motor:wrist_horizontal|position_counter:wormgear_pos" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 350
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(603): truncated value with size 32 to match size of target (15) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 603
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(607): truncated value with size 32 to match size of target (15) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 607
+Warning (10034): Output port "oSpeed" at de10_nano.v(590) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 590
+Info (12128): Elaborating entity "direct_drive" for hierarchy "direct_drive:wrist_rotation" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 175
+Info (12128): Elaborating entity "base_motor" for hierarchy "base_motor:b1" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 187
+Info (12128): Elaborating entity "position_counter" for hierarchy "base_motor:b1|position_counter:base_pos" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 256
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(603): truncated value with size 32 to match size of target (15) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 603
+Warning (10230): Verilog HDL assignment warning at de10_nano.v(607): truncated value with size 32 to match size of target (15) File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 607
+Warning (10034): Output port "oSpeed" at de10_nano.v(590) has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 590
+Warning (12020): Port "iTx" on the entity instantiation of "wormgear_com" is connected to a signal of width 20. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 361
+Warning (12020): Port "iTx" on the entity instantiation of "wormgear_com" is connected to a signal of width 20. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 361
+Warning (12020): Port "iTx" on the entity instantiation of "wormgear_com" is connected to a signal of width 20. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 361
+Warning (12020): Port "iTx" on the entity instantiation of "lin_act_com" is connected to a signal of width 17. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 425
+Warning (12030): Port "oPosition" on the entity instantiation of "lin_act_pos" is connected to a signal of width 12. The formal width of the signal in the module is 11.  The extra bits will be left dangling without any fan-out logic. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 414
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "linear_actuator:upper|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 369
+    Warning (12110): Net "linear_actuator:upper|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 389
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "linear_actuator:lower|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 369
+    Warning (12110): Net "linear_actuator:lower|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 389
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "linear_actuator:upper|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 369
-Warning (12241): 14 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Warning (12110): Net "linear_actuator:upper|lin_act_position[11]" is missing source, defaulting to GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 389
+Warning (12241): 17 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[5]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[7]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[9]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[11]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[13]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[15]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[17]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[19]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[23]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[25]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[27]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[28]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[29]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[30]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[31]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[32]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[33]" and its non-tri-state driver. File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[5]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[7]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[9]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[11]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[13]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[15]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[17]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[19]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[23]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[25]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[27]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[28]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[29]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[30]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[31]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[32]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_0[33]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[0]" and its non-tri-state driver. File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
-    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
-    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13040): bidirectional pin "GPIO_1[0]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[1]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[2]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
-    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 8
+    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 9
+    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13040): bidirectional pin "GPIO_1[1]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[2]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GPIO_0[5]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[7]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[9]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[11]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[13]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[15]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[17]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[19]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[23]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[25]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[27]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[28]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[29]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[30]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[31]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[32]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
-    Warning (13010): Node "GPIO_0[33]~synth" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[5]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[7]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[9]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[11]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[13]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[15]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[17]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[19]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[23]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[25]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[27]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[28]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[29]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[30]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[31]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[32]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_0[33]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 26
+    Warning (13010): Node "GPIO_1[0]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13010): Node "GPIO_1[34]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
+    Warning (13010): Node "GPIO_1[35]~synth" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 30
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LED[0]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (13410): Pin "LED[1]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (13410): Pin "LED[2]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (13410): Pin "LED[3]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (13410): Pin "LED[4]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (13410): Pin "LED[5]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (13410): Pin "LED[6]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
-    Warning (13410): Pin "LED[7]" is stuck at GND File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (13410): Pin "LED[0]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (13410): Pin "LED[1]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (13410): Pin "LED[2]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (13410): Pin "LED[3]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (13410): Pin "LED[4]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (13410): Pin "LED[5]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (13410): Pin "LED[6]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
+    Warning (13410): Pin "LED[7]" is stuck at GND File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 20
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 21 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 6 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "FPGA_CLK2_50" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 13
-    Warning (15610): No output dependent on input pin "FPGA_CLK3_50" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 14
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 23
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/james/Documents/Arm-FPGA/DE10_NANO/de10_nano.v Line: 23
-Info (21057): Implemented 1572 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "FPGA_CLK2_50" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 13
+    Warning (15610): No output dependent on input pin "FPGA_CLK3_50" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 14
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 23
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 23
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 23
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/de10_nano.v Line: 23
+Info (21057): Implemented 1609 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 8 output pins
     Info (21060): Implemented 89 bidirectional pins
-    Info (21061): Implemented 1458 logic cells
+    Info (21061): Implemented 1495 logic cells
     Info (21062): Implemented 8 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 153 warnings
-    Info: Peak virtual memory: 4848 megabytes
-    Info: Processing ended: Sat May 26 11:23:59 2018
-    Info: Elapsed time: 00:00:43
-    Info: Total CPU time (on all processors): 00:00:50
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 158 warnings
+    Info: Peak virtual memory: 4858 megabytes
+    Info: Processing ended: Fri Oct 26 13:27:05 2018
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:19
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/james/Documents/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg.
+The suppressed messages can be found in C:/Users/James/Documents/Repositories/Arm-FPGA/DE10_NANO/DE10_NANO.map.smsg.
 
 

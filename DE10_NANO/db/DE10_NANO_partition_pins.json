@@ -180,6 +180,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO_1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_1[34]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_1[35]",
+					"strict" : false
+				},
+				{
 					"name" : "FPGA_CLK1_50",
 					"strict" : false
 				},

@@ -1,5 +1,5 @@
 Flow report for DE10_NANO
-Sat May 26 11:28:19 2018
+Fri Oct 26 13:28:00 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sat May 26 11:27:42 2018       ;
+; Flow Status                     ; Successful - Fri Oct 26 13:27:52 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA6U23I7                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 645 / 41,910 ( 2 % )                        ;
-; Total registers                 ; 831                                         ;
+; Logic utilization (in ALMs)     ; 668 / 41,910 ( 2 % )                        ;
+; Total registers                 ; 844                                         ;
 ; Total pins                      ; 106 / 314 ( 34 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                       ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/26/2018 11:23:19 ;
+; Start date & time ; 10/26/2018 13:26:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE10_NANO           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 169736355951112.152729779811652        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 30902515013282.154052081510616         ; --            ; --          ; --         ;
 ; ENABLE_SIGNALTAP                    ; Off                                    ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 100                                    ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; -40                                    ; --            ; --          ; --         ;
@@ -87,7 +87,7 @@ refer to the applicable agreement for further details.
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
-; USE_SIGNALTAP_FILE                  ; stp.stp                                ; --            ; --          ; --         ;
+; USE_SIGNALTAP_FILE                  ; stp1.stp                               ; --            ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
@@ -96,11 +96,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 4839 MB             ; 00:00:49                           ;
-; Fitter                    ; 00:03:04     ; 1.0                     ; 6236 MB             ; 00:04:11                           ;
-; Assembler                 ; 00:00:31     ; 1.0                     ; 4864 MB             ; 00:00:21                           ;
-; TimeQuest Timing Analyzer ; 00:00:34     ; 1.2                     ; 5190 MB             ; 00:00:33                           ;
-; Total                     ; 00:04:50     ; --                      ; --                  ; 00:05:54                           ;
+; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 4858 MB             ; 00:00:19                           ;
+; Fitter                    ; 00:00:38     ; 1.1                     ; 6600 MB             ; 00:01:14                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 4856 MB             ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.4                     ; 5217 MB             ; 00:00:09                           ;
+; Total                     ; 00:01:01     ; --                      ; --                  ; 00:01:47                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -109,10 +109,10 @@ refer to the applicable agreement for further details.
 +---------------------------+------------------+------------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +---------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis      ; Surface          ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                    ; Surface          ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler                 ; Surface          ; Windows 10 ; 10.0       ; x86_64         ;
-; TimeQuest Timing Analyzer ; Surface          ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis      ; DESKTOP-M5UTLHD  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; DESKTOP-M5UTLHD  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; DESKTOP-M5UTLHD  ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; DESKTOP-M5UTLHD  ; Windows 10 ; 10.0       ; x86_64         ;
 +---------------------------+------------------+------------+------------+----------------+
 
 
