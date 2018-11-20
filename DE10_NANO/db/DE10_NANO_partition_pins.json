@@ -180,10 +180,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_1[0]",
-					"strict" : false
-				},
-				{
 					"name" : "GPIO_1[34]",
 					"strict" : false
 				},

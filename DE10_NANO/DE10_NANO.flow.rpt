@@ -1,5 +1,5 @@
 Flow report for DE10_NANO
-Fri Oct 26 13:28:00 2018
+Sat Nov 17 17:56:05 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri Oct 26 13:27:52 2018       ;
+; Flow Status                     ; Successful - Sat Nov 17 17:55:56 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE10_NANO                                   ;
 ; Top-level Entity Name           ; DE10_NANO                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA6U23I7                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 668 / 41,910 ( 2 % )                        ;
-; Total registers                 ; 844                                         ;
+; Logic utilization (in ALMs)     ; 661 / 41,910 ( 2 % )                        ;
+; Total registers                 ; 834                                         ;
 ; Total pins                      ; 106 / 314 ( 34 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                       ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/26/2018 13:26:55 ;
+; Start date & time ; 11/17/2018 17:54:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE10_NANO           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 30902515013282.154052081510616         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 30902515013282.154243769616136         ; --            ; --          ; --         ;
 ; ENABLE_SIGNALTAP                    ; Off                                    ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 100                                    ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; -40                                    ; --            ; --          ; --         ;
@@ -96,11 +96,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 4858 MB             ; 00:00:19                           ;
-; Fitter                    ; 00:00:38     ; 1.1                     ; 6600 MB             ; 00:01:14                           ;
-; Assembler                 ; 00:00:07     ; 1.0                     ; 4856 MB             ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:07     ; 1.4                     ; 5217 MB             ; 00:00:09                           ;
-; Total                     ; 00:01:01     ; --                      ; --                  ; 00:01:47                           ;
+; Analysis & Synthesis      ; 00:00:10     ; 1.0                     ; 4863 MB             ; 00:00:19                           ;
+; Fitter                    ; 00:00:40     ; 1.1                     ; 6601 MB             ; 00:01:21                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 4857 MB             ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.4                     ; 5216 MB             ; 00:00:10                           ;
+; Total                     ; 00:01:05     ; --                      ; --                  ; 00:01:56                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

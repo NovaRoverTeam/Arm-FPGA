@@ -117,10 +117,9 @@ module DE10_NANO(
 			end
 	end
 	
-	assign GPIO_1[0] = CLK50k;
+	
 
-	assign GPIO_1[34] = GPIO_0[0];
-	assign GPIO_1[35] = GPIO_0[8];
+	
 	
 	linear_actuator lower (	.iClk(FPGA_CLK1_50),
 							.iEnc(GPIO_0[35]),
@@ -210,7 +209,12 @@ module DE10_NANO(
 							.oDir(GPIO_0[29]),
 							.oPwm(GPIO_0[27]));
 							
-
+	digital_filter measure (	.iClk(FPGA_CLK1_50),
+											.iIn(GPIO_0[0]),
+											.oOut(GPIO_1[35]));
+											
+											assign GPIO_1[34] = GPIO_0[0];
+							
 							
 
 endmodule
